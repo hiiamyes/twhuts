@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 
 app.set('view engine', 'jade');
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/');
 app.use(express.static(__dirname + '/'));
 
 //
@@ -11,10 +11,7 @@ app.get('/', function(req, res) {
     res.render('index');
 })
 app.get('/hiking', function(req, res) {
-    res.render('hiking');
-})
-app.get('/', function(req, res) {
-    res.render('index');
+    res.render('hiking/views/index');
 })
 
 //
