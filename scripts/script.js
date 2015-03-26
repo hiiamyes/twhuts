@@ -2,7 +2,6 @@ var client = new Dropbox.Client({
     key: 'ydspoohcpyj0lyo'
 });
 
-
 client.authenticate(function(error, client) {
     if (error) {
         // Replace with a call to your own error-handling code.
