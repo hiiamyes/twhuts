@@ -1,24 +1,21 @@
 doctype html
 html(ng-app='hutCrawler')
 	head
-		title 山屋、營地、入園申請查詢
+		title 台灣登山申請查詢
 
 		//- angular
 		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
 		script(src='scripts/angular/controller.js')
 
 	body(ng-controller='hutCrawlerCtrl')
-		//- script(src='scripts/hiking/fb.js')
 
-		h1 山屋、營地、入園申請查詢
-		// h1 MountainConditionsReportTaiwan
+		h1 三六九山莊剩餘床位
 
-		div(class="fb-like", data-share="true", data-width="450", data-show-faces="true")
-
-		fb:login-button(scope="public_profile,email", onlogin="checkLoginState();")
-
-		div(id='status')
-
+		table
+			tr(ng-repeat='hutsApplicableInOneWeek in hutsApplicableAll')
+				td(ng-repeat='hut in hutsApplicableInOneWeek') 
+					p {{hut.date}}
+					p {{hut.remaining}}
 
 
 

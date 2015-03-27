@@ -1,23 +1,25 @@
 var app = angular.module('hutCrawler', []);
 
-// app.config(function($httpProvider) {
-//     //Enable cross domain calls
-//     $httpProvider.defaults.useXDomain = true;
-//     //Remove the header used to identify ajax call that would prevent CORS from working
-//     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-// });
-
 app.controller('hutCrawlerCtrl', ['$scope', '$http', function($scope, $http) {
 
-    console.log('gg');
+    $http.get('/api/hut')
+        .success(function(huts) {
+            var hutsApplicableAll = [];
+            var hutsApplicableInOneWeek = [];
+            for (var i = 0; i < huts.length; i++) {
+                var hut = huts[i];
+                hutsApplicableInOneWeek.push(hut);
+                if (new Date(hut.date).getDay() == 6) {
+                    hutsApplicableAll.push(hutsApplicableInOneWeek);
+                    hutsApplicableInOneWeek = [];
+                };
+            };
+            	console.log(hutsApplicableAll);
 
-    // $http.defaults.useXDomain = true;
-    $http.get('https://apply.spnp.gov.tw/BookingInfo.php?MonthInfo=1&HouseID=13')
-        .success(function(result) {
-            console.log(result);
+            $scope.hutsApplicableAll = hutsApplicableAll;
         })
-        .error(function(error) {
-            console.log(error);
+        .error(function(e) {
+            console.log(e);
         });
 
 }]);
