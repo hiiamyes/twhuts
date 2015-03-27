@@ -9,12 +9,12 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', function($scope, $http) {
             for (var i = 0; i < huts.length; i++) {
                 var hut = huts[i];
                 hutsApplicableInOneWeek.push(hut);
-                if (new Date(hut.date).getDay() == 6) {
+                if (i == huts.length - 1 || new Date(hut.date).getDay() == 6) {
                     hutsApplicableAll.push(hutsApplicableInOneWeek);
                     hutsApplicableInOneWeek = [];
                 };
             };
-            	console.log(hutsApplicableAll);
+            console.log(hutsApplicableAll);
 
             $scope.hutsApplicableAll = hutsApplicableAll;
         })
