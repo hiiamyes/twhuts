@@ -1,0 +1,14 @@
+/* line 1, ../sass/index.sass */
+#sidebar {
+  display: inline-block;
+  width: 20%;
+}
+/* line 5, ../sass/index.sass */
+#sidebar li:hover {
+  border: 2px solid black;
+}
+
+/* line 8, ../sass/index.sass */
+#calendar {
+  display: inline-block;
+}

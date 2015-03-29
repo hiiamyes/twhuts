@@ -7,18 +7,20 @@ html(ng-app='hutCrawler')
 		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
 		script(src='scripts/angular/controller.js')
 
+		//- css
+		link(rel='stylesheet', href='compass/css/index.css')
+
 	body(ng-controller='hutCrawlerCtrl')
 
-		h1 三六九山莊剩餘床位
+		h1 剩餘床位
 
-		table
-			tr(ng-repeat='hutsApplicableInOneWeek in hutsApplicableAll')
-				td(ng-repeat='hut in hutsApplicableInOneWeek') 
-					p {{hut.date}}
-					p {{hut.remaining}}
-
-
-
-
+		#sidebar
+			ul
+				li(ng-repeat='hut in huts' ng-click='hutNameClicked(hut.nameZh)') {{hut.nameZh}}
 		
-			
+		#calendar
+			table
+				tr(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
+					td(ng-repeat='hut in hutApplicableInOneWeek') 
+						p {{hut.date | date:'MM/dd'}}
+						p {{hut.remaining}}

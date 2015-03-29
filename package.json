@@ -9,10 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^0.9.0",
     "body-parser": "^1.12.2",
     "express": "^4.12.3",
     "jade": "^1.9.2",
-    "request": "^2.54.0",
-    "jsdom": "3.x" 
+    "jsdom": "3.x",
+    "mongodb": "^2.0.25",
+    "request": "^2.54.0"
   }
 }
