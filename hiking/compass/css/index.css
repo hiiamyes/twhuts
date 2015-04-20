@@ -1,14 +1,31 @@
 /* line 1, ../sass/index.sass */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 6, ../sass/index.sass */
+html, body {
+  height: 100%;
+  margin: 0;
+  border: 0;
+}
+
+/* line 11, ../sass/index.sass */
 #sidebar {
   display: inline-block;
-  width: 20%;
+  vertical-align: top;
+  width: 25%;
 }
-/* line 5, ../sass/index.sass */
+/* line 16, ../sass/index.sass */
 #sidebar li:hover {
   border: 2px solid black;
 }
 
-/* line 8, ../sass/index.sass */
+/* line 19, ../sass/index.sass */
 #calendar {
   display: inline-block;
+  vertical-align: top;
+  width: 75%;
 }
