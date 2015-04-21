@@ -23,4 +23,6 @@ html(ng-app='hutCrawler')
 				tr(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
 					td(ng-repeat='hut in hutApplicableInOneWeek') 
 						p {{hut.date | date:'MM/dd'}}
-						p {{hut.remaining}}
+						p 剩餘: {{hut.remaining}}
+						p 申請中: {{hut.applying}}
+						p 候補中: {{hut.waiting}}
