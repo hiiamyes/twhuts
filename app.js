@@ -9,10 +9,6 @@ app.use(express.static(__dirname + '/'));
 var MongoClient = require('mongodb').MongoClient;
 var mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking';
 
-// update huts' info
-var huts = require('./hiking/scripts/huts.js');
-huts.update(MongoClient, mongoServerUrl);
-
 // crawler
 var crawler = require('./hiking/scripts/crawler.js');
 crawler.crawl(MongoClient, mongoServerUrl);

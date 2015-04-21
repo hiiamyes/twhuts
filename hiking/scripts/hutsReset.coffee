@@ -1,25 +1,23 @@
-module.exports = {
-    update: function(MongoClient, mongoServerUrl) {
-        MongoClient.connect(mongoServerUrl, function(err, db) {
-            for (var i = 0; i < hutQueryUrls.length; i++) {
-                var hut = hutQueryUrls[i];
-                var writeResult = db.collection('huts').update({
-                    nameZh: hut.nameZh
-                }, {
-                    name: hut.name,
-                    nameZh: hut.nameZh,
-                    url: hut.url,
-                    admin: hut.admin
-                }, {
-                    upsert: true
-                });
-            };
-        });
-    }
-};
+async = require('async')
+MongoClient = require('mongodb').MongoClient
+mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking'
+collectionName = 'huts'
 
-// huts' info
-var hutQueryUrls = [{
+MongoClient.connect(mongoServerUrl, (err, db)->
+    async.series({
+        dropCollection: (callback)->
+            db.collection(collectionName).drop((err, result)->callback(err, result))
+        createCollection: (callback)->
+            db.createCollection(collectionName, (err, result)->callback(err, result))
+        insertDocuments: (callback)->
+            db.collection(collectionName).insert(hutQueryUrls, (err, result)->callback(err, result))
+    },(err, results)->
+        console.log(results)
+    )
+)
+
+# huts' info
+hutQueryUrls = [{
     name: 'Qika Hut',
     nameZh: '七卡山莊',
     url: 'https://apply.spnp.gov.tw/BookingInfo.php?MonthInfo=1&HouseID=13',
@@ -134,4 +132,4 @@ var hutQueryUrls = [{
     nameZh: '南湖山屋',
     url: 'http://permits2.taroko.gov.tw/2013_taroko/chk_3H.php?Deal=Loading&code=UTF8&chkvalue=20',
     admin: '太魯閣國家公園'
-}];
+}]
