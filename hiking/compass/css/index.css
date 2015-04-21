@@ -29,3 +29,7 @@ html, body {
   vertical-align: top;
   width: 75%;
 }
+/* line 23, ../sass/index.sass */
+#calendar table {
+  width: 100%;
+}
