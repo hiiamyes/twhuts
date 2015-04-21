@@ -20,6 +20,14 @@ html(ng-app='hutCrawler')
 		
 		#calendar
 			table
+				tr
+					th 日
+					th 一
+					th 二
+					th 三
+					th 四
+					th 五
+					th 六
 				tr(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
 					td(ng-repeat='hut in hutApplicableInOneWeek') 
 						p(ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
