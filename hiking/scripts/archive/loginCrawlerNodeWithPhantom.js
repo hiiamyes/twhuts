@@ -1,47 +1,50 @@
+// reference: https://github.com/sgentle/phantomjs-node
+
 var phantom = require('phantom');
 
 phantom.create(function(ph) {
-    var url = 'http://recreation.forest.gov.tw/personal/Personal_index.aspx';
+    var urlLogin = 'http://recreation.forest.gov.tw/personal/Personal_index.aspx';
     var urlHut = 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=C';
     var urlJQ = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js';
     var countOnLoadFinished = 0;
     ph.createPage(function(page) {
-        page.open(url, function(status) {
-            console.log('login page opened: ', status);
-            page.evaluate(function() {
-                document.getElementById('ContentPlaceHolder1_ID_TextBox').value = 'joshuayes@gmail.com';
-                document.getElementById('ContentPlaceHolder1_Pass_TextBox').value = 'jojo782011';
-                document.getElementById('ContentPlaceHolder1_login_button').click();
-            });
 
-            page.set('onLoadFinished', function(success) {
-                console.log('onLoadFinished: ' + countOnLoadFinished);
-                switch (countOnLoadFinished) {
-                    case 0:
-                        page.open(urlHut, function(status) {
-                            page.includeJs(urlJQ, function() {
-                                page.evaluate(parserFunction, function(huts) {
-                                    console.log(huts);
-                                    page.evaluate(function() {
-                                        document.getElementById('eventscalendar_ctl00_NextMonth').click();
-                                    });
-                                });
-                            });
-                        });
-                        break;
-                    case 2:
+        page.set('onLoadFinished', function(status) {
+            console.log('onLoadFinished: ' + countOnLoadFinished + ' ' + status);
+            switch (countOnLoadFinished) {
+                case 1:
+                    page.open(urlHut, function(status) {
                         page.includeJs(urlJQ, function() {
                             page.evaluate(parserFunction, function(huts) {
                                 console.log(huts);
-                                ph.exit()
+                                page.evaluate(function() {
+                                    $('#eventscalendar_ctl00_NextMonth').click();
+                                });
                             });
                         });
-                        break;
-                }
-                countOnLoadFinished++;
+                    });
+                    break;
+                case 2:
+                    page.includeJs(urlJQ, function() {
+                        page.evaluate(parserFunction, function(huts) {
+                            console.log(huts);
+                            ph.exit();
+                        });
+                    });
+                    break;
+            }
+            countOnLoadFinished++;
+        });
 
+        page.open(urlLogin, function(status) {
+            console.log('login page opened: ', status);
+            page.includeJs(urlJQ, function() {
+                page.evaluate(function() {
+                    $('#ContentPlaceHolder1_ID_TextBox').val('joshuayes@gmail.com');
+                    $('#ContentPlaceHolder1_Pass_TextBox').val('jojo782011');
+                    $('#ContentPlaceHolder1_login_button').click();
+                });
             });
-
         });
     });
 });
