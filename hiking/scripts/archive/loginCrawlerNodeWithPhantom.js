@@ -5,7 +5,8 @@ var phantom = require('phantom');
 phantom.create(function(ph) {
     var urlLogin = 'http://recreation.forest.gov.tw/personal/Personal_index.aspx';
     var urlHut = 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=C';
-    var urlJQ = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js';
+    // var urlJQ = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js';
+    var urlJQ = 'http://code.jquery.com/jquery-2.1.3.min.js';
     var countOnLoadFinished = 0;
     ph.createPage(function(page) {
 
@@ -44,6 +45,10 @@ phantom.create(function(ph) {
                     $('#ContentPlaceHolder1_Pass_TextBox').val('jojo782011');
                     $('#ContentPlaceHolder1_login_button').click();
                 });
+                // return document.title;
+                // }, function(gg) {
+                // console.log(gg);
+                // });
             });
         });
     });
