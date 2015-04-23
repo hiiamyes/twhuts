@@ -12,7 +12,8 @@ MongoClient.connect(mongoServerUrl, (err, db)->
         insertDocuments: (callback)->
             db.collection(collectionName).insert(hutQueryUrls, (err, result)->callback(err, result))
     },(err, results)->
-        console.log(results)
+        console.log 'done'
+        process.exit()
     )
 )
 
@@ -219,5 +220,26 @@ hutQueryUrls = [{
     url: 'http://permits2.taroko.gov.tw/2013_taroko/chk_3H.php?Deal=Loading&code=UTF8&chkvalue=20',
     admin: '太魯閣國家公園',
     capacity: '40',
+    isApplicable: true;
+}, {
+    name: '',
+    nameZh: '檜谷山莊',
+    url: 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=C',
+    admin: '台灣山林悠遊網',
+    capacity: '42',
+    isApplicable: true;
+}, {
+    name: '',
+    nameZh: '向陽山屋',
+    url: 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=A',
+    admin: '台灣山林悠遊網',
+    capacity: '70',
+    isApplicable: true;
+}, {
+    name: '',
+    nameZh: '嘉明湖山屋',
+    url: 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=B',
+    admin: '台灣山林悠遊網',
+    capacity: '70',
     isApplicable: true;
 }]
