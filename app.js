@@ -20,6 +20,9 @@ app.get('/', function(req, res) {
 app.get('/hiking', function(req, res) {
     res.render('hiking/views/index');
 })
+app.get('/comic', function(req, res) {
+    res.render('comic/views/index');
+})
 
 // api
 app.get('/api/hut', function(req, res) {
