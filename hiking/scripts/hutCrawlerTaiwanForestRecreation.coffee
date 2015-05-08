@@ -46,7 +46,7 @@ module.exports =
 				request(
 					{
 						'method': 'POST'
-						'url': 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=C'
+						'url': url
 						'headers':
 							'Cookie': cookie
 						'form':
@@ -61,7 +61,7 @@ module.exports =
 						cb null, 'done'
 				)
 		], (err, result) ->
-			console.log result
+			# console.log result
 			cb null, capacityStatus
 		)
 
@@ -113,23 +113,20 @@ parser = ($ThisMonth, $NextMonth) ->
 
 push = (capacityStatus, ele, month, day) ->
 	if ele.parent().children().length > 1
-		date = moment().format()
-		date.month(month - 1)
-		date.day(day)
-		
+		date = moment().month(month-1).day(day).format()
 		try
 			remaining = ele.parent().find('#eventscalendar_Label1_0').html().split('<br>')[1].split(':')[1]
 			applying = ele.parent().find('#eventscalendar_Label1_0').html().split('<br>')[2].split(':')[1]
 			capacityStatus.push
-				'date': date,
-				'remaining': remaining,
-				'applying': applying,
+				'date': date
+				'remaining': remaining
+				'applying': applying
 				'waiting': null
 		catch e
 			capacityStatus.push
-				'date': date,
-				'remaining': 0,
-				'applying': 0,
+				'date': date
+				'remaining': 0
+				'applying': 0
 				'waiting': null
-		
+
 			
