@@ -71,7 +71,7 @@
       isApplicable: false
     }, {
       name: 'Huoshihshansia Campground',
-      nameZh: '火石山下營地(生態保護區交界)',
+      nameZh: '火石山下營地',
       url: 'https://apply.spnp.gov.tw/BookingInfo.php?MonthInfo=1&HouseID=80',
       admin: '雪霸國家公園',
       capacity: '6',
