@@ -162,7 +162,7 @@
   push = function(capacityStatus, ele, month, day) {
     var applying, date, e, remaining;
     if (ele.parent().children().length > 1) {
-      date = moment().month(month - 1).day(day).format();
+      date = moment().month(month - 1).date(day).format();
       try {
         remaining = ele.parent().find('#eventscalendar_Label1_0').html().split('<br>')[1].split(':')[1];
         applying = ele.parent().find('#eventscalendar_Label1_0').html().split('<br>')[2].split(':')[1];

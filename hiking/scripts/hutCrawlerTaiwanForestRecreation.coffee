@@ -68,7 +68,7 @@ module.exports =
 parser = ($ThisMonth, $NextMonth) ->
 	# Check the month
 	monthZHThisMonth = $ThisMonth('#eventscalendar_ctl00_label2').text().split(' ')[0]
-	monthThisMonth=0
+	monthThisMonth = 0
 	switch monthZHThisMonth
 		when '一月' then monthThisMonth = 1
 		when '二月' then monthThisMonth = 2
@@ -113,7 +113,7 @@ parser = ($ThisMonth, $NextMonth) ->
 
 push = (capacityStatus, ele, month, day) ->
 	if ele.parent().children().length > 1
-		date = moment().month(month-1).day(day).format()
+		date = moment().month(month-1).date(day).format()
 		try
 			remaining = ele.parent().find('#eventscalendar_Label1_0').html().split('<br>')[1].split(':')[1]
 			applying = ele.parent().find('#eventscalendar_Label1_0').html().split('<br>')[2].split(':')[1]
