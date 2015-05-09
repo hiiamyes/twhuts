@@ -3,8 +3,6 @@ moment = require 'moment'
 request = require 'request' # https://github.com/request/request
 cheerio = require 'cheerio' # https://github.com/cheeriojs/cheerio
 
-console.log moment().add(7, 'd').format()
-
 url = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 
 request url, (err, res, body) ->
@@ -33,11 +31,10 @@ request url, (err, res, body) ->
 			'ctl00$ContentPlaceHolder1$gvIndex$ctl23$txtPageSize': 50
 	}, (err, res, body) ->
 		console.log res.statusCode
-		# console.log res.headers
 		$ = cheerio.load body
-		# console.log $('#ctl00_ContentPlaceHolder1_divRemark').length
-		# console.log $('#ctl00_ContentPlaceHolder1_lblDay').text()
-		console.log $('#ctl00_ContentPlaceHolder1_gvIndex tr').length - 3
+		$('table .text_12pt ').each (i) ->
+			if i > 0 and i < $('table .text_12pt').length - 2
+				console.log $(this).find('span:first-child').text()
 	)
 
 # async.waterfall([

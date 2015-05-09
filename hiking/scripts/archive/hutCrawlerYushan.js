@@ -10,8 +10,6 @@
 
   cheerio = require('cheerio');
 
-  console.log(moment().add(7, 'd').format());
-
   url = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
 
   request(url, function(err, res, body) {
@@ -41,7 +39,11 @@
     }, function(err, res, body) {
       console.log(res.statusCode);
       $ = cheerio.load(body);
-      return console.log($('#ctl00_ContentPlaceHolder1_gvIndex tr').length - 3);
+      return $('table .text_12pt ').each(function(i) {
+        if (i > 0 && i < $('table .text_12pt').length - 2) {
+          return console.log($(this).find('span:first-child').text());
+        }
+      });
     });
   });
 
