@@ -12,25 +12,29 @@ html(ng-app='hutCrawler')
 
 	body(ng-controller='hutCrawlerCtrl')
 
-		h1 剩餘床位
+		//- h1 剩餘床位
+		#background
+			#gg
+			#ff
 
-		#sidebar
-			ul
-				li(ng-repeat='hut in huts' ng-click='hutNameClicked(hut.nameZh)') {{hut.nameZh}}
-		
-		#calendar
-			table
-				tr
-					th 日
-					th 一
-					th 二
-					th 三
-					th 四
-					th 五
-					th 六
-				tr(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
-					td(ng-repeat='hut in hutApplicableInOneWeek') 
-						p(ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
-						p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
-						p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
-						p(ng-if='hut.waiting!=null') 候補中: {{hut.waiting}}
+		#content
+			#sidebar
+				ul
+					li(ng-repeat='hut in huts' ng-click='hutNameClicked(hut.nameZh)') {{hut.nameZh}}
+			
+			#calendar
+				table
+					tr
+						th 日
+						th 一
+						th 二
+						th 三
+						th 四
+						th 五
+						th 六
+					tr(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
+						td(ng-repeat='hut in hutApplicableInOneWeek') 
+							p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
+							p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
+							p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
+							p(ng-if='hut.waiting!=null') 候補中: {{hut.waiting}}

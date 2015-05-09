@@ -7,23 +7,43 @@ html, body
 	height: 100%
 	margin: 0
 	border: 0
-
-#sidebar 
-	display: inline-block
-	vertical-align: top
-	width: 25%
-	li 
-		&:hover 
-			border: 2px solid black
-
-#calendar
-	display: inline-block
-	vertical-align: top
-	width: 75%
-	table
+	color: white
+	
+#background
+	width: 100%
+	height: 150%
+	#gg
 		width: 100%
-	// th
-	// 	width: 100/7%
-	// td
-	// 	width: 100/7%
+		height: 100%
+		// -webkit-filter: blur(1px)
+		background-image: url(../../images/test.jpg)
+		background-size: cover
+	#ff
+		position: absolute
+		top: 0px
+		width: 100%
+		height: 100%
+		background-color: rgba(0,0,0,0.5)
 
+#content
+	width: 100%
+	position: absolute
+	top: 0px
+	#sidebar 
+		display: inline-block
+		vertical-align: top
+		width: 20%
+		li 
+			&:hover 
+				border: 2px solid white
+
+	#calendar
+		display: inline-block
+		vertical-align: top
+		width: 80%
+		table
+			width: 100%
+		td 
+			border: 1px solid white
+		#date
+			// text-align: right		

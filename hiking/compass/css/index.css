@@ -10,26 +10,57 @@ html, body {
   height: 100%;
   margin: 0;
   border: 0;
+  color: white;
 }
 
-/* line 11, ../sass/index.sass */
-#sidebar {
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
-}
-/* line 16, ../sass/index.sass */
-#sidebar li:hover {
-  border: 2px solid black;
-}
-
-/* line 19, ../sass/index.sass */
-#calendar {
-  display: inline-block;
-  vertical-align: top;
-  width: 75%;
-}
-/* line 23, ../sass/index.sass */
-#calendar table {
+/* line 12, ../sass/index.sass */
+#background {
   width: 100%;
+  height: 150%;
+}
+/* line 15, ../sass/index.sass */
+#background #gg {
+  width: 100%;
+  height: 100%;
+  background-image: url(../../images/test.jpg);
+  background-size: cover;
+}
+/* line 21, ../sass/index.sass */
+#background #ff {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 28, ../sass/index.sass */
+#content {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+}
+/* line 32, ../sass/index.sass */
+#content #sidebar {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
+/* line 37, ../sass/index.sass */
+#content #sidebar li:hover {
+  border: 2px solid white;
+}
+/* line 40, ../sass/index.sass */
+#content #calendar {
+  display: inline-block;
+  vertical-align: top;
+  width: 80%;
+}
+/* line 44, ../sass/index.sass */
+#content #calendar table {
+  width: 100%;
+}
+/* line 46, ../sass/index.sass */
+#content #calendar td {
+  border: 1px solid white;
 }
