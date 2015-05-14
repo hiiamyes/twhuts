@@ -38,7 +38,7 @@
                     case '太魯閣國家公園':
                       return hutCrawlerTaroko(hut.url, cb);
                     case '玉山國家公園':
-                      return hutCrawlerYushan(hut, cb);
+                      return hutCrawlerYushan(hut.name, cb);
                   }
                 }, function(capacityStatus, cb) {
                   return huts.updateOne({

@@ -27,7 +27,7 @@ module.exports = {
                                         when '台灣山林悠遊網' then hutCrawlerTaiwanForestRecreation.crawl hut.url, cb
                                         when '雪霸國家公園' then hutCrawlerSheiPa hut.url, cb
                                         when '太魯閣國家公園' then hutCrawlerTaroko hut.url, cb
-                                        when '玉山國家公園' then hutCrawlerYushan hut, cb
+                                        when '玉山國家公園' then hutCrawlerYushan hut.name, cb
                                 ,(capacityStatus, cb) ->
                                     huts.updateOne(
                                         {'nameZh': hut.nameZh}  
