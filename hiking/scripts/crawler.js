@@ -37,6 +37,8 @@
                       return hutCrawlerSheiPa(hut.url, cb);
                     case '太魯閣國家公園':
                       return hutCrawlerTaroko(hut.url, cb);
+                    case '玉山國家公園':
+                      return hutCrawlerYushan(hut, cb);
                   }
                 }, function(capacityStatus, cb) {
                   return huts.updateOne({
@@ -75,7 +77,7 @@
       $('table.TABLE2 tr').each(function(i) {
         if (i >= 2 && $(this).find('td:nth-child(1)').text() !== '') {
           return capacityStatus.push({
-            'date': new Date($(this).find('td:nth-child(1)').text()),
+            'date': moment($(this).find('td:nth-child(1)').text()).format(),
             'remaining': $(this).find('td:nth-child(4)').text(),
             'applying': $(this).find('td:nth-child(5)').text(),
             'waiting': $(this).find('td:nth-child(6)').text()
@@ -92,12 +94,15 @@
       capacityStatus = [];
       $ = cheerio.load(body);
       $('table tr').each(function(i) {
-        var applying, applyingString;
-        if (i >= 2) {
+        var applying, applyingString, day, month, year;
+        if (i > 0) {
           applyingString = $(this).find('td:nth-child(2)').text();
           applying = applyingString === '------' ? 0 : applyingString.split('隊')[1].split('人')[0];
+          year = parseInt($(this).find('td:nth-child(1)').text().substring(0, 3)) + 1911;
+          month = $(this).find('td:nth-child(1)').text().substring(4, 6);
+          day = $(this).find('td:nth-child(1)').text().substring(7, 9);
           return capacityStatus.push({
-            'date': new Date($(this).find('td:nth-child(1)').text()),
+            'date': moment(year + '/' + month + '/' + day).format(),
             'remaining': $(this).find('td:nth-child(4)').text(),
             'applying': applying,
             'waiting': null

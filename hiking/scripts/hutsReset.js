@@ -278,7 +278,7 @@
       url: 'http://tconline.forest.gov.tw/order/',
       admin: '南投林區管理處',
       capacity: '88',
-      isApplicable: true
+      isApplicable: false
     }
   ];
 

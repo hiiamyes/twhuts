@@ -16,7 +16,7 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
             if hut.nameZh is hutName
                 for status, istatus in hut.capacityStatuses.status
                     day = new Date(status.date).getDay()
-                    
+
                     # Need some days to make up the 1st week if the 1st staus if not Sunday.
                     if istatus is 0 and day isnt 0
                         hutApplicableInOneWeek.push {} for [0...day]

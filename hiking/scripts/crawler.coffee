@@ -24,9 +24,10 @@ module.exports = {
                             async.waterfall([
                                 (cb) ->
                                     switch hut.admin
-                                        when '台灣山林悠遊網' then hutCrawlerTaiwanForestRecreation.crawl(hut.url, cb)
-                                        when '雪霸國家公園' then hutCrawlerSheiPa(hut.url, cb)
-                                        when '太魯閣國家公園' then hutCrawlerTaroko(hut.url, cb)
+                                        when '台灣山林悠遊網' then hutCrawlerTaiwanForestRecreation.crawl hut.url, cb
+                                        when '雪霸國家公園' then hutCrawlerSheiPa hut.url, cb
+                                        when '太魯閣國家公園' then hutCrawlerTaroko hut.url, cb
+                                        when '玉山國家公園' then hutCrawlerYushan hut, cb
                                 ,(capacityStatus, cb) ->
                                     huts.updateOne(
                                         {'nameZh': hut.nameZh}  
@@ -53,9 +54,9 @@ hutCrawlerSheiPa = (url, cb) ->
         capacityStatus = []
         $ = cheerio.load body
         $('table.TABLE2 tr').each (i) ->
-            if i>=2 and $(this).find('td:nth-child(1)').text() isnt ''
+            if i >= 2 and $(this).find('td:nth-child(1)').text() isnt ''
                 capacityStatus.push
-                    'date': new Date($(this).find('td:nth-child(1)').text())
+                    'date': moment($(this).find('td:nth-child(1)').text()).format()
                     'remaining': $(this).find('td:nth-child(4)').text()
                     'applying': $(this).find('td:nth-child(5)').text()
                     'waiting': $(this).find('td:nth-child(6)').text()            
@@ -66,11 +67,16 @@ hutCrawlerTaroko = (url, cb) ->
         capacityStatus = []
         $ = cheerio.load body
         $('table tr').each (i) ->
-            if i>=2
+            if i > 0
                 applyingString = $(this).find('td:nth-child(2)').text();
                 applying = if applyingString is '------' then 0 else applyingString.split('隊')[1].split('人')[0]
+
+                year = parseInt($(this).find('td:nth-child(1)').text().substring(0, 3)) + 1911
+                month = $(this).find('td:nth-child(1)').text().substring(4, 6)
+                day = $(this).find('td:nth-child(1)').text().substring(7, 9)
+
                 capacityStatus.push
-                    'date': new Date($(this).find('td:nth-child(1)').text())
+                    'date': moment(year + '/' + month + '/' + day).format()
                     'remaining': $(this).find('td:nth-child(4)').text()
                     'applying': applying
                     'waiting': null            
