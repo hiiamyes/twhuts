@@ -8,8 +8,8 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
     $scope.hutNameZhSelected = ''
     $scope.calendarTitles = []
     $scope.adminColor = 
-        '0': 'gg'
-        '1': 'haha'
+        '0': 'adminColorEven'
+        '1': 'adminColorOdd'
 
     $http
         .get '/api/hut'

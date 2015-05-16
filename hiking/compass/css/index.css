@@ -77,12 +77,12 @@ body {
   width: 100%;
 }
 /* line 58, ../sass/index.sass */
-#topbar .topbar_group.gg {
-  color: #3e2723;
+#topbar .topbar_group.adminColorEven {
+  color: #fff59d;
 }
 /* line 60, ../sass/index.sass */
-#topbar .topbar_group.haha {
-  color: #212121;
+#topbar .topbar_group.adminColorOdd {
+  color: #a5d6a7;
 }
 /* line 62, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
@@ -139,8 +139,12 @@ body {
 #calendar table tr.content {
   border-bottom: 1px solid white;
 }
+/* line 98, ../sass/index.sass */
+#calendar table td {
+  text-align: center;
+}
 
-/* line 99, ../sass/index.sass */
+/* line 101, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;

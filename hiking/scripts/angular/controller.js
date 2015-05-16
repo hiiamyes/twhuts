@@ -12,8 +12,8 @@
       $scope.hutNameZhSelected = '';
       $scope.calendarTitles = [];
       $scope.adminColor = {
-        '0': 'gg',
-        '1': 'haha'
+        '0': 'adminColorEven',
+        '1': 'adminColorOdd'
       };
       $http.get('/api/hut').success(function(result, statusCode) {
         $scope.isLoading = false;
