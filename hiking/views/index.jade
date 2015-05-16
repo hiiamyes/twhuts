@@ -10,6 +10,9 @@ html(ng-app='hutCrawler')
 		//- css
 		link(rel='stylesheet', href='compass/css/index.css')
 
+		//- loaders.css
+		link(rel='stylesheet', href='../bower_components/loaders.css/loaders.min.css')
+
 	body(ng-controller='hutCrawlerCtrl')
 
 		#container
@@ -23,6 +26,10 @@ html(ng-app='hutCrawler')
 					span 常見問題
 					span 台灣山屋查詢網
 					span 關於我
+				
+				#loader(ng-show='isLoading')
+					.loader-inner.ball-clip-rotate
+						div
 
 				#topbar
 					.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
@@ -44,6 +51,7 @@ html(ng-app='hutCrawler')
 						tr.content(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
 							td(ng-repeat='hut in hutApplicableInOneWeek') 
 								p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
+								//- p(ng-if='hut.remaining!=null') {{hut.remaining}} / {{hut.applying}}
 								p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
 								p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
 

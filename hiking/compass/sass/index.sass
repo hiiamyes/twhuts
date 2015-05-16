@@ -32,12 +32,23 @@ body
 	position: relative
 	top: 0
 
+#loader
+	height: 200px
+	display: -webkit-flex
+	display: flex
+	-webkit-align-items: center
+	align-items: center
+	-webkit-justify-content: center
+	justify-content: center
+	
 #titlebar
 	padding-bottom: 20px
 	span
 		margin-right: 10px
 		margin-left: 10px
 		display: inline-block
+		&:hover
+			color: black
 		&:nth-child(1), &:nth-child(2)
 			float: right
 

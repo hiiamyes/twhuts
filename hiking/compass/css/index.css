@@ -43,47 +43,62 @@ body {
 }
 
 /* line 35, ../sass/index.sass */
+#loader {
+  height: 200px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* line 44, ../sass/index.sass */
 #titlebar {
   padding-bottom: 20px;
 }
-/* line 37, ../sass/index.sass */
+/* line 46, ../sass/index.sass */
 #titlebar span {
   margin-right: 10px;
   margin-left: 10px;
   display: inline-block;
 }
-/* line 41, ../sass/index.sass */
+/* line 50, ../sass/index.sass */
+#titlebar span:hover {
+  color: black;
+}
+/* line 52, ../sass/index.sass */
 #titlebar span:nth-child(1), #titlebar span:nth-child(2) {
   float: right;
 }
 
-/* line 44, ../sass/index.sass */
+/* line 55, ../sass/index.sass */
 #topbar {
   width: 100%;
 }
-/* line 47, ../sass/index.sass */
+/* line 58, ../sass/index.sass */
 #topbar .topbar_group.gg {
   color: #3e2723;
 }
-/* line 49, ../sass/index.sass */
+/* line 60, ../sass/index.sass */
 #topbar .topbar_group.haha {
   color: #212121;
 }
-/* line 51, ../sass/index.sass */
+/* line 62, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 54, ../sass/index.sass */
+/* line 65, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
-/* line 57, ../sass/index.sass */
+/* line 68, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 60, ../sass/index.sass */
+/* line 71, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
@@ -92,40 +107,40 @@ body {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 67, ../sass/index.sass */
+/* line 78, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 70, ../sass/index.sass */
+/* line 81, ../sass/index.sass */
 #topbar span:hover {
   color: white;
 }
 
-/* line 72, ../sass/index.sass */
+/* line 83, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
   background-color: white;
 }
 
-/* line 77, ../sass/index.sass */
+/* line 88, ../sass/index.sass */
 #calendar {
   margin-top: 20px;
   margin-bottom: 50px;
 }
-/* line 80, ../sass/index.sass */
+/* line 91, ../sass/index.sass */
 #calendar table {
   padding: 10px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 85, ../sass/index.sass */
+/* line 96, ../sass/index.sass */
 #calendar table tr.content {
   border-bottom: 1px solid white;
 }
 
-/* line 88, ../sass/index.sass */
+/* line 99, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
