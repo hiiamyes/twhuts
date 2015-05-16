@@ -6,21 +6,25 @@
 
   app.controller('hutCrawlerCtrl', [
     '$scope', '$http', function($scope, $http) {
+      $scope.hutGroups = [];
+      $scope.topBarHutNames = [];
+      $scope.hutNameZhSelected = '';
       $http.get('/api/hut').success(function(result, statusCode) {
-        $scope.hutNames = result.hutNames;
+        $scope.hutGroups = result.hutGroups;
         return $scope.huts = result.huts;
       }).error(function(e) {
         return console.log(e);
       });
-      return $scope.hutNameClicked = function(hutName) {
+      return $scope.hutNameClicked = function(hutNameZh) {
         var day, hut, hutApplicableAll, hutApplicableInOneWeek, i, istatus, j, k, len, len1, ref, ref1, ref2, results, status;
+        $scope.hutNameZhSelected = hutNameZh;
         hutApplicableAll = [];
         hutApplicableInOneWeek = [];
         ref = $scope.huts;
         results = [];
         for (i = 0, len = ref.length; i < len; i++) {
           hut = ref[i];
-          if (hut.nameZh === hutName) {
+          if (hut.nameZh === hutNameZh) {
             ref1 = hut.capacityStatuses.status;
             for (istatus = j = 0, len1 = ref1.length; j < len1; istatus = ++j) {
               status = ref1[istatus];

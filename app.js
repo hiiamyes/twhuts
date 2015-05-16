@@ -37,7 +37,7 @@
   app.get('/api/hut', function(req, res) {
     return MongoClient.connect(mongoServerUrl, function(err, db) {
       return async.parallel({
-        hutNames: function(cb) {
+        hutGroups: function(cb) {
           return db.collection('huts').aggregate([
             {
               $sort: {
@@ -45,8 +45,10 @@
               }
             }, {
               $group: {
-                _id: '$admin',
-                nameZh: {
+                _id: {
+                  admin: '$admin'
+                },
+                hutNameZhs: {
                   $push: '$nameZh'
                 }
               }
@@ -62,7 +64,7 @@
         }
       }, function(err, results) {
         return res.status(200).send({
-          'hutNames': results.hutNames,
+          'hutGroups': results.hutGroups,
           'huts': results.huts
         });
       });

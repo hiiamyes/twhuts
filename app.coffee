@@ -28,12 +28,13 @@ app.get '/comic', (req, res) ->
 app.get '/api/hut', (req, res) ->
 	MongoClient.connect mongoServerUrl, (err, db) ->
 		async.parallel(
-			hutNames: (cb) ->
+			hutGroups: (cb) ->
 				db.collection('huts').aggregate([
 					{ $sort: {nameZh: 1}}, 
 					{ $group: {
-						_id: '$admin'
-						nameZh:
+						_id:
+							admin: '$admin'
+						hutNameZhs:
 							$push: '$nameZh'
 					}}
 				], (err, result) ->
@@ -43,7 +44,7 @@ app.get '/api/hut', (req, res) ->
 				db.collection('huts').find().toArray (err, docs) ->
 					cb null, docs
 			, (err, results) ->
-				res.status(200).send({'hutNames': results.hutNames, 'huts': results.huts})
+				res.status(200).send({'hutGroups': results.hutGroups, 'huts': results.huts})
 		)	        
 
 # porting

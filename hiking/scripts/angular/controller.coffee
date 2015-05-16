@@ -2,19 +2,30 @@ app = angular.module 'hutCrawler', []
 
 app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
+    $scope.hutGroups = []
+    $scope.topBarHutNames = []
+    $scope.hutNameZhSelected = ''
+
     $http
         .get '/api/hut'
         .success (result, statusCode) ->
-            $scope.hutNames = result.hutNames
+            # console.log result
+            $scope.hutGroups = result.hutGroups
             $scope.huts = result.huts
         .error (e) ->
             console.log e
 
-    $scope.hutNameClicked = (hutName) ->
+    # $scope.adminClicked = (indexAdmin) ->
+    #     $scope.topBarHutNames = $scope.hutNames[indexAdmin].nameZh
+    #     $scope.selectedIndexAdmin = indexAdmin
+    #     $scope.selectedIndexHut = -1
+
+    $scope.hutNameClicked = (hutNameZh) ->
+        $scope.hutNameZhSelected = hutNameZh        
         hutApplicableAll = []
         hutApplicableInOneWeek = []
         for hut in $scope.huts
-            if hut.nameZh is hutName
+            if hut.nameZh is hutNameZh
                 for status, istatus in hut.capacityStatuses.status
                     day = new Date(status.date).getDay()
 
