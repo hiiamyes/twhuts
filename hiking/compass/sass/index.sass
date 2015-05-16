@@ -8,42 +8,99 @@ html, body
 	margin: 0
 	border: 0
 	color: white
+
+body
+	padding: 2% 3%
+	// background-color: black
 	
 #background
 	width: 100%
-	height: 150%
-	#gg
+	height: 100%
+	position: fixed
+	top: 0
+	left: 0
+	background-image: url(../../images/bg.jpg)
+	background-size: cover
+	// -webkit-filter: blur(10px)
+	#cover
+		display: inline-block
 		width: 100%
 		height: 100%
-		// -webkit-filter: blur(1px)
-		background-image: url(../../images/test.jpg)
-		background-size: cover
-	#ff
-		position: absolute
-		top: 0px
-		width: 100%
-		height: 100%
-		background-color: rgba(0,0,0,0.5)
+		background-color: rgba(0,0,0,0.2)
 
 #content
-	width: 100%
-	position: absolute
-	top: 0px
-	#sidebar 
-		display: inline-block
-		vertical-align: top
-		width: 20%
-		li 
-			&:hover 
-				border: 2px solid white
+	position: relative
+	top: 0
 
-	#calendar
+#loader
+	height: 200px
+	display: -webkit-flex
+	display: flex
+	-webkit-align-items: center
+	align-items: center
+	-webkit-justify-content: center
+	justify-content: center
+	
+#titlebar
+	padding-bottom: 20px
+	span
+		margin-right: 10px
+		margin-left: 10px
 		display: inline-block
+		&:hover
+			color: black
+		&:nth-child(1), &:nth-child(2)
+			float: right
+
+#topbar
+	width: 100%	
+	.topbar_group
+		&.adminColorEven
+			color: #FFF59D
+		&.adminColorOdd
+			color: #A5D6A7
+	.topbar_admin, .topbar_hut
+		display: inline-block
+		// margin-bottom: 1em
+	.topbar_admin
+		width: 15%
+		text-align: center
+	.topbar_hut
+		width: 85%
 		vertical-align: top
+		.topbar_hut_name
+			text-align: center
+			vertical-align: middle
+			width: 10%
+			display: inline-block
+			margin-right: 1em
+			margin-bottom: 0.5em
+			&.selected
+				color: white
+	span
+		&:hover
+			color: white
+#divider
+	width: 100%
+	height: 1px
+	background-color: white
+
+#calendar
+	margin-top: 20px
+	margin-bottom: 50px
+	table
+		padding: 10px
 		width: 80%
-		table
-			width: 100%
-		td 
-			border: 1px solid white
-		#date
-			// text-align: right		
+		margin-left: auto
+		margin-right: auto
+		tr.content
+			border-bottom: 1px solid white
+		td
+			text-align: center
+
+#copyright
+	position: fixed
+	bottom: 1em
+	width: 100%
+	text-align: center
+	font-size: small

@@ -121,12 +121,10 @@ push = (capacityStatus, ele, month, day) ->
 				'date': date
 				'remaining': remaining
 				'applying': applying
-				'waiting': null
 		catch e
 			capacityStatus.push
 				'date': date
 				'remaining': 0
 				'applying': 0
-				'waiting': null
 
 			
