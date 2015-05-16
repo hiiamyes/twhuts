@@ -169,16 +169,14 @@
         return capacityStatus.push({
           'date': date,
           'remaining': remaining,
-          'applying': applying,
-          'waiting': null
+          'applying': applying
         });
       } catch (_error) {
         e = _error;
         return capacityStatus.push({
           'date': date,
           'remaining': 0,
-          'applying': 0,
-          'waiting': null
+          'applying': 0
         });
       }
     }
