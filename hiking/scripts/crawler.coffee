@@ -57,8 +57,8 @@ hutCrawlerSheiPa = (url, cb) ->
         $ = cheerio.load body
         $('table.TABLE2 tr').each (i) ->
             if i >= 2 and $(this).find('td:nth-child(1)').text() isnt ''
-                applying = $(this).find('td:nth-child(5)').text()
-                waiting = $(this).find('td:nth-child(6)').text()            
+                applying = parseInt($(this).find('td:nth-child(5)').text())
+                waiting = parseInt($(this).find('td:nth-child(6)').text())
                 capacityStatus.push
                     'date': moment($(this).find('td:nth-child(1)').text(), 'YYYY-MM-DD').format()
                     'remaining': $(this).find('td:nth-child(4)').text()
