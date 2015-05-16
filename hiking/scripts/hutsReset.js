@@ -261,16 +261,23 @@
     }, {
       name: 'Paiyun Lodge',
       nameZh: '排雲山莊',
-      url: 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003',
+      url: '',
       admin: '玉山國家公園',
       capacity: '92',
       isApplicable: true
     }, {
-      name: 'Yuanfong Cabin / Campground',
-      nameZh: '圓峰山屋/營地',
-      url: 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003',
+      name: 'Yuanfong Cabin',
+      nameZh: '圓峰山屋',
+      url: '',
       admin: '玉山國家公園',
-      capacity: '15+9',
+      capacity: '15',
+      isApplicable: true
+    }, {
+      name: 'Yuanfong Campground',
+      nameZh: '圓峰營地',
+      url: '',
+      admin: '玉山國家公園',
+      capacity: '9',
       isApplicable: true
     }, {
       name: 'Tianchi Hill',

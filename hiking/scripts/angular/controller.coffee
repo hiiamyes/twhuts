@@ -4,8 +4,9 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
     $http
         .get '/api/hut'
-        .success (huts) ->
-            $scope.huts = huts
+        .success (result, statusCode) ->
+            $scope.hutNames = result.hutNames
+            $scope.huts = result.huts
         .error (e) ->
             console.log e
 

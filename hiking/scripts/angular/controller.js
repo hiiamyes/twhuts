@@ -6,8 +6,9 @@
 
   app.controller('hutCrawlerCtrl', [
     '$scope', '$http', function($scope, $http) {
-      $http.get('/api/hut').success(function(huts) {
-        return $scope.huts = huts;
+      $http.get('/api/hut').success(function(result, statusCode) {
+        $scope.hutNames = result.hutNames;
+        return $scope.huts = result.huts;
       }).error(function(e) {
         return console.log(e);
       });

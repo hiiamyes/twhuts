@@ -4,6 +4,7 @@ request = require 'request' # https://github.com/request/request
 cheerio = require 'cheerio' # https://github.com/cheeriojs/cheerio
 
 hutCrawlerTaiwanForestRecreation = require './hutCrawlerTaiwanForestRecreation.js'
+hutCrawlerYushan = require './hutCrawlerYushan.js'
 
 collectionName = 'huts'
 reCrawlTime = 1 * 60 * 60 * 1000; # 1hr
@@ -27,7 +28,8 @@ module.exports = {
                                         when '台灣山林悠遊網' then hutCrawlerTaiwanForestRecreation.crawl hut.url, cb
                                         when '雪霸國家公園' then hutCrawlerSheiPa hut.url, cb
                                         when '太魯閣國家公園' then hutCrawlerTaroko hut.url, cb
-                                        when '玉山國家公園' then hutCrawlerYushan hut.name, cb
+                                        when '玉山國家公園' then hutCrawlerYushan.crawl hut, cb
+                                        when '南投林區管理處' then cb null, []
                                 ,(capacityStatus, cb) ->
                                     huts.updateOne(
                                         {'nameZh': hut.nameZh}  
@@ -44,7 +46,7 @@ module.exports = {
                             )
                         ,(err) ->
                             console.log if err? then err else 'huts crawling done'
-                            console.log moment().diff(timeStartCrawling, 'seconds')
+                            console.log moment().format() + ': '+ moment().diff(timeStartCrawling, 'seconds') + 's'
                     )
             setTimeout crawlOnce, reCrawlTime
 }
@@ -56,7 +58,7 @@ hutCrawlerSheiPa = (url, cb) ->
         $('table.TABLE2 tr').each (i) ->
             if i >= 2 and $(this).find('td:nth-child(1)').text() isnt ''
                 capacityStatus.push
-                    'date': moment($(this).find('td:nth-child(1)').text()).format()
+                    'date': moment($(this).find('td:nth-child(1)').text(), 'YYYY-MM-DD').format()
                     'remaining': $(this).find('td:nth-child(4)').text()
                     'applying': $(this).find('td:nth-child(5)').text()
                     'waiting': $(this).find('td:nth-child(6)').text()            
@@ -76,7 +78,7 @@ hutCrawlerTaroko = (url, cb) ->
                 day = $(this).find('td:nth-child(1)').text().substring(7, 9)
 
                 capacityStatus.push
-                    'date': moment(year + '/' + month + '/' + day).format()
+                    'date': moment(year + ' ' + month + ' ' + day, 'YYYY MM DD').format()
                     'remaining': $(this).find('td:nth-child(4)').text()
                     'applying': applying
                     'waiting': null            
