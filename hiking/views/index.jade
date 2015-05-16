@@ -12,38 +12,41 @@ html(ng-app='hutCrawler')
 
 	body(ng-controller='hutCrawlerCtrl')
 
-		//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
-		#topbar
-			.topbar_group(ng-repeat='hutGroup in hutGroups')
-				.topbar_admin
-					span.topbar_admin_name(
-						ng-click='adminClicked($index)'
-					) {{hutGroup._id.admin}}
-				.topbar_hut
-					span.topbar_hut_name(
-					ng-repeat='hutNameZh in hutGroup.hutNameZhs'
-					ng-class='{selected: hutNameZh == hutNameZhSelected}'
-					ng-click='hutNameClicked(hutNameZh)'
-					) {{hutNameZh}}
+		#container
+			#background
+				#cover
 
-		#content
-			#calendar
-				table
-					tr
-						th 日
-						th 一
-						th 二
-						th 三
-						th 四
-						th 五
-						th 六
-					tr(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
-						td(ng-repeat='hut in hutApplicableInOneWeek') 
-							p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
-							p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
-							p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
-							//- p(ng-if='hut.waiting!=null') 候補中: {{hut.waiting}}
+			//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
+			#content
+				#titlebar
+					span 聯絡我
+					span 常見問題
+					span 台灣山屋查詢網
+					span 關於我
 
+				#topbar
+					.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
+						.topbar_admin
+							span.topbar_admin_name(
+								ng-click='adminClicked($index)'
+							) {{hutGroup._id.admin}}
+						.topbar_hut
+							span.topbar_hut_name(
+								ng-repeat='hutNameZh in hutGroup.hutNameZhs'
+								ng-class='{selected: hutNameZh == hutNameZhSelected}'
+								ng-click='hutNameClicked(hutNameZh)'
+							) {{hutNameZh}}
+				#divider(ng-show='!isLoading')
+				#calendar
+					table
+						tr
+							th(ng-repeat='title in calendarTitles') {{title}}
+						tr.content(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
+							td(ng-repeat='hut in hutApplicableInOneWeek') 
+								p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
+								p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
+								p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
 
+				//- #copyright Copyright &copy; 2015 Tsung-Yeh Lee.
 
 		

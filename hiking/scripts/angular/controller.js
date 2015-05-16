@@ -6,10 +6,17 @@
 
   app.controller('hutCrawlerCtrl', [
     '$scope', '$http', function($scope, $http) {
+      $scope.isLoading = true;
       $scope.hutGroups = [];
       $scope.topBarHutNames = [];
       $scope.hutNameZhSelected = '';
+      $scope.calendarTitles = [];
+      $scope.adminColor = {
+        '0': 'gg',
+        '1': 'haha'
+      };
       $http.get('/api/hut').success(function(result, statusCode) {
+        $scope.isLoading = false;
         $scope.hutGroups = result.hutGroups;
         return $scope.huts = result.huts;
       }).error(function(e) {
@@ -17,6 +24,7 @@
       });
       return $scope.hutNameClicked = function(hutNameZh) {
         var day, hut, hutApplicableAll, hutApplicableInOneWeek, i, istatus, j, k, len, len1, ref, ref1, ref2, results, status;
+        $scope.calendarTitles = ['日', '一', '二', '三', '四', '五', '六'];
         $scope.hutNameZhSelected = hutNameZh;
         hutApplicableAll = [];
         hutApplicableInOneWeek = [];
