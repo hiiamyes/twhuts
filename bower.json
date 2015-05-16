@@ -1,0 +1,18 @@
+{
+  "name": "yesweb",
+  "version": "0.0.0",
+  "authors": [
+    "Yes <joshuayes@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "loaders.css": "~0.1.1"
+  }
+}

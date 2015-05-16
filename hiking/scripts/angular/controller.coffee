@@ -2,18 +2,33 @@ app = angular.module 'hutCrawler', []
 
 app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
+    $scope.isLoading = true;
+    $scope.hutGroups = []
+    $scope.topBarHutNames = []
+    $scope.hutNameZhSelected = ''
+    $scope.calendarTitles = []
+    $scope.adminColor = 
+        '0': 'adminColorEven'
+        '1': 'adminColorOdd'
+
     $http
         .get '/api/hut'
-        .success (huts) ->
-            $scope.huts = huts
+        .success (result, statusCode) ->
+            # console.log result
+            $scope.isLoading = false
+            $scope.hutGroups = result.hutGroups
+            $scope.huts = result.huts
         .error (e) ->
             console.log e
 
-    $scope.hutNameClicked = (hutName) ->
+    $scope.hutNameClicked = (hutNameZh) ->             
+        $scope.calendarTitles = ['日','一','二','三','四','五','六'] 
+
+        $scope.hutNameZhSelected = hutNameZh        
         hutApplicableAll = []
         hutApplicableInOneWeek = []
         for hut in $scope.huts
-            if hut.nameZh is hutName
+            if hut.nameZh is hutNameZh
                 for status, istatus in hut.capacityStatuses.status
                     day = new Date(status.date).getDay()
 

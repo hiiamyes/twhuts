@@ -11,70 +11,131 @@
   cheerio = require('cheerio');
 
   module.exports = {
-    crawl: function(hutName, cb) {
-      var capacityStatus, ddlLocation;
+    crawl: function(hut, cbExports) {
+      var capacity, capacityStatus, ddlLocation, parser, selectorRemaining, urlAfterDraw, urlBeforeDraw;
+      capacityStatus = [];
+      capacity = hut.capacity;
+      urlAfterDraw = '';
+      urlBeforeDraw = '';
+      selectorRemaining = '';
       ddlLocation = 0;
-      switch (hutName) {
+      switch (hut.nameZh) {
         case '排雲山莊':
+          urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=1';
+          urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
+          selectorRemaining = 'span.style11 font';
           ddlLocation = 1;
           break;
-        case '圓峰山屋/營地':
+        case '圓峰山屋':
+        case '圓峰營地':
+          urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
+          urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
+          selectorRemaining = 'span.style12 font';
           ddlLocation = 2;
       }
-      capacityStatus = [];
-      return async.map([7, 8], function(item, cb) {
-        return request(url, function(err, res, body) {
-          var $, cookie, date;
-          cookie = res.headers['set-cookie'][0].split(';')[0];
-          $ = cheerio.load(body);
-          date = moment().add(item, 'd').format('YYYY/MM/DD');
+      async.waterfall([
+        function(cb) {
+          return request(urlAfterDraw, function(err, res, body) {
+            var $;
+            $ = cheerio.load(body);
+            return parser($, function() {
+              return cb(null, $);
+            });
+          });
+        }, function($, cb) {
           return request({
             'method': 'POST',
-            'url': url,
-            'headers': {
-              'Cookie': cookie
-            },
+            'url': urlAfterDraw,
             'form': {
-              'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': '',
-              '__EVENTTARGET': 'ctl00$ContentPlaceHolder1$gvIndex$ctl13$txtPageSize',
-              '__EVENTARGUMENT': '',
+              '__EVENTTARGET': 'ctl00$ContentPlaceHolder1$CalendarReport',
+              '__EVENTARGUMENT': $('table#ctl00_ContentPlaceHolder1_CalendarReport table tr td:nth-child(3) a').attr('href').substring(68, 68 + 5),
               '__VIEWSTATE': $('#__VIEWSTATE').val(),
               '__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val(),
-              '__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val(),
-              '__EVENTVALIDATION': $('#__EVENTVALIDATION').val(),
-              'ctl00$ContentPlaceHolder1$txtSDate': date,
-              'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation,
-              'ctl00$ContentPlaceHolder1$btnSearch.x': 6,
-              'ctl00$ContentPlaceHolder1$btnSearch.y': 19,
-              'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1,
-              'ctl00$ContentPlaceHolder1$gvIndex$ctl13$txtPageSize': 100
+              '__EVENTVALIDATION': $('#__EVENTVALIDATION').val()
             }
           }, function(err, res, body) {
-            var applying, remaining, waiting;
-            $ = cheerio.load(body);
-            remaining = 92;
-            applying = 0;
-            waiting = 0;
-            $('table#ctl00_ContentPlaceHolder1_gvIndex table.text_12pt tr').each(function(i) {
-              var nPeople, status;
-              if (i > 0) {
-                nPeople = parseInt($(this).find('td:nth-child(5) span').text());
-                status = $(this).find('td:nth-child(9) div').text();
-                if (status.indexOf('核准入園') !== -1) {
-                  return remaining -= nPeople;
-                } else if (status.indexOf('排隊預約') !== -1 || status.indexOf('備取') !== -1) {
-                  return waiting += nPeople;
-                } else {
-                  return applying += nPeople;
-                }
-              }
+            return parser(cheerio.load(body), function() {
+              return cb(null);
             });
-            return cb(null, remaining + '/' + applying + '/' + waiting);
           });
-        });
-      }, function(err, results) {
-        return console.log(results);
+        }, function(cb) {
+          return async.eachSeries([0, 1, 2, 3, 4], function(itmes, eachSerialFinished) {
+            return request(urlBeforeDraw, function(err, res, body) {
+              var $, date;
+              $ = cheerio.load(body);
+              date = moment().add(7 + capacityStatus.length, 'd');
+              return request({
+                'method': 'POST',
+                'url': urlBeforeDraw,
+                'form': {
+                  'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': '',
+                  '__EVENTTARGET': '',
+                  '__EVENTARGUMENT': '',
+                  '__VIEWSTATE': $('#__VIEWSTATE').val(),
+                  '__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val(),
+                  '__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val(),
+                  '__EVENTVALIDATION': $('#__EVENTVALIDATION').val(),
+                  'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD'),
+                  'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation,
+                  'ctl00$ContentPlaceHolder1$btnSearch.x': 6,
+                  'ctl00$ContentPlaceHolder1$btnSearch.y': 19,
+                  'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
+                }
+              }, function(err, res, body) {
+                var applying;
+                $ = cheerio.load(body);
+                applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text();
+                capacityStatus.push({
+                  'date': date.format(),
+                  'remaining': 92,
+                  'applying': applying
+                });
+                return eachSerialFinished();
+              });
+            });
+          }, function(err) {
+            if (err) {
+              return console.log(err);
+            } else {
+              return cb(null);
+            }
+          });
+        }
+      ], function(err, result) {
+        return cbExports(null, capacityStatus);
       });
+      return parser = function($, done) {
+        return async.parallel({
+          remainings: function(cb) {
+            var remainings;
+            remainings = [];
+            $(selectorRemaining).each(function(i) {
+              return remainings.push(capacity - $(this).text());
+            });
+            return cb(null, remainings);
+          },
+          applyings: function(cb) {
+            var applyings;
+            applyings = [];
+            $('span.style14 font').each(function(i) {
+              return applyings.push($(this).text());
+            });
+            return cb(null, applyings);
+          }
+        }, function(err, results) {
+          var i, j, len, ref, remaining;
+          ref = results.remainings;
+          for (i = j = 0, len = ref.length; j < len; i = ++j) {
+            remaining = ref[i];
+            capacityStatus.push({
+              'date': moment().add(7 + capacityStatus.length, 'day').format(),
+              'remaining': remaining,
+              'applying': results.applyings[i]
+            });
+          }
+          return done();
+        });
+      };
     }
   };
 
