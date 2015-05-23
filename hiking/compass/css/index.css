@@ -19,6 +19,11 @@ body {
 }
 
 /* line 15, ../sass/index.sass */
+p {
+  line-height: 2em;
+}
+
+/* line 18, ../sass/index.sass */
 #background {
   width: 100%;
   height: 100%;
@@ -28,7 +33,7 @@ body {
   background-image: url(../../images/bg.jpg);
   background-size: cover;
 }
-/* line 24, ../sass/index.sass */
+/* line 27, ../sass/index.sass */
 #background #cover {
   display: inline-block;
   width: 100%;
@@ -36,13 +41,13 @@ body {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* line 30, ../sass/index.sass */
+/* line 33, ../sass/index.sass */
 #content {
   position: relative;
   top: 0;
 }
 
-/* line 34, ../sass/index.sass */
+/* line 37, ../sass/index.sass */
 #loader {
   height: 200px;
   display: -webkit-flex;
@@ -53,11 +58,11 @@ body {
   justify-content: center;
 }
 
-/* line 43, ../sass/index.sass */
+/* line 46, ../sass/index.sass */
 #titlebar {
   padding-bottom: 20px;
 }
-/* line 45, ../sass/index.sass */
+/* line 48, ../sass/index.sass */
 #titlebar a {
   color: white;
   text-decoration: none;
@@ -65,42 +70,42 @@ body {
   margin-left: 10px;
   display: inline-block;
 }
-/* line 51, ../sass/index.sass */
+/* line 54, ../sass/index.sass */
 #titlebar a:hover {
   color: black;
 }
-/* line 53, ../sass/index.sass */
+/* line 56, ../sass/index.sass */
 #titlebar a:nth-child(1), #titlebar a:nth-child(2) {
   float: right;
 }
 
-/* line 56, ../sass/index.sass */
+/* line 59, ../sass/index.sass */
 #topbar {
   width: 100%;
 }
-/* line 59, ../sass/index.sass */
+/* line 62, ../sass/index.sass */
 #topbar .topbar_group.adminColorEven {
   color: #fff59d;
 }
-/* line 61, ../sass/index.sass */
+/* line 64, ../sass/index.sass */
 #topbar .topbar_group.adminColorOdd {
   color: #a5d6a7;
 }
-/* line 63, ../sass/index.sass */
+/* line 66, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 66, ../sass/index.sass */
+/* line 69, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
-/* line 69, ../sass/index.sass */
+/* line 72, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 72, ../sass/index.sass */
+/* line 75, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
@@ -109,44 +114,44 @@ body {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 79, ../sass/index.sass */
+/* line 82, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 82, ../sass/index.sass */
+/* line 85, ../sass/index.sass */
 #topbar span:hover {
   color: white;
 }
 
-/* line 84, ../sass/index.sass */
+/* line 87, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
   background-color: white;
 }
 
-/* line 89, ../sass/index.sass */
+/* line 92, ../sass/index.sass */
 #calendar {
   margin-top: 20px;
   margin-bottom: 50px;
 }
-/* line 92, ../sass/index.sass */
+/* line 95, ../sass/index.sass */
 #calendar table {
   padding: 10px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 97, ../sass/index.sass */
+/* line 100, ../sass/index.sass */
 #calendar table tr.content {
   border-bottom: 1px solid white;
 }
-/* line 99, ../sass/index.sass */
+/* line 102, ../sass/index.sass */
 #calendar table td {
   text-align: center;
 }
 
-/* line 102, ../sass/index.sass */
+/* line 105, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
