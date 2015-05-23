@@ -19,7 +19,7 @@ body {
 }
 
 /* line 15, ../sass/index.sass */
-p {
+#about, #contact {
   line-height: 2em;
 }
 
