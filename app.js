@@ -26,6 +26,10 @@
     return res.render('index');
   });
 
+  app.get('/hiking/views/:name', function(req, res) {
+    return res.render('hiking/views/' + req.params.name);
+  });
+
   app.get('/hiking', function(req, res) {
     return res.render('hiking/views/index');
   });

@@ -2,7 +2,24 @@
 (function() {
   var app;
 
-  app = angular.module('hutCrawler', []);
+  app = angular.module('hutCrawler', ['ngRoute']);
+
+  app.config([
+    '$routeProvider', function($routeProvider) {
+      return $routeProvider.when('/huts', {
+        templateUrl: 'views/huts',
+        controller: 'hutCrawlerCtrl'
+      }).when('/about', {
+        templateUrl: 'views/about'
+      }).when('/question', {
+        templateUrl: 'views/question'
+      }).when('/contact', {
+        templateUrl: 'views/contact'
+      }).otherwise({
+        redirectTo: '/huts'
+      });
+    }
+  ]);
 
   app.controller('hutCrawlerCtrl', [
     '$scope', '$http', function($scope, $http) {

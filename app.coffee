@@ -18,6 +18,9 @@ crawler.crawl MongoClient, mongoServerUrl
 app.get '/', (req, res) ->
 	res.render 'index'
 
+app.get '/hiking/views/:name', (req, res) ->
+	res.render 'hiking/views/' + req.params.name
+
 app.get '/hiking', (req, res) ->
 	res.render 'hiking/views/index'
 
