@@ -18,7 +18,7 @@
 
   mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking';
 
-  crawler = require('./hiking/scripts/crawler.js');
+  crawler = require('./hut_crawler/scripts/crawler.js');
 
   crawler.crawl(MongoClient, mongoServerUrl);
 
@@ -26,11 +26,11 @@
     return res.render('index');
   });
 
-  app.get('/hiking/views/:name', function(req, res) {
+  app.get('/hut_crawler/views/:name', function(req, res) {
     return res.render('hiking/views/' + req.params.name);
   });
 
-  app.get('/hiking', function(req, res) {
+  app.get('/hut_crawler', function(req, res) {
     return res.render('hiking/views/index');
   });
 
