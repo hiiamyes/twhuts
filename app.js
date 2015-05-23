@@ -27,11 +27,11 @@
   });
 
   app.get('/hut_crawler/views/:name', function(req, res) {
-    return res.render('hiking/views/' + req.params.name);
+    return res.render('hut_crawler/views/' + req.params.name);
   });
 
   app.get('/hut_crawler', function(req, res) {
-    return res.render('hiking/views/index');
+    return res.render('hut_crawler/views/index');
   });
 
   app.get('/comic', function(req, res) {

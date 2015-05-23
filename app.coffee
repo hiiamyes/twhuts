@@ -19,10 +19,10 @@ app.get '/', (req, res) ->
 	res.render 'index'
 
 app.get '/hut_crawler/views/:name', (req, res) ->
-	res.render 'hiking/views/' + req.params.name
+	res.render 'hut_crawler/views/' + req.params.name
 
 app.get '/hut_crawler', (req, res) ->
-	res.render 'hiking/views/index'
+	res.render 'hut_crawler/views/index'
 
 app.get '/comic', (req, res) ->
 	res.render 'comic/views/index'
