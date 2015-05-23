@@ -71,7 +71,7 @@ p {
   display: inline-block;
 }
 /* line 54, ../sass/index.sass */
-#titlebar a:hover {
+#titlebar a:hover, #titlebar a.selected {
   color: black;
 }
 /* line 56, ../sass/index.sass */
