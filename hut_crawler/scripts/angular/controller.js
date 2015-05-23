@@ -7,8 +7,7 @@
   app.config([
     '$routeProvider', function($routeProvider) {
       return $routeProvider.when('/huts', {
-        templateUrl: 'views/huts',
-        controller: 'hutCrawlerCtrl'
+        templateUrl: 'views/huts'
       }).when('/about', {
         templateUrl: 'views/about'
       }).when('/question', {
