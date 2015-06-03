@@ -6,7 +6,7 @@
 	.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
 		.topbar_admin
 			span.topbar_admin_name(
-				ng-click='adminClicked($index)'
+				ng-click='adminClicked(hutGroup._id.admin)'
 			) {{hutGroup._id.admin}}
 		.topbar_hut
 			span.topbar_hut_name(
@@ -14,14 +14,16 @@
 				ng-class='{selected: hutNameZh == hutNameZhSelected}'
 				ng-click='hutNameClicked(hutNameZh)'
 			) {{hutNameZh}}
+
 #divider(ng-show='!isLoading')
+
 #calendar
 	table
 		tr
 			th(ng-repeat='title in calendarTitles') {{title}}
 		tr.content(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
 			td(ng-repeat='hut in hutApplicableInOneWeek') 
-				p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM/dd'}}
-				//- p(ng-if='hut.remaining!=null') {{hut.remaining}} / {{hut.applying}}
-				p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
-				p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
+				p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM.dd'}}
+				p(ng-if='hut.remaining!=null') {{hut.remaining}} : {{hut.applying}}
+				//- p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
+				//- p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}

@@ -56,6 +56,14 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		.error (e) ->
 			console.log e
 
+	# $scope.adminClicked = (adminName) ->
+	# 	switch adminName
+	# 		when '南投林區管理處'
+	# 		when '玉山國家公園'
+	# 		when '台灣山林悠遊網'
+	# 		when '太魯閣國家公園'
+	# 		when '雪霸國家公園'
+
 	$scope.hutNameClicked = (hutNameZh) ->             
 		$scope.calendarTitles = ['日','一','二','三','四','五','六'] 
 
@@ -79,6 +87,7 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
 				$scope.hutApplicableAll = hutApplicableAll
 				break
+
 	$scope.titleBarNameClicked = (titleBarName) ->
 		$scope.titleBarNameSelected = titleBarName
 ])
