@@ -3,14 +3,18 @@ html(ng-app='hutCrawler')
 	head
 		title 台灣山屋餘額查詢
 
+		//- D3.js
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js', charset='utf-8')
+
 		//- angular
 		//- script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js')
 		script(src='../bower_components/angular/angular.js')
 		script(src='../bower_components/angular-route/angular-route.js')
 		script(src='scripts/angular/controller.js')
-
+		
 		//- css
 		link(rel='stylesheet', href='compass/css/index.css')
+		link(rel='stylesheet', href='compass/css/chart.css')
 
 		//- loaders.css
 		link(rel='stylesheet', href='../bower_components/loaders.css/loaders.min.css')
@@ -20,7 +24,7 @@ html(ng-app='hutCrawler')
 		#container
 			#background
 				#cover
-			
+
 			//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
 			#content
 
@@ -30,8 +34,8 @@ html(ng-app='hutCrawler')
 						href='{{title.url}}' 
 						ng-class='{selected: title.name == titleBarNameSelected}'
 						ng-click='titleBarNameClicked(title.name)'
-					) {{title.name}}
-					
+					) {{title.name}}			
+				
 				div(ng-view)
 						
 

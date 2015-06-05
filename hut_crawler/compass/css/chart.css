@@ -1,0 +1,11 @@
+/* line 1, ../sass/chart.sass */
+.axis path, .axis line {
+  fill: none;
+  stroke-width: 0;
+}
+
+/* line 5, ../sass/chart.sass */
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+}

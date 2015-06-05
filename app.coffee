@@ -27,6 +27,9 @@ app.get '/hut_crawler', (req, res) ->
 app.get '/comic', (req, res) ->
 	res.render 'comic/views/index'
 
+app.get '/d3_demo', (req, res) ->
+	res.render 'd3_demo/index'
+
 # api
 app.get '/api/hut', (req, res) ->
 	MongoClient.connect mongoServerUrl, (err, db) ->

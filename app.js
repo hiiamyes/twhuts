@@ -38,6 +38,10 @@
     return res.render('comic/views/index');
   });
 
+  app.get('/d3_demo', function(req, res) {
+    return res.render('d3_demo/index');
+  });
+
   app.get('/api/hut', function(req, res) {
     return MongoClient.connect(mongoServerUrl, function(err, db) {
       return async.parallel({
