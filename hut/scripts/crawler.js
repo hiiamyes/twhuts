@@ -34,9 +34,9 @@
                     case '台灣山林悠遊網':
                       return hutCrawlerTaiwanForestRecreation.crawl(hut.url, cb);
                     case '雪霸國家公園':
-                      return hutCrawlerSheiPa(hut.url, cb);
+                      return hutCrawlerSheiPa(hut, cb);
                     case '太魯閣國家公園':
-                      return hutCrawlerTaroko(hut.url, cb);
+                      return hutCrawlerTaroko(hut, cb);
                     case '玉山國家公園':
                       return hutCrawlerYushan.crawl(hut, cb);
                     case '南投林區管理處':
@@ -58,6 +58,9 @@
                   });
                 }
               ], function(err, result) {
+                if (err != null) {
+                  console.log(err);
+                }
                 return cbAsync();
               });
             }, function(err) {
@@ -71,48 +74,60 @@
     }
   };
 
-  hutCrawlerSheiPa = function(url, cb) {
-    return request(url, function(err, res, body) {
+  hutCrawlerSheiPa = function(hut, cb) {
+    return request(hut.url, function(err, res, body) {
       var $, capacityStatus;
-      capacityStatus = [];
-      $ = cheerio.load(body);
-      $('table.TABLE2 tr').each(function(i) {
-        var applying, waiting;
-        if (i >= 2 && $(this).find('td:nth-child(1)').text() !== '') {
-          applying = parseInt($(this).find('td:nth-child(5)').text());
-          waiting = parseInt($(this).find('td:nth-child(6)').text());
-          return capacityStatus.push({
-            'date': moment($(this).find('td:nth-child(1)').text(), 'YYYY-MM-DD').format(),
-            'remaining': $(this).find('td:nth-child(4)').text(),
-            'applying': applying + waiting
-          });
-        }
-      });
-      return cb(null, capacityStatus);
+      if (err) {
+        return cb('fail crawling ' + hut.nameZh, null);
+      } else if (res.statusCode !== 200) {
+        return cb('fail crawling ' + hut.nameZh, null);
+      } else {
+        capacityStatus = [];
+        $ = cheerio.load(body);
+        $('table.TABLE2 tr').each(function(i) {
+          var applying, waiting;
+          if (i >= 2 && $(this).find('td:nth-child(1)').text() !== '') {
+            applying = parseInt($(this).find('td:nth-child(5)').text());
+            waiting = parseInt($(this).find('td:nth-child(6)').text());
+            return capacityStatus.push({
+              'date': moment($(this).find('td:nth-child(1)').text(), 'YYYY-MM-DD').format(),
+              'remaining': $(this).find('td:nth-child(4)').text(),
+              'applying': applying + waiting
+            });
+          }
+        });
+        return cb(null, capacityStatus);
+      }
     });
   };
 
-  hutCrawlerTaroko = function(url, cb) {
-    return request(url, function(err, res, body) {
+  hutCrawlerTaroko = function(hut, cb) {
+    return request(hut.url, function(err, res, body) {
       var $, capacityStatus;
-      capacityStatus = [];
-      $ = cheerio.load(body);
-      $('table tr').each(function(i) {
-        var applying, applyingString, day, month, year;
-        if (i > 0) {
-          applyingString = $(this).find('td:nth-child(2)').text();
-          applying = applyingString === '------' ? 0 : applyingString.split('隊')[1].split('人')[0];
-          year = parseInt($(this).find('td:nth-child(1)').text().substring(0, 3)) + 1911;
-          month = $(this).find('td:nth-child(1)').text().substring(4, 6);
-          day = $(this).find('td:nth-child(1)').text().substring(7, 9);
-          return capacityStatus.push({
-            'date': moment(year + ' ' + month + ' ' + day, 'YYYY MM DD').format(),
-            'remaining': $(this).find('td:nth-child(4)').text(),
-            'applying': applying
-          });
-        }
-      });
-      return cb(null, capacityStatus);
+      if (err) {
+        return cb('fail crawling ' + hut.nameZh, null);
+      } else if (res.statusCode !== 200) {
+        return cb('fail crawling ' + hut.nameZh, null);
+      } else {
+        capacityStatus = [];
+        $ = cheerio.load(body);
+        $('table tr').each(function(i) {
+          var applying, applyingString, day, month, year;
+          if (i > 0) {
+            applyingString = $(this).find('td:nth-child(2)').text();
+            applying = applyingString === '------' ? 0 : applyingString.split('隊')[1].split('人')[0];
+            year = parseInt($(this).find('td:nth-child(1)').text().substring(0, 3)) + 1911;
+            month = $(this).find('td:nth-child(1)').text().substring(4, 6);
+            day = $(this).find('td:nth-child(1)').text().substring(7, 9);
+            return capacityStatus.push({
+              'date': moment(year + ' ' + month + ' ' + day, 'YYYY MM DD').format(),
+              'remaining': $(this).find('td:nth-child(4)').text(),
+              'applying': applying
+            });
+          }
+        });
+        return cb(null, capacityStatus);
+      }
     });
   };
 

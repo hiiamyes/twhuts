@@ -4,14 +4,16 @@ request = require 'request' # https://github.com/request/request
 cheerio = require 'cheerio' # https://github.com/cheeriojs/cheerio
 
 module.exports = 
-	crawl: (url, cb)->
+	crawl: (hut, cb)->
 		capacityStatus = []
 		async.waterfall([
 			(cb) ->
 				request 'http://recreation.forest.gov.tw/index.aspx', (err, res, body) ->
-					# console.log res.statusCode
-					$ = cheerio.load body
-					cb null, $('#__VIEWSTATE').val(), $('#__EVENTVALIDATION').val()
+					if err then cb 'err', null
+					else if res.statusCode isnt 200 then cb 'err', null
+					else
+						$ = cheerio.load body
+						cb null, $('#__VIEWSTATE').val(), $('#__EVENTVALIDATION').val()
 			,(viewstate, eventvalidation, cb) ->
 				request(
 					{
@@ -26,27 +28,31 @@ module.exports =
 							'ctl00$ContentPlaceHolder1$Pass_TextBox': 'iamahutcrawler1'
 							'ctl00$ContentPlaceHolder1$btn_login': '登入'
 					}, (err, res, body) ->
-						# console.log res.statusCode
-						cookie = res.headers['set-cookie'][0].split(';')[0]
-						cb null, cookie
+						if err then cb 'err', null
+						else if res.statusCode isnt 200 then cb 'err', null
+						else
+							cookie = res.headers['set-cookie'][0].split(';')[0]
+							cb null, cookie
 				)
 			,(cookie, cb) ->
 				request(
 					{
-						'url': url
+						'url': hut.url
 						'headers':
 							'Connection': 'keep-alive'
 							'Cookie': cookie
 					}, (err, res, body) ->
-						# console.log res.statusCode
-						$ThisMonth = cheerio.load body
-						cb null, cookie, $ThisMonth, $ThisMonth('#__VIEWSTATE').val(), $ThisMonth('#__EVENTVALIDATION').val()
+						if err then cb 'err', null
+						else if res.statusCode isnt 302 then cb 'err', null
+						else
+							$ThisMonth = cheerio.load body
+							cb null, cookie, $ThisMonth, $ThisMonth('#__VIEWSTATE').val(), $ThisMonth('#__EVENTVALIDATION').val()
 				)
 			,(cookie, $ThisMonth, viewstate, eventvalidation, cb) ->
 				request(
 					{
 						'method': 'POST'
-						'url': url
+						'url': hut.url
 						'headers':
 							'Cookie': cookie
 						'form':
@@ -55,14 +61,17 @@ module.exports =
 							'__EVENTTARGET': 'eventscalendar$ctl00$NextMonth'
 							'__VIEWSTATEENCRYPTED': ''
 					}, (err, res, body) ->
-						# console.log res.statusCode
-						$NextMonth = cheerio.load body
-						capacityStatus = parser $ThisMonth, $NextMonth
-						cb null, 'done'
+						if err then cb 'err', null
+						else if res.statusCode isnt 200 then cb 'err', null
+						else
+							$NextMonth = cheerio.load body
+							capacityStatus = parser $ThisMonth, $NextMonth
+							cb null, 'done'
 				)
 		], (err, result) ->
-			# console.log result
-			cb null, capacityStatus
+			if err then cb 'fail crawling ' + hut.nameZh, null
+			else
+				cb null, capacityStatus
 		)
 
 parser = ($ThisMonth, $NextMonth) ->

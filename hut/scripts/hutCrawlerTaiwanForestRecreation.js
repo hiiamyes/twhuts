@@ -11,15 +11,21 @@
   cheerio = require('cheerio');
 
   module.exports = {
-    crawl: function(url, cb) {
+    crawl: function(hut, cb) {
       var capacityStatus;
       capacityStatus = [];
       return async.waterfall([
         function(cb) {
           return request('http://recreation.forest.gov.tw/index.aspx', function(err, res, body) {
             var $;
-            $ = cheerio.load(body);
-            return cb(null, $('#__VIEWSTATE').val(), $('#__EVENTVALIDATION').val());
+            if (err) {
+              return cb('err', null);
+            } else if (res.statusCode !== 200) {
+              return cb('err', null);
+            } else {
+              $ = cheerio.load(body);
+              return cb(null, $('#__VIEWSTATE').val(), $('#__EVENTVALIDATION').val());
+            }
           });
         }, function(viewstate, eventvalidation, cb) {
           return request({
@@ -37,25 +43,37 @@
             }
           }, function(err, res, body) {
             var cookie;
-            cookie = res.headers['set-cookie'][0].split(';')[0];
-            return cb(null, cookie);
+            if (err) {
+              return cb('err', null);
+            } else if (res.statusCode !== 200) {
+              return cb('err', null);
+            } else {
+              cookie = res.headers['set-cookie'][0].split(';')[0];
+              return cb(null, cookie);
+            }
           });
         }, function(cookie, cb) {
           return request({
-            'url': url,
+            'url': hut.url,
             'headers': {
               'Connection': 'keep-alive',
               'Cookie': cookie
             }
           }, function(err, res, body) {
             var $ThisMonth;
-            $ThisMonth = cheerio.load(body);
-            return cb(null, cookie, $ThisMonth, $ThisMonth('#__VIEWSTATE').val(), $ThisMonth('#__EVENTVALIDATION').val());
+            if (err) {
+              return cb('err', null);
+            } else if (res.statusCode !== 302) {
+              return cb('err', null);
+            } else {
+              $ThisMonth = cheerio.load(body);
+              return cb(null, cookie, $ThisMonth, $ThisMonth('#__VIEWSTATE').val(), $ThisMonth('#__EVENTVALIDATION').val());
+            }
           });
         }, function(cookie, $ThisMonth, viewstate, eventvalidation, cb) {
           return request({
             'method': 'POST',
-            'url': url,
+            'url': hut.url,
             'headers': {
               'Cookie': cookie
             },
@@ -67,13 +85,23 @@
             }
           }, function(err, res, body) {
             var $NextMonth;
-            $NextMonth = cheerio.load(body);
-            capacityStatus = parser($ThisMonth, $NextMonth);
-            return cb(null, 'done');
+            if (err) {
+              return cb('err', null);
+            } else if (res.statusCode !== 200) {
+              return cb('err', null);
+            } else {
+              $NextMonth = cheerio.load(body);
+              capacityStatus = parser($ThisMonth, $NextMonth);
+              return cb(null, 'done');
+            }
           });
         }
       ], function(err, result) {
-        return cb(null, capacityStatus);
+        if (err) {
+          return cb('fail crawling ' + hut.nameZh, null);
+        } else {
+          return cb(null, capacityStatus);
+        }
       });
     }
   };
