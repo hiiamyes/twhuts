@@ -97,26 +97,30 @@ parser = ($ThisMonth, $NextMonth) ->
 	dayPre = 0
 	month = monthThisMonth
 	$ThisMonth('.dayNumber').each (i) ->
-		# Calculate the date
-		day = parseInt $ThisMonth(this).text()
-		if i is 0 and day isnt 1 then month-- else # ex: 4/29 4/30 5/1 5/2
-			if day < dayPre then month++ # ex: 5/31 6/1 6/2 6/3
-		dayPre = day
-		push capacityStatus, $ThisMonth(this), month, day
+		if capacityStatus.length > 23 then return false
+		else
+			# Calculate the date
+			day = parseInt $ThisMonth(this).text()
+			if i is 0 and day isnt 1 then month-- else # ex: 4/29 4/30 5/1 5/2
+				if day < dayPre then month++ # ex: 5/31 6/1 6/2 6/3
+			dayPre = day
+			push capacityStatus, $ThisMonth(this), month, day
 
 	monthCheck = month
 	dayCheck = dayPre
 	month = monthThisMonth + 1
 	pass = false
 	$NextMonth('.dayNumber').each (i) ->
-		# Calculate the date
-		day = parseInt $NextMonth(this).text()
-		if i is 0 and day isnt 1 then month-- else 
-			if day < dayPre then month++
-		dayPre = day
-		if not pass and month is monthCheck and day is dayCheck then pass = true
-		else if pass
-			push capacityStatus, $NextMonth(this), month, day
+		if capacityStatus.length > 23 then return false
+		else
+			# Calculate the date
+			day = parseInt $NextMonth(this).text()
+			if i is 0 and day isnt 1 then month-- else 
+				if day < dayPre then month++
+			dayPre = day
+			if not pass and month is monthCheck and day is dayCheck then pass = true
+			else if pass
+				push capacityStatus, $NextMonth(this), month, day
 
 	capacityStatus
 

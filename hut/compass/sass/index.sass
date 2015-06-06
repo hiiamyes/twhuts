@@ -23,9 +23,15 @@ body
 	padding: 2% 3%
 	background-color: $color-blue-grey-200
 
-#about, #contact
+#about, #contact, #question
+	margin-top: 5%
+	margin-left: 5%
+#about
 	line-height: 2em
-	text-align: center
+#contact
+	line-height: 3em
+#question
+	line-height: 1.5em
 	
 // #background
 // 	width: 100%
@@ -76,9 +82,11 @@ body
 	width: 100%	
 	.topbar_group
 		&.adminColorEven
-			color: $color-brown-600
-		&.adminColorOdd
 			color: $color-blue-grey-900
+			// color: $color-brown-600
+		&.adminColorOdd
+			// color: $color-blue-grey-900
+			color: $color-brown-600
 	.topbar_admin, .topbar_hut
 		display: inline-block
 		// margin-bottom: 1em

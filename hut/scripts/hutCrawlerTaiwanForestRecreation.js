@@ -152,16 +152,20 @@
     month = monthThisMonth;
     $ThisMonth('.dayNumber').each(function(i) {
       var day;
-      day = parseInt($ThisMonth(this).text());
-      if (i === 0 && day !== 1) {
-        month--;
+      if (capacityStatus.length > 23) {
+        return false;
       } else {
-        if (day < dayPre) {
-          month++;
+        day = parseInt($ThisMonth(this).text());
+        if (i === 0 && day !== 1) {
+          month--;
+        } else {
+          if (day < dayPre) {
+            month++;
+          }
         }
+        dayPre = day;
+        return push(capacityStatus, $ThisMonth(this), month, day);
       }
-      dayPre = day;
-      return push(capacityStatus, $ThisMonth(this), month, day);
     });
     monthCheck = month;
     dayCheck = dayPre;
@@ -169,19 +173,23 @@
     pass = false;
     $NextMonth('.dayNumber').each(function(i) {
       var day;
-      day = parseInt($NextMonth(this).text());
-      if (i === 0 && day !== 1) {
-        month--;
+      if (capacityStatus.length > 23) {
+        return false;
       } else {
-        if (day < dayPre) {
-          month++;
+        day = parseInt($NextMonth(this).text());
+        if (i === 0 && day !== 1) {
+          month--;
+        } else {
+          if (day < dayPre) {
+            month++;
+          }
         }
-      }
-      dayPre = day;
-      if (!pass && month === monthCheck && day === dayCheck) {
-        return pass = true;
-      } else if (pass) {
-        return push(capacityStatus, $NextMonth(this), month, day);
+        dayPre = day;
+        if (!pass && month === monthCheck && day === dayCheck) {
+          return pass = true;
+        } else if (pass) {
+          return push(capacityStatus, $NextMonth(this), month, day);
+        }
       }
     });
     return capacityStatus;
