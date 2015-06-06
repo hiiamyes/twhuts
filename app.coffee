@@ -1,10 +1,16 @@
 express = require 'express'
 async = require 'async'
+favicon = require 'serve-favicon'
 
 app = express()
+
+# Favicon
+app.use(favicon(__dirname + '/favicon.ico'))
+
 app.set 'view engine', 'jade'
 app.set 'views', __dirname + '/'
 app.use express.static(__dirname + '/')
+
 
 # Decide the execution mode.
 env = process.env.NODE_ENV || 'development';

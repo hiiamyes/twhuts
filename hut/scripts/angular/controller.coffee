@@ -34,18 +34,31 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		'0': 'adminColorEven'
 		'1': 'adminColorOdd'
 
+	# $scope.titleBar = [
+	# 	url: '#/contact'
+	# 	name: '聯絡我'
+	# ,
+	# 	url: '#/question'
+	# 	name: '常見問題'
+	# ,
+	# 	url: '#/huts'
+	# 	name: '台灣山屋餘額查詢'
+	# ,
+	# 	url: '#/about'
+	# 	name: '關於'
+	# ]
 	$scope.titleBar = [
+		url: '#/huts'
+		name: '台灣山屋餘額查詢'
+	,	
+		url: '#/about'
+		name: '關於'
+	,
 		url: '#/contact'
 		name: '聯絡我'
 	,
 		url: '#/question'
 		name: '常見問題'
-	,
-		url: '#/huts'
-		name: '台灣山屋餘額查詢'
-	,
-		url: '#/about'
-		name: '關於'
 	]
 
 	$http

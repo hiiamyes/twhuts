@@ -35,17 +35,17 @@
       };
       $scope.titleBar = [
         {
-          url: '#/contact',
-          name: '聯絡我'
-        }, {
-          url: '#/question',
-          name: '常見問題'
-        }, {
           url: '#/huts',
           name: '台灣山屋餘額查詢'
         }, {
           url: '#/about',
           name: '關於'
+        }, {
+          url: '#/contact',
+          name: '聯絡我'
+        }, {
+          url: '#/question',
+          name: '常見問題'
         }
       ];
       $http.get('/api/hut').success(function(result, statusCode) {
