@@ -24,7 +24,7 @@ module.exports = {
                             async.waterfall([
                                 (cb) ->
                                     switch hut.admin
-                                        when '台灣山林悠遊網' then hutCrawlerTaiwanForestRecreation.crawl hut.url, cb
+                                        when '台灣山林悠遊網' then hutCrawlerTaiwanForestRecreation.crawl hut, cb
                                         when '雪霸國家公園' then hutCrawlerSheiPa hut, cb
                                         when '太魯閣國家公園' then hutCrawlerTaroko hut, cb
                                         when '玉山國家公園' then hutCrawlerYushan.crawl hut, cb
@@ -76,7 +76,7 @@ hutCrawlerTaroko = (hut, cb) ->
             capacityStatus = []
             $ = cheerio.load body
             $('table tr').each (i) ->
-                if i > 0
+                if i > 7 && i < 33
                     applyingString = $(this).find('td:nth-child(2)').text();
                     applying = if applyingString is '------' then 0 else applyingString.split('隊')[1].split('人')[0]
 

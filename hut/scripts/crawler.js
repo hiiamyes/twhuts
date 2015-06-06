@@ -32,7 +32,7 @@
                 function(cb) {
                   switch (hut.admin) {
                     case '台灣山林悠遊網':
-                      return hutCrawlerTaiwanForestRecreation.crawl(hut.url, cb);
+                      return hutCrawlerTaiwanForestRecreation.crawl(hut, cb);
                     case '雪霸國家公園':
                       return hutCrawlerSheiPa(hut, cb);
                     case '太魯閣國家公園':
@@ -113,7 +113,7 @@
         $ = cheerio.load(body);
         $('table tr').each(function(i) {
           var applying, applyingString, day, month, year;
-          if (i > 0) {
+          if (i > 7 && i < 33) {
             applyingString = $(this).find('td:nth-child(2)').text();
             applying = applyingString === '------' ? 0 : applyingString.split('隊')[1].split('人')[0];
             year = parseInt($(this).find('td:nth-child(1)').text().substring(0, 3)) + 1911;
