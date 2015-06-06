@@ -253,7 +253,7 @@
       isApplicable: true
     }, {
       name: '',
-      nameZh: '嘉明湖山屋',
+      nameZh: '嘉明湖避難山屋',
       url: 'http://recreation.forest.gov.tw/askformonhouse/AskForPaperAddNew.aspx?mode=0&AskSID=&houseid=B',
       admin: '台灣山林悠遊網',
       capacity: '70',

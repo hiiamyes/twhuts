@@ -152,7 +152,7 @@
     month = monthThisMonth;
     $ThisMonth('.dayNumber').each(function(i) {
       var day;
-      if (capacityStatus.length > 23) {
+      if (capacityStatus.length > 22) {
         return false;
       } else {
         day = parseInt($ThisMonth(this).text());
@@ -173,7 +173,7 @@
     pass = false;
     $NextMonth('.dayNumber').each(function(i) {
       var day;
-      if (capacityStatus.length > 23) {
+      if (capacityStatus.length > 22) {
         return false;
       } else {
         day = parseInt($NextMonth(this).text());

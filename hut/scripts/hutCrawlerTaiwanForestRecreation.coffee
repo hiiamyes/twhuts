@@ -97,7 +97,7 @@ parser = ($ThisMonth, $NextMonth) ->
 	dayPre = 0
 	month = monthThisMonth
 	$ThisMonth('.dayNumber').each (i) ->
-		if capacityStatus.length > 23 then return false
+		if capacityStatus.length > 22 then return false
 		else
 			# Calculate the date
 			day = parseInt $ThisMonth(this).text()
@@ -111,7 +111,7 @@ parser = ($ThisMonth, $NextMonth) ->
 	month = monthThisMonth + 1
 	pass = false
 	$NextMonth('.dayNumber').each (i) ->
-		if capacityStatus.length > 23 then return false
+		if capacityStatus.length > 22 then return false
 		else
 			# Calculate the date
 			day = parseInt $NextMonth(this).text()
