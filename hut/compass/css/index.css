@@ -149,14 +149,22 @@ body {
   background-color: #263238;
 }
 
-/* line 140, ../sass/index.sass */
+/* line 139, ../sass/index.sass */
+#update-time {
+  display: inline-block;
+  margin-top: 1em;
+  color: #263238;
+  font-size: 11pt;
+}
+
+/* line 148, ../sass/index.sass */
 bar-chart svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 158, ../sass/index.sass */
+/* line 166, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;

@@ -23,8 +23,8 @@ app.config(['$routeProvider',
 app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
 	$scope.ggData = []
-
 	$scope.isLoading = true;
+	$scope.updateDate = ''
 	$scope.hutGroups = []
 	$scope.topBarHutNames = []
 	$scope.hutNameZhSelected = ''
@@ -90,6 +90,9 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		hutApplicableInOneWeek = []
 		for hut in $scope.huts
 			if hut.nameZh is hutNameZh
+
+				$scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('YYYY M/D H:mm')
+
 				for status, istatus in hut.capacityStatuses.status
 
 					$scope.ggData.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
@@ -120,7 +123,7 @@ app.directive 'barChart', () ->
 		link: (scope, element, attrs) ->
 
 			# Constants
-			padding = 40
+			padding = 20
 			widthBar = 40
 			heightChart = 300
 			

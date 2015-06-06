@@ -22,6 +22,10 @@ html(ng-app='hutCrawler')
 		//- loaders.css
 		link(rel='stylesheet' href='../bower_components/loaders.css/loaders.min.css')
 
+		//- moment.js
+		//- http://momentjs.com/
+		script(src='../bower_components/moment/moment.js')
+
 	body(ng-controller='hutCrawlerCtrl')
 
 		#titlebar
@@ -39,7 +43,7 @@ html(ng-app='hutCrawler')
 				#cover			
 				
 			//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
-			#content							
+			#content
 				#main(ng-view)
 						
 		#copyright Copyright &copy; 2015 Tsung-Yeh Lee.

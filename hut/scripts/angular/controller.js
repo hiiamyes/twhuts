@@ -24,6 +24,7 @@
     '$scope', '$http', function($scope, $http) {
       $scope.ggData = [];
       $scope.isLoading = true;
+      $scope.updateDate = '';
       $scope.hutGroups = [];
       $scope.topBarHutNames = [];
       $scope.hutNameZhSelected = '';
@@ -67,6 +68,7 @@
         for (j = 0, len = ref.length; j < len; j++) {
           hut = ref[j];
           if (hut.nameZh === hutNameZh) {
+            $scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('YYYY M/D H:mm');
             ref1 = hut.capacityStatuses.status;
             for (istatus = k = 0, len1 = ref1.length; k < len1; istatus = ++k) {
               status = ref1[istatus];
@@ -109,7 +111,7 @@
       },
       link: function(scope, element, attrs) {
         var heightChart, padding, widthBar;
-        padding = 40;
+        padding = 20;
         widthBar = 40;
         heightChart = 300;
         return scope.$watch('data', function(g) {

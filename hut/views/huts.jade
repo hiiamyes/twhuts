@@ -17,6 +17,8 @@
 
 #divider(ng-show='!isLoading')
 
+span(id='update-time' ng-show="updateDate != ''") 資料更新時間：{{updateDate}}
+
 bar-chart(data='ggData')
 
 //- #calendar
