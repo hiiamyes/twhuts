@@ -62,6 +62,12 @@
         hutGroups: function(cb) {
           return db.collection(collectionName).aggregate([
             {
+              $match: {
+                isApplicable: {
+                  $eq: true
+                }
+              }
+            }, {
               $sort: {
                 nameZh: 1
               }

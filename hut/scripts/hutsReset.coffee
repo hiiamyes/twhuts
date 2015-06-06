@@ -101,7 +101,7 @@ hutQueryUrls = [
 	url: 'https://apply.spnp.gov.tw/BookingInfo.php?MonthInfo=1&HouseID=87'
 	admin: '雪霸國家公園'
 	capacity: '999'
-	isApplicable: true
+	isApplicable: false
 ,
 	name: 'Mayang Pond Campground'
 	nameZh: '馬洋池營地'

@@ -50,6 +50,7 @@ app.get '/api/hut', (req, res) ->
 		async.parallel(
 			hutGroups: (cb) ->
 				db.collection(collectionName).aggregate([
+					{ $match: {isApplicable: {$eq: true}}},
 					{ $sort: {nameZh: 1}}, 
 					{ $group: {
 						_id:
