@@ -1,53 +1,37 @@
-/* line 1, ../sass/index.sass */
+/* line 11, ../sass/index.sass */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 6, ../sass/index.sass */
+/* line 16, ../sass/index.sass */
 html, body {
   height: 100%;
   margin: 0;
   border: 0;
-  color: white;
+  color: #6d4c41;
 }
 
-/* line 12, ../sass/index.sass */
+/* line 22, ../sass/index.sass */
 body {
   padding: 2% 3%;
+  background-color: #b0bec5;
 }
 
-/* line 15, ../sass/index.sass */
+/* line 26, ../sass/index.sass */
 #about, #contact {
   line-height: 2em;
+  text-align: center;
 }
 
-/* line 18, ../sass/index.sass */
-#background {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-image: url(../../images/bg.jpg);
-  background-size: cover;
-}
-/* line 27, ../sass/index.sass */
-#background #cover {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-/* line 33, ../sass/index.sass */
+/* line 45, ../sass/index.sass */
 #content {
   position: relative;
   top: 0;
 }
 
-/* line 37, ../sass/index.sass */
+/* line 49, ../sass/index.sass */
 #loader {
   height: 200px;
   display: -webkit-flex;
@@ -58,54 +42,54 @@ body {
   justify-content: center;
 }
 
-/* line 46, ../sass/index.sass */
+/* line 58, ../sass/index.sass */
 #titlebar {
   padding-bottom: 20px;
 }
-/* line 48, ../sass/index.sass */
+/* line 60, ../sass/index.sass */
 #titlebar a {
-  color: white;
+  color: #263238;
   text-decoration: none;
   margin-right: 10px;
   margin-left: 10px;
   display: inline-block;
 }
-/* line 54, ../sass/index.sass */
+/* line 66, ../sass/index.sass */
 #titlebar a:hover, #titlebar a.selected {
-  color: black;
+  color: white;
 }
-/* line 56, ../sass/index.sass */
+/* line 71, ../sass/index.sass */
 #titlebar a:nth-child(1), #titlebar a:nth-child(2) {
   float: right;
 }
 
-/* line 59, ../sass/index.sass */
+/* line 74, ../sass/index.sass */
 #topbar {
   width: 100%;
 }
-/* line 62, ../sass/index.sass */
+/* line 77, ../sass/index.sass */
 #topbar .topbar_group.adminColorEven {
-  color: #fff59d;
+  color: #6d4c41;
 }
-/* line 64, ../sass/index.sass */
+/* line 79, ../sass/index.sass */
 #topbar .topbar_group.adminColorOdd {
-  color: #a5d6a7;
+  color: #263238;
 }
-/* line 66, ../sass/index.sass */
+/* line 81, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 69, ../sass/index.sass */
+/* line 84, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
-/* line 72, ../sass/index.sass */
+/* line 87, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 75, ../sass/index.sass */
+/* line 90, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
@@ -114,48 +98,49 @@ body {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 82, ../sass/index.sass */
+/* line 97, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 85, ../sass/index.sass */
+/* line 102, ../sass/index.sass */
 #topbar span:hover {
   color: white;
 }
 
-/* line 87, ../sass/index.sass */
+/* line 106, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
-  background-color: white;
+  background-color: #263238;
 }
 
-/* line 92, ../sass/index.sass */
+/* line 111, ../sass/index.sass */
 #calendar {
   margin-top: 20px;
   margin-bottom: 50px;
 }
-/* line 95, ../sass/index.sass */
+/* line 114, ../sass/index.sass */
 #calendar table {
   padding: 10px;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 100, ../sass/index.sass */
+/* line 119, ../sass/index.sass */
 #calendar table tr.content {
   border-bottom: 1px solid white;
 }
-/* line 102, ../sass/index.sass */
+/* line 121, ../sass/index.sass */
 #calendar table td {
   text-align: center;
 }
 
-/* line 105, ../sass/index.sass */
+/* line 124, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
   width: 100%;
   text-align: center;
   font-size: small;
+  color: #6d4c41;
 }

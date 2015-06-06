@@ -1,3 +1,13 @@
+$color-grey-50: #FAFAFA
+$color-blue-grey-50: #ECEFF1
+$color-blue-grey-100: #CFD8DC
+$color-blue-grey-200: #B0BEC5
+$color-blue-grey-500: #607D8B
+$color-blue-grey-700: #455A64
+$color-blue-grey-800: #37474F
+$color-blue-grey-900: #263238
+$color-brown-600: #6D4C41
+
 *
 	-webkit-box-sizing: border-box
 	-moz-box-sizing: border-box
@@ -7,28 +17,30 @@ html, body
 	height: 100%
 	margin: 0
 	border: 0
-	color: white
+	color: $color-brown-600
 
 body
 	padding: 2% 3%
+	background-color: $color-blue-grey-200
 
 #about, #contact
 	line-height: 2em
+	text-align: center
 	
-#background
-	width: 100%
-	height: 100%
-	position: fixed
-	top: 0
-	left: 0
-	background-image: url(../../images/bg.jpg)
-	background-size: cover
-	// -webkit-filter: blur(10px)
-	#cover
-		display: inline-block
-		width: 100%
-		height: 100%
-		background-color: rgba(0,0,0,0.2)
+// #background
+// 	width: 100%
+// 	height: 100%
+// 	position: fixed
+// 	top: 0
+// 	left: 0
+// 	background-image: url(../../images/bg.jpg)
+// 	background-size: cover
+// 	// -webkit-filter: blur(10px)
+// 	#cover
+// 		display: inline-block
+// 		width: 100%
+// 		height: 100%
+// 		background-color: rgba(0,0,0,0.2)
 
 #content
 	position: relative
@@ -46,13 +58,16 @@ body
 #titlebar
 	padding-bottom: 20px
 	a
-		color: white
+		color: $color-blue-grey-900
 		text-decoration: none
 		margin-right: 10px
 		margin-left: 10px
 		display: inline-block
 		&:hover, &.selected
-			color: black
+			color: white
+			// color: $color-blue-grey-50
+			// border: 1px solid white
+			// background-color: white
 		&:nth-child(1), &:nth-child(2)
 			float: right
 
@@ -60,9 +75,9 @@ body
 	width: 100%	
 	.topbar_group
 		&.adminColorEven
-			color: #FFF59D
+			color: $color-brown-600
 		&.adminColorOdd
-			color: #A5D6A7
+			color: $color-blue-grey-900
 	.topbar_admin, .topbar_hut
 		display: inline-block
 		// margin-bottom: 1em
@@ -81,13 +96,17 @@ body
 			margin-bottom: 0.5em
 			&.selected
 				color: white
+				// color: $color-blue-grey-50
+				// border: 1px solid white
 	span
 		&:hover
 			color: white
+			// color: $color-blue-grey-50
+			// border: 1px solid white
 #divider
 	width: 100%
 	height: 1px
-	background-color: white
+	background-color: $color-blue-grey-900
 
 #calendar
 	margin-top: 20px
@@ -108,3 +127,4 @@ body
 	width: 100%
 	text-align: center
 	font-size: small
+	color: $color-brown-600

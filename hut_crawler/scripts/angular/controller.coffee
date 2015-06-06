@@ -79,7 +79,7 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 			if hut.nameZh is hutNameZh
 				for status, istatus in hut.capacityStatuses.status
 
-					$scope.ggData.push {date: status.date, amount: parseInt(status.remaining)}
+					$scope.ggData.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
 
 					day = new Date(status.date).getDay()
 
@@ -133,45 +133,89 @@ app.directive 'barChart', () ->
 							.attr 'transform', 'translate(' + padding + ',' + padding + ')'
 
 						# Add the x-axis.
-						x = d3.time.scale()
-							.range [0, sizeData * widthBar - padding]
-							.domain [new Date(scope.data[0].date), new Date(scope.data[scope.data.length-1].date)]
-						xAxis = d3.svg.axis().scale(x).tickFormat(d3.time.format("%m%d")).ticks(scope.data.length)
-						chartGroup
-							.append 'g'
-							.attr 'class', 'x axis'							
-							.attr 'transform', 'translate(' + widthBar / 2 + ',' + heightChart + ')'
-							.call xAxis;
+						# x = d3.time.scale()
+						# 	.range [0, sizeData * widthBar - padding]
+						# 	.domain [new Date(scope.data[0].date), new Date(scope.data[scope.data.length-1].date)]
+						# xAxis = d3.svg.axis().scale(x).tickFormat(d3.time.format("%_m/%_d")).ticks(scope.data.length)
+						# chartGroup
+						# 	.append 'g'
+						# 	.attr 'class', 'x axis'							
+						# 	.attr 'transform', 'translate(' + widthBar / 2 + ',' + heightChart + ')'
+						# 	.call xAxis;
 
 						# Add the y-axis.
 						y = d3.scale.linear()
 							.range [heightChart, 0]
-							.domain [0, d3.max(scope.data, (d) -> d.amount)]
+							.domain [0, d3.max(scope.data, (d) -> d.remaining)]
 						# yAxis = d3.svg.axis().scale(y).orient('left')
 						# chartGroup
 						# 	.append 'g'
 						# 	.attr 'class', 'y axis'	
 						# 	.call yAxis;	
+						
+						# Create new rect according to data.
+						# chartGroup
+						# 	.append 'g'
+						# 	.selectAll('rect').data(scope.data).enter().append('rect')
+						# 	.attr 'x', (d, i) -> i * widthBar + 10
+						# 	.attr 'y', 0
+						# 	.attr 'width', widthBar - 20
+						# 	.attr 'height', heightChart
+						# 	.attr 'fill', 'black'
 
 						# Create new rect according to data.
 						chartGroup
 							.append 'g'
 							.selectAll('rect').data(scope.data).enter().append('rect')
-							.attr 'x', (d, i) -> i * widthBar + 10
-							.attr 'y', (d) -> y(d.amount)
-							.attr 'width', widthBar - 20
-							.attr 'height', (d) -> heightChart - y d.amount
-							.attr 'fill', 'rgba(255,255,255,.5)'
+							.attr 'x', (d, i) -> i * widthBar + widthBar / 4
+							.attr 'y', (d) -> y(d.remaining)
+							.attr 'width', widthBar / 2
+							.attr 'height', (d) -> heightChart - y d.remaining
+							.attr 'fill', '#263238'
+						
+						# chartGroup
+						# 	.append 'g'
+						# 	.selectAll('rect').data(scope.data).enter().append('rect')
+						# 	.attr 'x', (d, i) -> i * widthBar + widthBar / 2
+						# 	.attr 'y', (d) -> y(d.applying)
+						# 	.attr 'width', widthBar / 2
+						# 	.attr 'height', (d) -> heightChart - y d.applying
+						# 	.attr 'fill', '#ECEFF1'
 
 						# Add labels
 						chartGroup
 							.append 'g'
 							.selectAll('text').data(scope.data).enter().append('text')
-							.text (d) -> d.amount
-							.attr 'x', (d, i) -> i * widthBar
-							.attr 'y', (d) -> y(d.amount) - 5
-							.attr 'fill', 'red'		
-							.attr 'font-size', 11									
+							.text (d) -> if d.remaining != 0 then d.remaining else ''
+							.attr 'x', (d, i) -> i * widthBar + widthBar / 2
+							.attr 'y', (d) -> y(d.remaining) - 5
+							.attr 'text-anchor', 'middle'
+							.attr 'fill', '#263238'		
+							.attr 'font-size', 11	
+
+						# chartGroup
+						# 	.append 'g'
+						# 	.selectAll('text').data(scope.data).enter().append('text')
+						# 	.text (d) -> if d.applying != 0 then d.applying else ''
+						# 	.attr 'x', (d, i) -> i * widthBar + 10
+						# 	.attr 'y', (d) -> y(d.applying) - 5
+						# 	.attr 'fill', '#ECEFF1'		
+						# 	.attr 'font-size', 11	
+
+						# Add labels
+						format = d3.time.format('%_m/%_d')
+						chartGroup
+							.append 'g'
+							.selectAll('text').data(scope.data).enter().append('text')
+							.text (d) -> format(new Date(d.date))
+							.attr 'x', (d, i) -> i * widthBar + widthBar / 2
+							.attr 'y', (d) -> heightChart + 20
+							.attr 'text-anchor', 'middle'
+							.attr 'fill', (d) -> 
+								switch new Date(d.date).getDay()
+									when 0, 6 then '#E53935'
+									else '#263238'
+							.attr 'font-size', 11	
 
 				,true
 			)			

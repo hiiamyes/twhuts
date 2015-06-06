@@ -1,10 +1,18 @@
-/* line 1, ../sass/chart.sass */
-.axis path, .axis line {
+/* line 2, ../sass/chart.sass */
+.x.axis line {
+  display: none;
+}
+/* line 7, ../sass/chart.sass */
+.x.axis path {
   fill: none;
-  stroke-width: 0;
+  stroke: #263238;
+}
+/* line 11, ../sass/chart.sass */
+.x.axis text {
+  fill: #263238;
 }
 
-/* line 5, ../sass/chart.sass */
+/* line 14, ../sass/chart.sass */
 .axis text {
   font-family: sans-serif;
   font-size: 11px;

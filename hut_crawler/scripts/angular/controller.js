@@ -72,7 +72,8 @@
               status = ref1[istatus];
               $scope.ggData.push({
                 date: status.date,
-                amount: parseInt(status.remaining)
+                remaining: parseInt(status.remaining),
+                applying: parseInt(status.applying)
               });
               day = new Date(status.date).getDay();
               if (istatus === 0 && day !== 0) {
@@ -112,34 +113,51 @@
         widthBar = 40;
         heightChart = 300;
         return scope.$watch('data', function(g) {
-          var chartGroup, sizeData, svg, x, xAxis, y;
+          var chartGroup, format, sizeData, svg, y;
           sizeData = scope.data.length;
           if (sizeData !== 0) {
             d3.select(element[0]).selectAll('*').remove();
             svg = d3.select(element[0]).append('svg').attr('width', sizeData * widthBar + padding * 2).attr('height', heightChart + padding * 2);
             chartGroup = svg.append('g').attr('width', sizeData * widthBar).attr('height', heightChart).attr('transform', 'translate(' + padding + ',' + padding + ')');
-            x = d3.time.scale().range([0, sizeData * widthBar - padding]).domain([new Date(scope.data[0].date), new Date(scope.data[scope.data.length - 1].date)]);
-            xAxis = d3.svg.axis().scale(x).tickFormat(d3.time.format("%m%d")).ticks(scope.data.length);
-            chartGroup.append('g').attr('class', 'x axis').attr('transform', 'translate(' + widthBar / 2 + ',' + heightChart + ')').call(xAxis);
             y = d3.scale.linear().range([heightChart, 0]).domain([
               0, d3.max(scope.data, function(d) {
-                return d.amount;
+                return d.remaining;
               })
             ]);
             chartGroup.append('g').selectAll('rect').data(scope.data).enter().append('rect').attr('x', function(d, i) {
-              return i * widthBar + 10;
+              return i * widthBar + widthBar / 4;
             }).attr('y', function(d) {
-              return y(d.amount);
-            }).attr('width', widthBar - 20).attr('height', function(d) {
-              return heightChart - y(d.amount);
-            }).attr('fill', 'rgba(255,255,255,.5)');
-            return chartGroup.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
-              return d.amount;
+              return y(d.remaining);
+            }).attr('width', widthBar / 2).attr('height', function(d) {
+              return heightChart - y(d.remaining);
+            }).attr('fill', '#263238');
+            chartGroup.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
+              if (d.remaining !== 0) {
+                return d.remaining;
+              } else {
+                return '';
+              }
             }).attr('x', function(d, i) {
-              return i * widthBar;
+              return i * widthBar + widthBar / 2;
             }).attr('y', function(d) {
-              return y(d.amount) - 5;
-            }).attr('fill', 'red').attr('font-size', 11);
+              return y(d.remaining) - 5;
+            }).attr('text-anchor', 'middle').attr('fill', '#263238').attr('font-size', 11);
+            format = d3.time.format('%_m/%_d');
+            return chartGroup.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
+              return format(new Date(d.date));
+            }).attr('x', function(d, i) {
+              return i * widthBar + widthBar / 2;
+            }).attr('y', function(d) {
+              return heightChart + 20;
+            }).attr('text-anchor', 'middle').attr('fill', function(d) {
+              switch (new Date(d.date).getDay()) {
+                case 0:
+                case 6:
+                  return '#E53935';
+                default:
+                  return '#263238';
+              }
+            }).attr('font-size', 11);
           }
         }, true);
       }
