@@ -2,18 +2,26 @@
 (function() {
   var app;
 
-  app = angular.module('gg', []);
+  app = angular.module('comicCrawler', []);
 
-  app.controller('ggCtrl', [
+  app.controller('comicCrawlerCtrl', [
     '$scope', function($scope) {
-      var i, j, page, pages;
-      pages = [];
-      for (i = j = 1; j <= 190; i = ++j) {
-        page = '000' + i;
-        page = page.substr(-3, 3);
-        pages.push('http://99770.co/wp-content/uploads/a04cj84wj6uq04/1671/002//' + page + '.jpg');
-      }
-      return $scope.pages = pages;
+      var parser;
+      $scope.pages = [];
+      $scope.urlSubmitted = function() {
+        return parser();
+      };
+      return parser = function() {
+        var i, j, page, pages;
+        pages = [];
+        for (i = j = 1; j <= 25; i = ++j) {
+          page = '000' + i;
+          page = page.substr(-3, 3);
+          pages.push($scope.url.replace('http://', 'https://') + page + '.jpg');
+          console.log($scope.url + page + '.jpg');
+        }
+        return $scope.pages = pages;
+      };
     }
   ]);
 

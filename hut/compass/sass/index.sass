@@ -1,0 +1,174 @@
+$color-grey-50: #FAFAFA
+$color-grey-300: #E0E0E0
+$color-grey-500: #9E9E9E
+$color-blue-grey-50: #ECEFF1
+$color-blue-grey-100: #CFD8DC
+$color-blue-grey-200: #B0BEC5
+$color-blue-grey-500: #607D8B
+$color-blue-grey-700: #455A64
+$color-blue-grey-800: #37474F
+$color-blue-grey-900: #263238
+$color-brown-600: #6D4C41
+$color-light-blue-900: #01579B
+
+*
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+html, body
+	height: 100%
+	margin: 0
+	border: 0
+	color: $color-blue-grey-900
+
+body
+	// padding: 2% 3%
+	background-color: $color-blue-grey-200
+
+a
+	text-decoration: none
+
+#about, #contact, #question
+	margin-top: 5%
+	margin-left: 5%
+#about
+	line-height: 2em
+#contact
+	line-height: 2.5em
+#question
+	line-height: 1.5em
+	
+// #background
+// 	width: 100%
+// 	height: 100%
+// 	position: fixed
+// 	top: 0
+// 	left: 0
+// 	background-image: url(../../images/bg.jpg)
+// 	background-size: cover
+// 	// -webkit-filter: blur(10px)
+// 	#cover
+// 		display: inline-block
+// 		width: 100%
+// 		height: 100%
+// 		background-color: rgba(0,0,0,0.2)
+
+#container
+	padding: 2em 2em 0 2em
+
+#content
+	position: relative
+	top: 0
+
+#loader
+	height: 200px
+	display: -webkit-flex
+	display: flex
+	-webkit-align-items: center
+	align-items: center
+	-webkit-justify-content: center
+	justify-content: center
+	
+#titlebar
+	width: 100%
+	padding: 10px	
+	background-color: $color-light-blue-900
+	div
+		display: table
+		margin-left: auto
+		margin-right: auto
+	img
+		margin-right: 20px
+	a
+		display: inline-block
+		color: $color-grey-500
+		top: 50%
+		transform: translateY(-50%)
+		margin-right: 20px
+		margin-left: 20px
+		&:hover, &.selected
+			color: white
+			// color: $color-blue-grey-50
+			// border: 1px solid white
+			// background-color: white
+		// &:nth-child(1), &:nth-child(2)
+			// float: right
+
+#main
+	width: 100%
+	align-content: center
+
+#topbar
+	width: 100%	
+	.topbar_group
+		&.adminColorEven
+			color: $color-blue-grey-900
+			// color: $color-brown-600
+		&.adminColorOdd
+			// color: $color-blue-grey-900
+			color: $color-brown-600
+	.topbar_admin, .topbar_hut
+		display: inline-block		
+	.topbar_admin
+		width: 15%
+		text-align: center
+	.topbar_hut
+		width: 85%
+		vertical-align: top
+		.topbar_hut_name
+			text-align: center
+			vertical-align: middle
+			// width: 10%
+			display: inline-block
+			margin-right: 1em
+			margin-bottom: 0.5em
+			&.selected
+				color: white
+				// color: $color-blue-grey-50
+				// border: 1px solid white
+	span
+		&:hover
+			color: white
+			// color: $color-blue-grey-50
+			// border: 1px solid white
+#divider
+	width: 100%
+	height: 1px
+	margin-top: 1em
+	background-color: $color-blue-grey-900
+
+#update-time
+	display: inline-block
+	margin-top: 1em
+	// margin-left: auto
+	// margin-right: auto
+	color: $color-blue-grey-900
+	font-size: 11pt
+
+bar-chart
+	svg
+		display: block
+		margin-left: auto
+		margin-right: auto
+
+// #calendar
+// 	margin-top: 20px
+// 	margin-bottom: 50px
+// 	table
+// 		padding: 10px
+// 		width: 80%
+// 		margin-left: auto
+// 		margin-right: auto
+// 		tr.content
+// 			border-bottom: 1px solid white
+// 		td
+// 			text-align: center
+
+#copyright
+	position: fixed
+	bottom: 1em
+	width: 100%
+	text-align: center
+	font-size: small
+	color: $color-brown-600
