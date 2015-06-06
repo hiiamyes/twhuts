@@ -8,7 +8,7 @@
 
   mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking';
 
-  collectionName = 'huts';
+  collectionName = 'huts_dev';
 
   MongoClient.connect(mongoServerUrl, function(err, db) {
     return async.series({

@@ -6,13 +6,21 @@ app.set 'view engine', 'jade'
 app.set 'views', __dirname + '/'
 app.use express.static(__dirname + '/')
 
+# Decide the execution mode.
+env = process.env.NODE_ENV || 'development';
+if env is 'development'
+	collectionName = 'huts_dev'
+else if env is 'production'
+	collectionName = 'huts'
+console.log 'mode: ' + env
+
 # db
 MongoClient = require('mongodb').MongoClient
 mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking'
 
 # crawler
 crawler = require './hut_crawler/scripts/crawler.js'
-crawler.crawl MongoClient, mongoServerUrl
+crawler.crawl MongoClient, mongoServerUrl, collectionName
 
 # routing
 app.get '/', (req, res) ->
@@ -35,7 +43,7 @@ app.get '/api/hut', (req, res) ->
 	MongoClient.connect mongoServerUrl, (err, db) ->
 		async.parallel(
 			hutGroups: (cb) ->
-				db.collection('huts').aggregate([
+				db.collection(collectionName).aggregate([
 					{ $sort: {nameZh: 1}}, 
 					{ $group: {
 						_id:
@@ -47,7 +55,7 @@ app.get '/api/hut', (req, res) ->
 						cb null, result
 				)
 			huts: (cb) ->	
-				db.collection('huts').find().toArray (err, docs) ->
+				db.collection(collectionName).find().toArray (err, docs) ->
 					cb null, docs
 			, (err, results) ->
 				res.status(200).send({'hutGroups': results.hutGroups, 'huts': results.huts})

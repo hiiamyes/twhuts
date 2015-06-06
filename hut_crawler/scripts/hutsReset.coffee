@@ -1,7 +1,7 @@
 async = require 'async'
 MongoClient = require('mongodb').MongoClient
 mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking'
-collectionName = 'huts'
+collectionName = 'huts_dev'
 
 MongoClient.connect(mongoServerUrl, (err, db)->
 	async.series(

@@ -6,19 +6,18 @@ cheerio = require 'cheerio' # https://github.com/cheeriojs/cheerio
 hutCrawlerTaiwanForestRecreation = require './hutCrawlerTaiwanForestRecreation.js'
 hutCrawlerYushan = require './hutCrawlerYushan.js'
 
-collectionName = 'huts'
 reCrawlTime = 1 * 60 * 60 * 1000; # 1hr
 
 module.exports = {
-    crawl: (MongoClient, mongoServerUrl) ->
+    crawl: (MongoClient, mongoServerUrl, collectionName) ->
         do crawlOnce = () ->
             console.log 'huts crawling start'            
             
             timeStartCrawling = moment()
 
             MongoClient.connect mongoServerUrl, (err, db) ->
-                huts = db.collection collectionName;
-                huts.find().toArray (err, docs) ->
+                collection = db.collection collectionName;
+                collection.find().toArray (err, docs) ->
                     async.each(
                         docs
                         ,(hut, cbAsync) ->
@@ -31,7 +30,7 @@ module.exports = {
                                         when '玉山國家公園' then hutCrawlerYushan.crawl hut, cb
                                         when '南投林區管理處' then cb null, []
                                 ,(capacityStatus, cb) ->
-                                    huts.updateOne(
+                                    collection.updateOne(
                                         {'nameZh': hut.nameZh}  
                                         ,$set:
                                             'capacityStatuses':
