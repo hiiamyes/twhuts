@@ -182,6 +182,16 @@ app.directive 'barChart', () ->
 						# 	.attr 'height', (d) -> heightChart - y d.applying
 						# 	.attr 'fill', '#ECEFF1'
 
+						# Add line
+						chartGroup
+							.append 'line'
+							.attr 'x1', 0
+							.attr 'y1', heightChart
+							.attr 'x2', widthBar * sizeData
+							.attr 'y2', heightChart
+							.attr 'stroke-width', 1
+							.attr 'stroke', '#263238'
+
 						# Add labels
 						chartGroup
 							.append 'g'

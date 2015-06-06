@@ -131,6 +131,7 @@
             }).attr('width', widthBar / 2).attr('height', function(d) {
               return heightChart - y(d.remaining);
             }).attr('fill', '#263238');
+            chartGroup.append('line').attr('x1', 0).attr('y1', heightChart).attr('x2', widthBar * sizeData).attr('y2', heightChart).attr('stroke-width', 1).attr('stroke', '#263238');
             chartGroup.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
               if (d.remaining !== 0) {
                 return d.remaining;
