@@ -27,7 +27,7 @@
       $scope.hutGroups = [];
       $scope.topBarHutNames = [];
       $scope.hutNameZhSelected = '';
-      $scope.titleBarNameSelected = '台灣山屋餘額查詢';
+      $scope.titleBarNameSelected = '山屋餘額';
       $scope.calendarTitles = [];
       $scope.adminColor = {
         '0': 'adminColorEven',
@@ -36,7 +36,7 @@
       $scope.titleBar = [
         {
           url: '#/huts',
-          name: '台灣山屋餘額查詢'
+          name: '山屋餘額'
         }, {
           url: '#/about',
           name: '關於'

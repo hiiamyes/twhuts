@@ -1,7 +1,7 @@
 doctype html
 html(ng-app='hutCrawler')
 	head
-		title 台灣山屋餘額查詢
+		title 台灣山屋餘額查詢網
 
 		//- D3.js
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js' charset='utf-8')
@@ -24,22 +24,22 @@ html(ng-app='hutCrawler')
 
 	body(ng-controller='hutCrawlerCtrl')
 
+		#titlebar
+			div
+				img(src='../favicon.png' width='30px')
+				a(
+					ng-repeat='title in titleBar' 
+					href='{{title.url}}' 
+					ng-class='{selected: title.name == titleBarNameSelected}'
+					ng-click='titleBarNameClicked(title.name)'
+				) {{title.name}}			
+
 		#container
 			//- #background
-				#cover
-
-			//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
-			#content
-
-				#titlebar
-					img(src='../favicon.png' width='30px')
-					a(
-						ng-repeat='title in titleBar' 
-						href='{{title.url}}' 
-						ng-class='{selected: title.name == titleBarNameSelected}'
-						ng-click='titleBarNameClicked(title.name)'
-					) {{title.name}}			
+				#cover			
 				
+			//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
+			#content							
 				#main(ng-view)
 						
 		#copyright Copyright &copy; 2015 Tsung-Yeh Lee.

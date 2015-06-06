@@ -1,4 +1,6 @@
 $color-grey-50: #FAFAFA
+$color-grey-300: #E0E0E0
+$color-grey-500: #9E9E9E
 $color-blue-grey-50: #ECEFF1
 $color-blue-grey-100: #CFD8DC
 $color-blue-grey-200: #B0BEC5
@@ -7,6 +9,7 @@ $color-blue-grey-700: #455A64
 $color-blue-grey-800: #37474F
 $color-blue-grey-900: #263238
 $color-brown-600: #6D4C41
+$color-light-blue-900: #01579B
 
 *
 	-webkit-box-sizing: border-box
@@ -20,7 +23,7 @@ html, body
 	color: $color-brown-600
 
 body
-	padding: 2% 3%
+	// padding: 2% 3%
 	background-color: $color-blue-grey-200
 
 #about, #contact, #question
@@ -48,6 +51,9 @@ body
 // 		height: 100%
 // 		background-color: rgba(0,0,0,0.2)
 
+#container
+	padding: 2em 2em 0 2em
+
 #content
 	position: relative
 	top: 0
@@ -62,14 +68,23 @@ body
 	justify-content: center
 	
 #titlebar
-	align-content: center
-	padding-bottom: 20px
+	width: 100%
+	padding: 10px	
+	background-color: $color-light-blue-900
+	div
+		display: table
+		margin-left: auto
+		margin-right: auto
+	img
+		margin-right: 20px
 	a
-		color: $color-blue-grey-900
-		text-decoration: none
-		margin-right: 10px
-		margin-left: 10px
 		display: inline-block
+		color: $color-grey-500
+		top: 50%
+		transform: translateY(-50%)
+		margin-right: 20px
+		margin-left: 20px
+		text-decoration: none
 		&:hover, &.selected
 			color: white
 			// color: $color-blue-grey-50
@@ -92,8 +107,7 @@ body
 			// color: $color-blue-grey-900
 			color: $color-brown-600
 	.topbar_admin, .topbar_hut
-		display: inline-block
-		// margin-bottom: 1em
+		display: inline-block		
 	.topbar_admin
 		width: 15%
 		text-align: center
@@ -103,7 +117,7 @@ body
 		.topbar_hut_name
 			text-align: center
 			vertical-align: middle
-			width: 10%
+			// width: 10%
 			display: inline-block
 			margin-right: 1em
 			margin-bottom: 0.5em
@@ -119,6 +133,7 @@ body
 #divider
 	width: 100%
 	height: 1px
+	margin-top: 1em
 	background-color: $color-blue-grey-900
 
 bar-chart

@@ -1,11 +1,11 @@
-/* line 11, ../sass/index.sass */
+/* line 14, ../sass/index.sass */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 16, ../sass/index.sass */
+/* line 19, ../sass/index.sass */
 html, body {
   height: 100%;
   margin: 0;
@@ -13,40 +13,44 @@ html, body {
   color: #6d4c41;
 }
 
-/* line 22, ../sass/index.sass */
+/* line 25, ../sass/index.sass */
 body {
-  padding: 2% 3%;
   background-color: #b0bec5;
 }
 
-/* line 26, ../sass/index.sass */
+/* line 29, ../sass/index.sass */
 #about, #contact, #question {
   margin-top: 5%;
   margin-left: 5%;
 }
 
-/* line 29, ../sass/index.sass */
+/* line 32, ../sass/index.sass */
 #about {
   line-height: 2em;
 }
 
-/* line 31, ../sass/index.sass */
+/* line 34, ../sass/index.sass */
 #contact {
   line-height: 3em;
 }
 
-/* line 33, ../sass/index.sass */
+/* line 36, ../sass/index.sass */
 #question {
   line-height: 1.5em;
 }
 
-/* line 51, ../sass/index.sass */
+/* line 54, ../sass/index.sass */
+#container {
+  padding: 2em 2em 0 2em;
+}
+
+/* line 57, ../sass/index.sass */
 #content {
   position: relative;
   top: 0;
 }
 
-/* line 55, ../sass/index.sass */
+/* line 61, ../sass/index.sass */
 #loader {
   height: 200px;
   display: -webkit-flex;
@@ -57,89 +61,102 @@ body {
   justify-content: center;
 }
 
-/* line 64, ../sass/index.sass */
+/* line 70, ../sass/index.sass */
 #titlebar {
-  align-content: center;
-  padding-bottom: 20px;
+  width: 100%;
+  padding: 10px;
+  background-color: #01579b;
 }
-/* line 67, ../sass/index.sass */
+/* line 74, ../sass/index.sass */
+#titlebar div {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 78, ../sass/index.sass */
+#titlebar img {
+  margin-right: 20px;
+}
+/* line 80, ../sass/index.sass */
 #titlebar a {
-  color: #263238;
-  text-decoration: none;
-  margin-right: 10px;
-  margin-left: 10px;
   display: inline-block;
+  color: #9e9e9e;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 20px;
+  margin-left: 20px;
+  text-decoration: none;
 }
-/* line 73, ../sass/index.sass */
+/* line 88, ../sass/index.sass */
 #titlebar a:hover, #titlebar a.selected {
   color: white;
 }
 
-/* line 81, ../sass/index.sass */
+/* line 96, ../sass/index.sass */
 #main {
   width: 100%;
   align-content: center;
 }
 
-/* line 85, ../sass/index.sass */
+/* line 100, ../sass/index.sass */
 #topbar {
   width: 100%;
 }
-/* line 88, ../sass/index.sass */
+/* line 103, ../sass/index.sass */
 #topbar .topbar_group.adminColorEven {
   color: #263238;
 }
-/* line 91, ../sass/index.sass */
+/* line 106, ../sass/index.sass */
 #topbar .topbar_group.adminColorOdd {
   color: #6d4c41;
 }
-/* line 94, ../sass/index.sass */
+/* line 109, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 97, ../sass/index.sass */
+/* line 111, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
-/* line 100, ../sass/index.sass */
+/* line 114, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 103, ../sass/index.sass */
+/* line 117, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
-  width: 10%;
   display: inline-block;
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 110, ../sass/index.sass */
+/* line 124, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 115, ../sass/index.sass */
+/* line 129, ../sass/index.sass */
 #topbar span:hover {
   color: white;
 }
 
-/* line 119, ../sass/index.sass */
+/* line 133, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
+  margin-top: 1em;
   background-color: #263238;
 }
 
-/* line 125, ../sass/index.sass */
+/* line 140, ../sass/index.sass */
 bar-chart svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 143, ../sass/index.sass */
+/* line 158, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
