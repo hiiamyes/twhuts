@@ -27,6 +27,11 @@
           ddlLocation = 1;
           break;
         case '圓峰山屋':
+          urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
+          urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
+          selectorRemaining = 'span.style11 font';
+          ddlLocation = 2;
+          break;
         case '圓峰營地':
           urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
           urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
@@ -63,22 +68,33 @@
         return cbExports(null, capacityStatus);
       });
       return parser = function($, done) {
+        var dateEnd, dateStart;
+        dateStart = moment().add(7, 'day');
+        dateEnd = moment().add(28, 'day');
         return async.parallel({
           remainings: function(cb) {
-            var remainings;
+            var date, month, remainings, year, yearMonth;
             remainings = [];
-            $(selectorRemaining).each(function(i) {
-              return remainings.push(capacity - $(this).text());
+            date = moment();
+            yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text();
+            year = yearMonth.split('年')[0];
+            month = yearMonth.split('年')[1].split('月')[0];
+            $('#ctl00_ContentPlaceHolder1_CalendarReport tr').each(function(i) {
+              if (i >= 3 && i <= 7) {
+                return $(this).find('td > a').each(function(i) {
+                  var registered;
+                  date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD');
+                  if (date.diff(dateStart, 'day') >= 0 && date.diff(dateEnd, 'day') <= 0) {
+                    registered = $(this).parent('td').find(selectorRemaining).text();
+                    if (registered === '') {
+                      registered = 92;
+                    }
+                    return remainings.push(capacity - registered);
+                  }
+                });
+              }
             });
             return cb(null, remainings);
-          },
-          applyings: function(cb) {
-            var applyings;
-            applyings = [];
-            $('span.style14 font').each(function(i) {
-              return applyings.push($(this).text());
-            });
-            return cb(null, applyings);
           }
         }, function(err, results) {
           var i, j, len, ref, remaining;
@@ -87,8 +103,7 @@
             remaining = ref[i];
             capacityStatus.push({
               'date': moment().add(7 + capacityStatus.length, 'day').format(),
-              'remaining': remaining,
-              'applying': results.applyings[i]
+              'remaining': remaining
             });
           }
           return done();

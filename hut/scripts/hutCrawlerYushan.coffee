@@ -19,7 +19,12 @@ module.exports =
 				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 				selectorRemaining = 'span.style11 font'
 				ddlLocation = 1
-			when '圓峰山屋', '圓峰營地'
+			when '圓峰山屋'
+				urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
+				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
+				selectorRemaining = 'span.style11 font'
+				ddlLocation = 2
+			when '圓峰營地'
 				urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
 				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 				selectorRemaining = 'span.style12 font'
@@ -87,23 +92,37 @@ module.exports =
 		)
 
 		parser = ($, done) ->
+			dateStart = moment().add(7, 'day')
+			dateEnd = moment().add(28, 'day')
 			async.parallel({
 				remainings: (cb) ->
 					remainings = []
-					$(selectorRemaining).each (i) ->
-						remainings.push capacity - $(this).text()
+					date = moment()
+					# $(selectorRemaining).each (i) ->
+						# remainings.push capacity - $(this).text()						
+					yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
+					year = yearMonth.split('年')[0]
+					month = yearMonth.split('年')[1].split('月')[0]
+					$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
+						if i >= 3 and i <= 7
+							$(this).find('td > a').each (i) ->
+								date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
+								if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
+									registered = $(this).parent('td').find(selectorRemaining).text()
+									if registered is '' then registered = 92
+									remainings.push capacity - registered
 					cb null, remainings
-				, applyings: (cb) ->
-					applyings = []
-					$('span.style14 font').each (i) ->
-						applyings.push $(this).text()
-					cb null, applyings
+				# , applyings: (cb) ->
+					# applyings = []
+					# $('span.style14 font').each (i) ->
+						# applyings.push $(this).text()
+					# cb null, applyings
 			}, (err, results) ->
 				for remaining, i in results.remainings
 					capacityStatus.push
 						'date': moment().add(7 + capacityStatus.length, 'day').format()
 						'remaining': remaining
-						'applying': results.applyings[i]
+						# 'applying': results.applyings[i]
 				done()
 			)
 
