@@ -45,41 +45,41 @@ module.exports =
 					parser cheerio.load(body), () -> 
 						cb null
 				)
-			, (cb) ->
-				async.eachSeries(
-					[0..4]
-					, (itmes, eachSerialFinished) ->
-						request urlBeforeDraw, (err, res, body) ->
-							$ = cheerio.load body
-							date = moment().add(7 + capacityStatus.length,'d')
-							request({
-								'method': 'POST'
-								'url': urlBeforeDraw
-								'form':
-									'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': ''			
-									'__EVENTTARGET': ''
-									'__EVENTARGUMENT': ''
-									'__VIEWSTATE': $('#__VIEWSTATE').val()
-									'__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val()
-									'__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val()
-									'__EVENTVALIDATION': $('#__EVENTVALIDATION').val()
-									'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD')
-									'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation
-									'ctl00$ContentPlaceHolder1$btnSearch.x': 6
-									'ctl00$ContentPlaceHolder1$btnSearch.y': 19
-									'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
-							}, (err, res, body) ->
-								$ = cheerio.load body
-								applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text()
-								capacityStatus.push
-									'date': date.format()
-									'remaining': 92
-									'applying': applying
-								eachSerialFinished()
-							)
-					, (err) ->
-						if err then console.log err else cb null
-				)
+			# , (cb) ->
+			# 	async.eachSeries(
+			# 		[0..4]
+			# 		, (itmes, eachSerialFinished) ->
+			# 			request urlBeforeDraw, (err, res, body) ->
+			# 				$ = cheerio.load body
+			# 				date = moment().add(7 + capacityStatus.length,'d')
+			# 				request({
+			# 					'method': 'POST'
+			# 					'url': urlBeforeDraw
+			# 					'form':
+			# 						'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': ''			
+			# 						'__EVENTTARGET': ''
+			# 						'__EVENTARGUMENT': ''
+			# 						'__VIEWSTATE': $('#__VIEWSTATE').val()
+			# 						'__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val()
+			# 						'__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val()
+			# 						'__EVENTVALIDATION': $('#__EVENTVALIDATION').val()
+			# 						'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD')
+			# 						'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation
+			# 						'ctl00$ContentPlaceHolder1$btnSearch.x': 6
+			# 						'ctl00$ContentPlaceHolder1$btnSearch.y': 19
+			# 						'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
+			# 				}, (err, res, body) ->
+			# 					$ = cheerio.load body
+			# 					applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text()
+			# 					capacityStatus.push
+			# 						'date': date.format()
+			# 						'remaining': 92
+			# 						'applying': applying
+			# 					eachSerialFinished()
+			# 				)
+			# 		, (err) ->
+			# 			if err then console.log err else cb null
+			# 	)
 		], (err, result) ->
 			# console.log capacityStatus
 			# console.log 'time: ' + moment().diff(timeStartCrawling, 'seconds') + 's'
