@@ -29,7 +29,7 @@ module.exports =
 							'ctl00$ContentPlaceHolder1$btn_login': '登入'
 					}, (err, res, body) ->
 						if err then cb 'err', null
-						else if res.statusCode isnt 200 then cb 'err', null
+						else if res.statusCode isnt 302 then cb 'err', null
 						else
 							cookie = res.headers['set-cookie'][0].split(';')[0]
 							cb null, cookie
@@ -43,7 +43,7 @@ module.exports =
 							'Cookie': cookie
 					}, (err, res, body) ->
 						if err then cb 'err', null
-						else if res.statusCode isnt 302 then cb 'err', null
+						else if res.statusCode isnt 200 then cb 'err', null
 						else
 							$ThisMonth = cheerio.load body
 							cb null, cookie, $ThisMonth, $ThisMonth('#__VIEWSTATE').val(), $ThisMonth('#__EVENTVALIDATION').val()

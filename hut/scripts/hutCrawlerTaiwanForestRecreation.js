@@ -45,7 +45,7 @@
             var cookie;
             if (err) {
               return cb('err', null);
-            } else if (res.statusCode !== 200) {
+            } else if (res.statusCode !== 302) {
               return cb('err', null);
             } else {
               cookie = res.headers['set-cookie'][0].split(';')[0];
@@ -63,7 +63,7 @@
             var $ThisMonth;
             if (err) {
               return cb('err', null);
-            } else if (res.statusCode !== 302) {
+            } else if (res.statusCode !== 200) {
               return cb('err', null);
             } else {
               $ThisMonth = cheerio.load(body);
