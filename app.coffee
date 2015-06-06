@@ -19,18 +19,18 @@ MongoClient = require('mongodb').MongoClient
 mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking'
 
 # crawler
-crawler = require './hut_crawler/scripts/crawler.js'
+crawler = require './hut/scripts/crawler.js'
 crawler.crawl MongoClient, mongoServerUrl, collectionName
 
 # routing
 app.get '/', (req, res) ->
 	res.render 'index'
 
-app.get '/hut_crawler/views/:name', (req, res) ->
-	res.render 'hut_crawler/views/' + req.params.name
+app.get '/hut/views/:name', (req, res) ->
+	res.render 'hut/views/' + req.params.name
 
-app.get '/hut_crawler', (req, res) ->
-	res.render 'hut_crawler/views/index'
+app.get '/hut', (req, res) ->
+	res.render 'hut/views/index'
 
 app.get '/comic', (req, res) ->
 	res.render 'comic/views/index'
