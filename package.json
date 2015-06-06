@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "ISC",
@@ -16,13 +16,7 @@
     "jade": "^1.9.2",
     "moment": "^2.10.2",
     "mongodb": "^2.0.25",
-    "phantom": "^0.7.2",
     "request": "^2.54.0",
     "serve-favicon": "^2.2.1"
-  },
-  "scripts": {
-    "start": "NODE_ENV=production node app.js",
-    "postinstall": "bower install"
   }
-
 }
