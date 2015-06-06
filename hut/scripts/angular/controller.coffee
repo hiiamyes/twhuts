@@ -134,7 +134,7 @@ app.directive 'barChart', () ->
 						d3.select(element[0]).selectAll('*').remove()
 
 						# Create the canvas.
-						svg = d3.select element[0]				
+						svg = d3.select element[0]			
 							.append 'svg'			
 							.attr 'width', sizeData * widthBar + padding * 2
 							.attr 'height', heightChart + padding * 2

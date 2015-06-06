@@ -76,32 +76,38 @@ body {
 }
 
 /* line 81, ../sass/index.sass */
+#main {
+  width: 100%;
+  align-content: center;
+}
+
+/* line 85, ../sass/index.sass */
 #topbar {
   width: 100%;
 }
-/* line 84, ../sass/index.sass */
+/* line 88, ../sass/index.sass */
 #topbar .topbar_group.adminColorEven {
   color: #263238;
 }
-/* line 87, ../sass/index.sass */
+/* line 91, ../sass/index.sass */
 #topbar .topbar_group.adminColorOdd {
   color: #6d4c41;
 }
-/* line 90, ../sass/index.sass */
+/* line 94, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 93, ../sass/index.sass */
+/* line 97, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
-/* line 96, ../sass/index.sass */
+/* line 100, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 99, ../sass/index.sass */
+/* line 103, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
@@ -110,44 +116,30 @@ body {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 106, ../sass/index.sass */
+/* line 110, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 111, ../sass/index.sass */
+/* line 115, ../sass/index.sass */
 #topbar span:hover {
   color: white;
 }
 
-/* line 115, ../sass/index.sass */
+/* line 119, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
   background-color: #263238;
 }
 
-/* line 120, ../sass/index.sass */
-#calendar {
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-/* line 123, ../sass/index.sass */
-#calendar table {
-  padding: 10px;
-  width: 80%;
+/* line 125, ../sass/index.sass */
+bar-chart svg {
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 128, ../sass/index.sass */
-#calendar table tr.content {
-  border-bottom: 1px solid white;
-}
-/* line 130, ../sass/index.sass */
-#calendar table td {
-  text-align: center;
-}
 
-/* line 133, ../sass/index.sass */
+/* line 143, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
