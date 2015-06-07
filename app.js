@@ -2,13 +2,13 @@
 (function() {
   var MongoClient, app, async, collectionName, crawler, env, express, favicon, mongoServerUrl, port;
 
+  require('newrelic');
+
   express = require('express');
 
   async = require('async');
 
   favicon = require('serve-favicon');
-
-  require('newrelic');
 
   app = express();
 
