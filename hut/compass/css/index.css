@@ -24,38 +24,49 @@ a {
 }
 
 /* line 32, ../sass/index.sass */
+.slogan {
+  display: table;
+  color: #6d4c41;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16pt;
+  line-height: 2em;
+}
+
+/* line 41, ../sass/index.sass */
 #about, #contact, #question {
   margin-top: 5%;
   margin-left: 5%;
 }
 
-/* line 35, ../sass/index.sass */
+/* line 44, ../sass/index.sass */
 #about {
   line-height: 2em;
+  margin-bottom: 5%;
 }
 
-/* line 37, ../sass/index.sass */
+/* line 47, ../sass/index.sass */
 #contact {
   line-height: 2.5em;
 }
 
-/* line 40, ../sass/index.sass */
+/* line 49, ../sass/index.sass */
 #question {
   line-height: 1.5em;
 }
 
-/* line 58, ../sass/index.sass */
+/* line 67, ../sass/index.sass */
 #container {
   padding: 2em 2em 0 2em;
 }
 
-/* line 61, ../sass/index.sass */
+/* line 70, ../sass/index.sass */
 #content {
   position: relative;
   top: 0;
 }
 
-/* line 65, ../sass/index.sass */
+/* line 74, ../sass/index.sass */
 #loader {
   height: 200px;
   display: -webkit-flex;
@@ -66,23 +77,23 @@ a {
   justify-content: center;
 }
 
-/* line 74, ../sass/index.sass */
+/* line 83, ../sass/index.sass */
 #titlebar {
   width: 100%;
   padding: 10px;
   background-color: #01579b;
 }
-/* line 78, ../sass/index.sass */
+/* line 87, ../sass/index.sass */
 #titlebar div {
   display: table;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 82, ../sass/index.sass */
+/* line 91, ../sass/index.sass */
 #titlebar img {
   margin-right: 20px;
 }
-/* line 84, ../sass/index.sass */
+/* line 93, ../sass/index.sass */
 #titlebar a {
   display: inline-block;
   color: #9e9e9e;
@@ -91,44 +102,44 @@ a {
   margin-right: 20px;
   margin-left: 20px;
 }
-/* line 91, ../sass/index.sass */
+/* line 100, ../sass/index.sass */
 #titlebar a:hover, #titlebar a.selected {
   color: white;
 }
 
-/* line 99, ../sass/index.sass */
+/* line 108, ../sass/index.sass */
 #main {
   width: 100%;
   align-content: center;
 }
 
-/* line 103, ../sass/index.sass */
+/* line 112, ../sass/index.sass */
 #topbar {
   width: 100%;
 }
-/* line 106, ../sass/index.sass */
+/* line 115, ../sass/index.sass */
 #topbar .topbar_group.adminColorEven {
   color: #263238;
 }
-/* line 109, ../sass/index.sass */
+/* line 118, ../sass/index.sass */
 #topbar .topbar_group.adminColorOdd {
   color: #6d4c41;
 }
-/* line 112, ../sass/index.sass */
+/* line 121, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 114, ../sass/index.sass */
+/* line 123, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
-/* line 117, ../sass/index.sass */
+/* line 126, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 120, ../sass/index.sass */
+/* line 129, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
@@ -136,16 +147,16 @@ a {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 127, ../sass/index.sass */
+/* line 136, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 132, ../sass/index.sass */
+/* line 141, ../sass/index.sass */
 #topbar span:hover {
   color: white;
 }
 
-/* line 136, ../sass/index.sass */
+/* line 145, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
@@ -153,7 +164,7 @@ a {
   background-color: #263238;
 }
 
-/* line 142, ../sass/index.sass */
+/* line 151, ../sass/index.sass */
 #update-time {
   display: inline-block;
   margin-top: 1em;
@@ -161,14 +172,14 @@ a {
   font-size: 11pt;
 }
 
-/* line 151, ../sass/index.sass */
+/* line 160, ../sass/index.sass */
 bar-chart svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 169, ../sass/index.sass */
+/* line 178, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
