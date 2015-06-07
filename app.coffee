@@ -1,4 +1,4 @@
-require 'newrelic'
+if process.env.NODE_ENV is 'production' then require 'newrelic'
 express = require 'express'
 async = require 'async'
 favicon = require 'serve-favicon'
