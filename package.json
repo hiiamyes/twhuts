@@ -20,6 +20,7 @@
     "jade": "^1.9.2",
     "moment": "^2.10.2",
     "mongodb": "^2.0.25",
+    "newrelic": "^1.20.0",
     "request": "^2.54.0",
     "serve-favicon": "^2.2.1"
   }
