@@ -8,6 +8,8 @@
 
   favicon = require('serve-favicon');
 
+  require('newrelic');
+
   app = express();
 
   app.use(favicon(__dirname + '/favicon.ico'));
