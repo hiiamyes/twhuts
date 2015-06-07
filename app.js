@@ -2,7 +2,9 @@
 (function() {
   var MongoClient, app, async, collectionName, crawler, env, express, favicon, mongoServerUrl, port;
 
-  require('newrelic');
+  if (process.env.NODE_ENV === 'production') {
+    require('newrelic');
+  }
 
   express = require('express');
 
