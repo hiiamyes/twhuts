@@ -39,14 +39,17 @@
           url: '#/huts',
           name: '山屋餘額'
         }, {
+          url: '#/news',
+          name: '最新消息'
+        }, {
           url: '#/about',
           name: '關於'
         }, {
-          url: '#/contact',
-          name: '聯絡我'
-        }, {
           url: '#/question',
           name: '常見問題'
+        }, {
+          url: '#/contact',
+          name: '聯絡我'
         }
       ];
       $http.get('/api/hut').success(function(result, statusCode) {

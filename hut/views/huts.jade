@@ -6,7 +6,8 @@
 	.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
 		.topbar_admin
 			a.topbar_admin_name(
-				ng-click='adminClicked(hutGroup._id.admin)'
+				href='{{hutGroup.urlApply[0]}}' 
+				target='blank'
 			) {{hutGroup._id.admin}}
 		.topbar_hut
 			span.topbar_hut_name(

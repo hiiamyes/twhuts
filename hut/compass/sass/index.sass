@@ -119,35 +119,32 @@ span, p
 	.topbar_group
 		&.adminColorEven
 			color: $color-blue-grey-900
-			// color: $color-brown-600
 		&.adminColorOdd
-			// color: $color-blue-grey-900
 			color: $color-brown-600
 	.topbar_admin, .topbar_hut
 		display: inline-block		
 	.topbar_admin
 		width: 15%
 		text-align: center
+		.topbar_admin_name
+			color: inherit
+			&:hover
+				color: white
+				cursor: pointer
 	.topbar_hut
 		width: 85%
 		vertical-align: top
 		.topbar_hut_name
 			text-align: center
 			vertical-align: middle
-			// width: 10%
 			display: inline-block
 			margin-right: 1em
 			margin-bottom: 0.5em
 			&.selected
 				color: white
-				// color: $color-blue-grey-50
-				// border: 1px solid white
-	span
-		&:hover
-			color: white
-			cursor: pointer
-			// color: $color-blue-grey-50
-			// border: 1px solid white
+			&:hover
+				color: white
+				cursor: pointer
 #divider
 	width: 100%
 	height: 1px

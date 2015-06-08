@@ -128,25 +128,34 @@ span, p {
 #topbar .topbar_group.adminColorEven {
   color: #263238;
 }
-/* line 123, ../sass/index.sass */
+/* line 122, ../sass/index.sass */
 #topbar .topbar_group.adminColorOdd {
   color: #6d4c41;
 }
-/* line 126, ../sass/index.sass */
+/* line 124, ../sass/index.sass */
 #topbar .topbar_admin, #topbar .topbar_hut {
   display: inline-block;
 }
-/* line 128, ../sass/index.sass */
+/* line 126, ../sass/index.sass */
 #topbar .topbar_admin {
   width: 15%;
   text-align: center;
 }
+/* line 129, ../sass/index.sass */
+#topbar .topbar_admin .topbar_admin_name {
+  color: inherit;
+}
 /* line 131, ../sass/index.sass */
+#topbar .topbar_admin .topbar_admin_name:hover {
+  color: white;
+  cursor: pointer;
+}
+/* line 134, ../sass/index.sass */
 #topbar .topbar_hut {
   width: 85%;
   vertical-align: top;
 }
-/* line 134, ../sass/index.sass */
+/* line 137, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name {
   text-align: center;
   vertical-align: middle;
@@ -154,17 +163,17 @@ span, p {
   margin-right: 1em;
   margin-bottom: 0.5em;
 }
-/* line 141, ../sass/index.sass */
+/* line 143, ../sass/index.sass */
 #topbar .topbar_hut .topbar_hut_name.selected {
   color: white;
 }
-/* line 146, ../sass/index.sass */
-#topbar span:hover {
+/* line 145, ../sass/index.sass */
+#topbar .topbar_hut .topbar_hut_name:hover {
   color: white;
   cursor: pointer;
 }
 
-/* line 151, ../sass/index.sass */
+/* line 148, ../sass/index.sass */
 #divider {
   width: 100%;
   height: 1px;
@@ -172,7 +181,7 @@ span, p {
   background-color: #263238;
 }
 
-/* line 157, ../sass/index.sass */
+/* line 154, ../sass/index.sass */
 #update-time {
   display: inline-block;
   margin-top: 1em;
@@ -180,14 +189,14 @@ span, p {
   font-size: 11pt;
 }
 
-/* line 166, ../sass/index.sass */
+/* line 163, ../sass/index.sass */
 bar-chart svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 184, ../sass/index.sass */
+/* line 181, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
