@@ -1,17 +1,5 @@
 @import "http://fonts.googleapis.com/earlyaccess/cwtexyen.css"
-
-$color-grey-50: #FAFAFA
-$color-grey-300: #E0E0E0
-$color-grey-500: #9E9E9E
-$color-blue-grey-50: #ECEFF1
-$color-blue-grey-100: #CFD8DC
-$color-blue-grey-200: #B0BEC5
-$color-blue-grey-500: #607D8B
-$color-blue-grey-700: #455A64
-$color-blue-grey-800: #37474F
-$color-blue-grey-900: #263238
-$color-brown-600: #6D4C41
-$color-light-blue-900: #01579B
+@import "var"
 
 *
 	-webkit-box-sizing: border-box
@@ -25,24 +13,37 @@ html, body
 	color: $color-blue-grey-900
 
 body
-	// padding: 2% 3%
+	font-size: 14pt
+	font-family: 'cwTeXYen', sans-serif
 	background-color: $color-blue-grey-200
 
 a
 	text-decoration: none
+
+span, p
+	cursor: default
 
 .slogan
 	display: table
 	color: $color-brown-600
 	margin-left: auto
 	margin-right: auto
+	font-family: 'cwTeXYen', sans-serif
 	font-size: 16pt
 	line-height: 2em
-	font-family: 'cwTeXYen', sans-serif
 
-#about, #contact, #question
-	margin-top: 5%
+#changelog, #about, #contact, #question
+	margin-top: 3%
 	margin-left: 5%
+	
+#changelog
+	.divider
+		width: 50%
+		height: 1px
+		background-color: $color-blue-grey-900
+	.content
+		font-size: 14pt
+		line-height: 1.5em
 #about
 	line-height: 2em
 	margin-bottom: 5%
@@ -116,34 +117,32 @@ a
 	.topbar_group
 		&.adminColorEven
 			color: $color-blue-grey-900
-			// color: $color-brown-600
 		&.adminColorOdd
-			// color: $color-blue-grey-900
 			color: $color-brown-600
 	.topbar_admin, .topbar_hut
 		display: inline-block		
 	.topbar_admin
 		width: 15%
 		text-align: center
+		.topbar_admin_name
+			color: inherit
+			&:hover
+				color: white
+				cursor: pointer
 	.topbar_hut
 		width: 85%
 		vertical-align: top
 		.topbar_hut_name
 			text-align: center
 			vertical-align: middle
-			// width: 10%
 			display: inline-block
 			margin-right: 1em
-			margin-bottom: 0.5em
+			margin-bottom: 0.3em
 			&.selected
 				color: white
-				// color: $color-blue-grey-50
-				// border: 1px solid white
-	span
-		&:hover
-			color: white
-			// color: $color-blue-grey-50
-			// border: 1px solid white
+			&:hover
+				color: white
+				cursor: pointer
 #divider
 	width: 100%
 	height: 1px
@@ -153,10 +152,27 @@ a
 #update-time
 	display: inline-block
 	margin-top: 1em
-	// margin-left: auto
-	// margin-right: auto
+	margin-bottom: 1em
 	color: $color-blue-grey-900
-	font-size: 11pt
+	font-size: 12pt
+
+#explain-remaining, #explain-applying
+	margin-left: 50px
+	&:before
+		display: inline-block
+		content: ""
+		width: 15px
+		height: 15px
+		margin-right: 5px		
+		border-radius: 4px
+
+#explain-remaining
+	&:before
+		background-color: $color-blue-grey-900
+#explain-applying
+	color: white
+	&:before
+		background-color: #ffffff
 
 bar-chart
 	svg

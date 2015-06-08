@@ -1,16 +1,28 @@
-.x.axis 
-	line
-		display: none
-		// fill: none
-		// stroke: black
-		// stroke-width: 1
-	path
-		// display: none
-		fill: none
-		stroke: #263238
-	text
-		fill: #263238
+@import "var"
 
-.axis text
-	font-family: sans-serif
-	font-size: 11px
+.label
+	font-size: 9pt
+	&.date
+		text-anchor: middle
+	&.remaining
+		text-anchor: end
+	&.applying
+		text-anchor: start
+
+.remaining
+	&.bar, &.label
+		fill: $color-blue-grey-900
+
+.applying
+	&.bar, &.label
+		fill: white
+
+.xaxis
+	stroke: $color-blue-grey-900
+	stroke-width: 1px
+
+.label.date
+	&.weekday
+		fill: $color-blue-grey-900		
+	&.weekend
+		fill: $color-red-600

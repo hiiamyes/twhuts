@@ -5,8 +5,9 @@
 #topbar
 	.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
 		.topbar_admin
-			span.topbar_admin_name(
-				ng-click='adminClicked(hutGroup._id.admin)'
+			a.topbar_admin_name(
+				href='{{hutGroup.urlApply[0]}}' 
+				target='blank'
 			) {{hutGroup._id.admin}}
 		.topbar_hut
 			span.topbar_hut_name(
@@ -17,7 +18,9 @@
 
 #divider(ng-show='!isLoading')
 
-span(id='update-time' ng-show="updateDate != ''") 資料更新時間：{{updateDate}}
+span(id='update-time' ng-show="updateDate != ''") [資料更新時間]&nbsp;{{updateDate}}
+span(id='explain-remaining' ng-show="updateDate != ''") 剩餘床位數
+span(id='explain-applying' ng-show="updateDate != ''") 申請中人數
 
 bar-chart(data='ggData')
 

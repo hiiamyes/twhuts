@@ -58,6 +58,8 @@ app.get '/api/hut', (req, res) ->
 							admin: '$admin'
 						hutNameZhs:
 							$push: '$nameZh'
+						urlApply:
+							$addToSet: '$urlApply'
 					}}
 				], (err, result) ->
 						cb null, result

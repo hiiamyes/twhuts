@@ -68,46 +68,30 @@
         return cbExports(null, capacityStatus);
       });
       return parser = function($, done) {
-        var dateEnd, dateStart;
+        var dateEnd, dateStart, month, year, yearMonth;
         dateStart = moment().add(7, 'day');
         dateEnd = moment().add(28, 'day');
-        return async.parallel({
-          remainings: function(cb) {
-            var date, month, remainings, year, yearMonth;
-            remainings = [];
-            date = moment();
-            yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text();
-            year = yearMonth.split('年')[0];
-            month = yearMonth.split('年')[1].split('月')[0];
-            $('#ctl00_ContentPlaceHolder1_CalendarReport tr').each(function(i) {
-              if (i >= 3 && i <= 7) {
-                return $(this).find('td > a').each(function(i) {
-                  var registered;
-                  date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD');
-                  if (date.diff(dateStart, 'day') >= 0 && date.diff(dateEnd, 'day') <= 0) {
-                    registered = $(this).parent('td').find(selectorRemaining).text();
-                    if (registered === '') {
-                      registered = 92;
-                    }
-                    return remainings.push(capacity - registered);
-                  }
+        yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text();
+        year = yearMonth.split('年')[0];
+        month = yearMonth.split('年')[1].split('月')[0];
+        $('#ctl00_ContentPlaceHolder1_CalendarReport tr').each(function(i) {
+          if (i >= 3 && i <= 7) {
+            return $(this).find('td > a').each(function(i) {
+              var applying, date, registered;
+              date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD');
+              if (date.diff(dateStart, 'day') >= 0 && date.diff(dateEnd, 'day') <= 0) {
+                registered = $(this).parent('td').find(selectorRemaining).text();
+                applying = $(this).parent('td').find('span.style14 font').text();
+                return capacityStatus.push({
+                  'date': moment().add(7 + capacityStatus.length, 'day').format(),
+                  'remaining': registered === '' ? 0 : capacity - registered,
+                  'applying': applying === '' ? 0 : applying
                 });
               }
             });
-            return cb(null, remainings);
           }
-        }, function(err, results) {
-          var i, j, len, ref, remaining;
-          ref = results.remainings;
-          for (i = j = 0, len = ref.length; j < len; i = ++j) {
-            remaining = ref[i];
-            capacityStatus.push({
-              'date': moment().add(7 + capacityStatus.length, 'day').format(),
-              'remaining': remaining
-            });
-          }
-          return done();
         });
+        return done();
       };
     }
   };

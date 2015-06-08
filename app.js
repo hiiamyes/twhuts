@@ -82,6 +82,9 @@
                 },
                 hutNameZhs: {
                   $push: '$nameZh'
+                },
+                urlApply: {
+                  $addToSet: '$urlApply'
                 }
               }
             }
