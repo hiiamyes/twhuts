@@ -204,14 +204,42 @@ span, p {
   font-size: 12pt;
 }
 
-/* line 160, ../sass/index.sass */
+/* line 159, ../sass/index.sass */
+#explain-remaining, #explain-applying {
+  margin-left: 50px;
+}
+/* line 161, ../sass/index.sass */
+#explain-remaining:before, #explain-applying:before {
+  display: inline-block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+/* line 170, ../sass/index.sass */
+#explain-remaining:before {
+  background-color: #263238;
+}
+
+/* line 172, ../sass/index.sass */
+#explain-applying {
+  color: white;
+}
+/* line 174, ../sass/index.sass */
+#explain-applying:before {
+  background-color: white;
+}
+
+/* line 178, ../sass/index.sass */
 bar-chart svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 178, ../sass/index.sass */
+/* line 196, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;

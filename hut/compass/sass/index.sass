@@ -156,6 +156,24 @@ span, p
 	color: $color-blue-grey-900
 	font-size: 12pt
 
+#explain-remaining, #explain-applying
+	margin-left: 50px
+	&:before
+		display: inline-block
+		content: ""
+		width: 15px
+		height: 15px
+		margin-right: 5px		
+		border-radius: 4px
+
+#explain-remaining
+	&:before
+		background-color: $color-blue-grey-900
+#explain-applying
+	color: white
+	&:before
+		background-color: #ffffff
+
 bar-chart
 	svg
 		display: block

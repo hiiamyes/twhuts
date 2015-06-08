@@ -19,6 +19,8 @@
 #divider(ng-show='!isLoading')
 
 span(id='update-time' ng-show="updateDate != ''") [資料更新時間]&nbsp;{{updateDate}}
+span(id='explain-remaining' ng-show="updateDate != ''") 剩餘床位數
+span(id='explain-applying' ng-show="updateDate != ''") 申請中人數
 
 bar-chart(data='ggData')
 
