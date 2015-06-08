@@ -1,0 +1,805 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"YYYY",
+				"YYYY-MM-DD"
+			],
+			[
+				"sr",
+				"script"
+			],
+			[
+				"update",
+				"updateDate"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"conten",
+				"align-content"
+			],
+			[
+				"rem",
+				"remaining"
+			],
+			[
+				"colle",
+				"collectionName"
+			],
+			[
+				"hei",
+				"heightChart"
+			],
+			[
+				"wi",
+				"widthBar"
+			],
+			[
+				"cob",
+				"color-blue-grey-700"
+			],
+			[
+				"hi",
+				"heightChart"
+			],
+			[
+				"siz",
+				"sizeData"
+			],
+			[
+				"y",
+				"yScale"
+			],
+			[
+				"sele",
+				"selectAll"
+			],
+			[
+				"scri",
+				"scripts"
+			],
+			[
+				"hut",
+				"hutGroup"
+			],
+			[
+				"title",
+				"titleBarName"
+			],
+			[
+				"ti",
+				"titleBarName"
+			],
+			[
+				"angu",
+				"angular-route"
+			],
+			[
+				"page",
+				"pages"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"app",
+				"applying"
+			],
+			[
+				"textal",
+				"text-align"
+			],
+			[
+				"tophu",
+				"topbar_hut_name"
+			],
+			[
+				"top",
+				"topbar"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"huna",
+				"hutNames"
+			],
+			[
+				"each",
+				"eachSerial"
+			],
+			[
+				"res",
+				"results"
+			],
+			[
+				"re",
+				"results"
+			],
+			[
+				"l",
+				"length"
+			],
+			[
+				"se",
+				"seconds"
+			],
+			[
+				"coll",
+				"collectionName"
+			],
+			[
+				"ev",
+				"eventvalidation"
+			],
+			[
+				"__",
+				"__VIEWSTATE"
+			],
+			[
+				"optionsH",
+				"optionsHomePage"
+			],
+			[
+				"do",
+				"docs"
+			],
+			[
+				"gg",
+				"googleapis"
+			],
+			[
+				"par",
+				"parserFunction"
+			],
+			[
+				"mon",
+				"monthZH"
+			],
+			[
+				"co",
+				"collectionHuts"
+			],
+			[
+				"lo",
+				"log	log"
+			],
+			[
+				"open",
+				"opened"
+			],
+			[
+				"Re",
+				"RE_CRAWL_TIME"
+			],
+			[
+				"br",
+				"break"
+			],
+			[
+				"comm",
+				"comments"
+			],
+			[
+				"nu",
+				"numberUpdated"
+			],
+			[
+				"find",
+				"findOne"
+			],
+			[
+				"scores",
+				"scoresUpdated"
+			],
+			[
+				"scor",
+				"score"
+			],
+			[
+				"url",
+				"urlHut"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"name",
+				"nameZh"
+			],
+			[
+				"valida",
+				"validateUserDoc"
+			],
+			[
+				"us",
+				"user"
+			],
+			[
+				"te",
+				"Temperature"
+			],
+			[
+				"getda",
+				"getDay"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"data",
+				"data_exp"
+			],
+			[
+				"colu",
+				"column_chart"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "hut/scripts/crawler.coffee",
+			"settings":
+			{
+				"buffer_size": 4723,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 187.0,
+		"last_filter": "sssas",
+		"selected_items":
+		[
+			[
+				"sssas",
+				"Set Syntax: Sass"
+			],
+			[
+				"sssa",
+				"Set Syntax: Sass"
+			],
+			[
+				"sss",
+				"Set Syntax: Sass"
+			],
+			[
+				"sssass",
+				"Set Syntax: Sass"
+			],
+			[
+				"sscoff",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"ssco",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"pin",
+				"Package Control: Install Package"
+			],
+			[
+				"sscosf",
+				"Set Syntax: CoffeeScript"
+			],
+			[
+				"pain",
+				"Package Control: Install Package"
+			],
+			[
+				"sshtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssjas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"inp",
+				"Package Control: Install Package"
+			],
+			[
+				"ssjad",
+				"Set Syntax: Jade"
+			],
+			[
+				"setsjade",
+				"Set Syntax: Jade"
+			],
+			[
+				"packconins",
+				"Package Control: Install Package"
+			],
+			[
+				"packin",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 153.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Yes/Dropbox/Yes/code/yesweb"
+	],
+	"file_history":
+	[
+		"/Users/Yes/Dropbox/Yes/FL/MioLink/BT/app/src/main/java/tw/yes/bt/util/ExportUtil.java",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/app.coffee",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.html",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.csv",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutCrawlerYushan.coffee",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/package.json",
+		"/Users/Yes/Dropbox/Yes/code/ch/app.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutCrawlerTaiwanForestRecreation.coffee",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.xls",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/sass/index.sass",
+		"/Users/Yes/Dropbox/Yes/新增資料夾/新文字文件.txt",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/about.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/crawler.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/app.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/bower.json",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/app.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/Procfile",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/package.json",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/newrelic.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutsReset.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/index.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/question.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/angular/controller.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/huts.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/contact.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/index.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/bower_components/moment/README.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutsReset.js",
+		"/Users/Yes/Downloads/hallo.html",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/css/index.css",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/analysis.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/crawler.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/.sass-cache/96826677a94cef0ebd53a90cbc17b7e0698329ba/chart.sassc",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/.sass-cache/96826677a94cef0ebd53a90cbc17b7e0698329ba/index.sassc",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/views/index.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/analysis.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/analysis.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/views/huts.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/compass/sass/chart.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/angular/controller.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/crawler.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/hutsReset.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/compass/sass/index.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/views/contact.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/views/about.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/compass/css/index.css",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/angular/controller.js",
+		"/Users/Yes/Downloads/<!DOCTYPE html>",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/d3_demo/index.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/chart.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/d3_demo/index.jade",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-06-03-役生一次 196 日 Visualization + D3.js - Part 1.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/chart.js",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-14-役生一次 176 日 登山客 Estonia.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/hutCrawlerTaiwanForestRecreation.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/scripts/hutCrawlerTaiwanForestRecreation.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/views/question.jade",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-27-役生一次 189 日 雪主東 Day2.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-26-役生一次 188 日 雪主東 Day1.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-31-役生一次 192 日 如果能從保育志工的角色來看山.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-28-役生一次 189 日 雪主東 後記.md",
+		"/Users/Yes/Dropbox/Yes/hiking/data.js",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-31-役生一次 191 日 如果能從保育志工的角色來看山.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-29-役生一次 190 日 替代役的日常.md",
+		"/Users/Yes/Dropbox/Yes/hiking/登山計畫書/雪主東下翠池/保險.txt",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/compass/sass/index.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/angular/controller.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/views/about.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/views/contact.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/views/index.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/views/huts.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/views/question.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/compass/css/index.css",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/comic/compass/sass/index.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/comic/scripts/angular/controller.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/comic/views/index.jade",
+		"/Users/Yes/Downloads/C-168說明書載點.txt",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_drafts/2015-05-19-役生一次 181 日 又用 code 看完了自殺島.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/comic/scripts/gg.coffee",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_drafts/2015-05-18-役生一次 180 日 死亡預告.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_drafts/2015-05-17-役生一次 179 日 遊客中心.md",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/views/index.jade",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/angular/controllers/0.3.js",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/angular/controllers/browser.js",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/angular/controllers/browser.coffee",
+		"/Volumes/Git 2.4.0 Mavericks Intel Universal/README.txt",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutsReset.coffee",
+		"/Users/Yes/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/crawler.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutCrawlerYushan.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutCrawlerTaiwanForestRecreation.coffee",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/compass/sass/beautiful-input.sass",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/compass/sass/photo.sass",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/compass/sass/marker.sass",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/compass/sass/main.sass",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/compass/sass/keywords.sass",
+		"/Users/Yes/GoogleDrive/myWeb/yesphoto/compass/sass/beautiful-upload.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/hutCrawlerYushan.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutCrawlerYushan.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/hutCrawlerYushan.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/loginCrawlerWithPhantom.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/db.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-15-役生一次 177 日 JavaScript 的 Date 不懂民國.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/angular/controller.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/hutCrawlerTianchi.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/hutCrawlerTianchi.js",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-02-14-役生一次 86 日 當 Gopro 遇上 4k 縮時.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_layouts/default.html",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-13-役生一次 175 日 用 Final Cut Pro 後製不出 H.264 縮時影片？.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/css/default.css",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_layouts/post.html",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/FitVids.js-master/bower.json",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/Gemfile",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/css/syntax.css",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-13-役生一次 175 日 用 Final Cut Pro 後製不出 H264 縮時影片？.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-07-役生一次 169 日 終於給我爬到你 台灣山林悠遊網.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-13-役生一次 175 日 h264 不能 4000 x 3000.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_drafts/2015-04-24-役生一次 156 日 Final Cut Pro.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-13-h264 不能 4000 x 3000.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutsReset.js",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-04-08-役生一次 140 日 第 7 次放假 北大武 Day 1.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-04-09-役生一次 141 日 第 7 次放假 北大武 Day 2.md",
+		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-09-役生一次 171 日 Certification from MongoDB University.md",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutCrawlerTaiwanForestRecreation.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/crawler.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/hutCrawlerTaiwanForestRecreation.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/crawlerTaiwanForestRecreation.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/loginCrawlerSimple.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 99.0,
+		"where_history":
+		[
+			"",
+			"nameZh"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".a",
+			"大霸",
+			"hutGroups",
+			"float",
+			"ico",
+			"moment",
+			"cheerio",
+			"hut_crawler",
+			".use",
+			"format",
+			"heightChart",
+			".domain",
+			"width",
+			"net",
+			"battl",
+			"isLoading",
+			"color: whi",
+			"ch",
+			"urlSubmmitted",
+			"controller",
+			"pwInputted",
+			"crawler",
+			"hiiam",
+			"remaining",
+			"apply",
+			"white",
+			"hutName",
+			"mom",
+			"moment",
+			"南湖",
+			"moment",
+			"momoent",
+			"sub",
+			"true;",
+			"',",
+			",",
+			"}, {",
+			"applying",
+			"flickr",
+			"'False",
+			":",
+			"ctl00",
+			"ct100",
+			"url",
+			"parent",
+			"dateCrawl",
+			"Date",
+			"date",
+			"eventscalendar_Label1_0",
+			"month",
+			"monthThisMonth",
+			"month",
+			"GridView",
+			":",
+			"忘記",
+			"week",
+			"getPostByPermalink",
+			"incrementLikes",
+			"comment",
+			"script",
+			"scripte",
+			"like",
+			"//",
+			"inject",
+			"evalu",
+			"document.getElementById('",
+			"toString",
+			"urlLoginPage",
+			";\n            break;",
+			":\n            ",
+			"case ",
+			"ser",
+			"seris",
+			"for",
+			"sh",
+			"crawlDate",
+			"fals",
+			"als",
+			"moment",
+			"015-04-08 15.18.",
+			"聊天",
+			"date",
+			"isLoginFinished",
+			"each",
+			"護照",
+			"退",
+			"update",
+			"addComment",
+			"displayPostNotFound",
+			"addComment",
+			"comment",
+			"insert",
+			"newco",
+			"newcomm",
+			"naem",
+			"黑水",
+			"黑水塘",
+			"throw",
+			"valida",
+			"find",
+			"users",
+			"click",
+			"name_zh",
+			"(fun",
+			"number",
+			"hiiam",
+			"repeat",
+			"bodyParser",
+			"雪",
+			"http",
+			"path",
+			"腳",
+			"pchom",
+			"whatsthe",
+			"2015-02-05 15.53.37",
+			"2015-02-05 15.53.37.jpg",
+			"2015-02-05 16.06.05",
+			"getAppVersionName",
+			"version",
+			"package",
+			"version",
+			"data_group",
+			"column"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"hut",
+			"heightSVG",
+			"true",
+			"'",
+			"",
+			",",
+			"'False'",
+			"': '",
+			"			'ctl00",
+			"monthThisMonth",
+			"month",
+			"monthThisMonth",
+			"month",
+			"					'GridView",
+			"': ''",
+			":",
+			"': ''",
+			"'",
+			"$('#",
+			"",
+			" then ",
+			"then ",
+			"when ",
+			"dateCrawl",
+			"name",
+			"nameZh",
+			"nameZh\nnameZh",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "hut/scripts/crawler.coffee",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4723,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "app.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 584.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 267.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
