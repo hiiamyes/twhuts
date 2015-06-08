@@ -1,7 +1,10 @@
+env = process.env.NODE_ENV || 'dev'
+console.log env + ' mode'
+collectionName = if env is 'prod' then 'huts' else 'huts_dev'
+
 async = require 'async'
 MongoClient = require('mongodb').MongoClient
 mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking'
-collectionName = 'huts_dev'
 
 MongoClient.connect(mongoServerUrl, (err, db)->
 	async.series(
