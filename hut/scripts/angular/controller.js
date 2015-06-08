@@ -130,13 +130,13 @@
         groupChartHeight = 300;
         groupChartPadding = 20;
         barWidth = 14;
-        barInterval = 26;
+        barInterval = 24;
         return scope.$watch('data', function(g) {
           var applyingMax, format, groupChart, groupChartWidth, j, remainingMax, results, sizeData, svg, xAxis, yScale;
           sizeData = scope.data.length;
           if (sizeData !== 0) {
             d3.select(element[0]).selectAll('*').remove();
-            groupChartWidth = barWidth * 2 * sizeData + barInterval * (sizeData - 1);
+            groupChartWidth = (barWidth * 2 + barInterval) * sizeData;
             svg = d3.select(element[0]).append('svg').attr('width', groupChartWidth + groupChartPadding * 2).attr('height', groupChartHeight + groupChartPadding * 2);
             groupChart = svg.append('g').attr('width', groupChartWidth).attr('height', groupChartHeight).attr('transform', 'translate(' + groupChartPadding + ',' + groupChartPadding + ')');
             remainingMax = d3.max(scope.data, function(d) {
@@ -161,7 +161,7 @@
               return groupChartHeight - yScale(d.applying);
             }).attr('class', 'bar applying');
             xAxis = groupChart.append('g');
-            xAxis.append('line').attr('x1', 0).attr('y1', groupChartHeight).attr('x2', groupChartWidth + barInterval).attr('y2', groupChartHeight).attr('class', 'xaxis');
+            xAxis.append('line').attr('x1', 0).attr('y1', groupChartHeight).attr('x2', groupChartWidth).attr('y2', groupChartHeight).attr('class', 'xaxis');
             xAxis.append('g').selectAll('line').data((function() {
               results = [];
               for (var j = 0; 0 <= sizeData ? j <= sizeData : j >= sizeData; 0 <= sizeData ? j++ : j--){ results.push(j); }

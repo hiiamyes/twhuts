@@ -130,7 +130,7 @@ app.directive 'barChart', () ->
 			groupChartHeight = 300
 			groupChartPadding = 20
 			barWidth = 14 # There are two bars in one day.
-			barInterval = 26
+			barInterval = 24
 			
 			# Let's draw!
 			scope.$watch(
@@ -143,7 +143,7 @@ app.directive 'barChart', () ->
 						d3.select(element[0]).selectAll('*').remove()
 
 						# 
-						groupChartWidth = barWidth * 2 * sizeData + barInterval * (sizeData - 1)
+						groupChartWidth = (barWidth * 2 + barInterval) * sizeData
 						
 						# 
 						svg = d3.select element[0]			
@@ -191,7 +191,7 @@ app.directive 'barChart', () ->
 							.append 'line'
 							.attr 'x1', 0
 							.attr 'y1', groupChartHeight
-							.attr 'x2', groupChartWidth + barInterval
+							.attr 'x2', groupChartWidth
 							.attr 'y2', groupChartHeight
 							.attr 'class', 'xaxis'
 
