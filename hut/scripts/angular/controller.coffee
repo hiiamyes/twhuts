@@ -6,6 +6,9 @@ app.config(['$routeProvider',
 			when('/huts',
 				templateUrl: 'views/huts'
 			).
+			when('/changelog',
+				templateUrl: 'views/changelog'
+			).
 			when('/about',
 				templateUrl: 'views/about'
 			).
@@ -37,6 +40,9 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 	$scope.titleBar = [
 		url: '#/huts'
 		name: '山屋餘額'
+	,
+		url: '#/changelog'
+		name: '更新日誌'
 	,	
 		url: '#/about'
 		name: '關於'
@@ -78,7 +84,7 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		for hut in $scope.huts
 			if hut.nameZh is hutNameZh
 
-				$scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('YYYY M/D H:mm')
+				$scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('M月D日 H:mm')
 
 				for status, istatus in hut.capacityStatuses.status
 

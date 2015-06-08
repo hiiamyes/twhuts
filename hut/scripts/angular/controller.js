@@ -8,6 +8,8 @@
     '$routeProvider', function($routeProvider) {
       return $routeProvider.when('/huts', {
         templateUrl: 'views/huts'
+      }).when('/changelog', {
+        templateUrl: 'views/changelog'
       }).when('/about', {
         templateUrl: 'views/about'
       }).when('/question', {
@@ -39,8 +41,8 @@
           url: '#/huts',
           name: '山屋餘額'
         }, {
-          url: '#/news',
-          name: '最新消息'
+          url: '#/changelog',
+          name: '更新日誌'
         }, {
           url: '#/about',
           name: '關於'
@@ -71,7 +73,7 @@
         for (j = 0, len = ref.length; j < len; j++) {
           hut = ref[j];
           if (hut.nameZh === hutNameZh) {
-            $scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('YYYY M/D H:mm');
+            $scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('M月D日 H:mm');
             ref1 = hut.capacityStatuses.status;
             for (istatus = k = 0, len1 = ref1.length; k < len1; istatus = ++k) {
               status = ref1[istatus];
