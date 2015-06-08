@@ -94,37 +94,51 @@ module.exports =
 		parser = ($, done) ->
 			dateStart = moment().add(7, 'day')
 			dateEnd = moment().add(28, 'day')
-			async.parallel({
-				remainings: (cb) ->
-					remainings = []
-					date = moment()
-					# $(selectorRemaining).each (i) ->
-						# remainings.push capacity - $(this).text()						
-					yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
-					year = yearMonth.split('年')[0]
-					month = yearMonth.split('年')[1].split('月')[0]
-					$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
-						if i >= 3 and i <= 7
-							$(this).find('td > a').each (i) ->
-								date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
-								if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
-									registered = $(this).parent('td').find(selectorRemaining).text()
-									if registered is '' then registered = 92
-									remainings.push capacity - registered
-					cb null, remainings
-				# , applyings: (cb) ->
-					# applyings = []
-					# $('span.style14 font').each (i) ->
-						# applyings.push $(this).text()
-					# cb null, applyings
-			}, (err, results) ->
-				for remaining, i in results.remainings
-					capacityStatus.push
-						'date': moment().add(7 + capacityStatus.length, 'day').format()
-						'remaining': remaining
-						# 'applying': results.applyings[i]
-				done()
-			)
+			yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
+			year = yearMonth.split('年')[0]
+			month = yearMonth.split('年')[1].split('月')[0]
+			$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
+				if i >= 3 and i <= 7
+					$(this).find('td > a').each (i) ->
+						date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
+						if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
+							registered = $(this).parent('td').find(selectorRemaining).text()
+							applying = $(this).parent('td').find('span.style14 font').text()
+							capacityStatus.push
+								'date': moment().add(7 + capacityStatus.length, 'day').format()
+								'remaining': if registered is '' then 0 else capacity - registered
+								'applying': if applying is '' then 0 else applying
+			done()
+
+			# async.parallel({
+			# 	remainings: (cb) ->
+			# 		remainings = []
+			# 		date = moment()
+			# 		yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
+			# 		year = yearMonth.split('年')[0]
+			# 		month = yearMonth.split('年')[1].split('月')[0]
+			# 		$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
+			# 			if i >= 3 and i <= 7
+			# 				$(this).find('td > a').each (i) ->
+			# 					date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
+			# 					if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
+			# 						registered = $(this).parent('td').find(selectorRemaining).text()
+			# 						if registered is '' then registered = 92
+			# 						remainings.push capacity - registered
+			# 		cb null, remainings
+			# 	# , applyings: (cb) ->
+			# 		# applyings = []
+			# 		# $('span.style14 font').each (i) ->
+			# 			# applyings.push $(this).text()
+			# 		# cb null, applyings
+			# }, (err, results) ->
+			# 	for remaining, i in results.remainings
+			# 		capacityStatus.push
+			# 			'date': moment().add(7 + capacityStatus.length, 'day').format()
+			# 			'remaining': remaining
+			# 			# 'applying': results.applyings[i]
+			# 	done()
+			# )
 
 
 
