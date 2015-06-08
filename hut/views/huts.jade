@@ -5,7 +5,7 @@
 #topbar
 	.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
 		.topbar_admin
-			span.topbar_admin_name(
+			a.topbar_admin_name(
 				ng-click='adminClicked(hutGroup._id.admin)'
 			) {{hutGroup._id.admin}}
 		.topbar_hut
