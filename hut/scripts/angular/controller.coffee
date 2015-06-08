@@ -115,11 +115,24 @@ app.directive 'barChart', () ->
 		scope: {data: '=data'},
 		link: (scope, element, attrs) ->
 
+			###
+			Structure
+				svg
+					groupChart
+						groupBarRemaining
+						groupBarApplying
+						groupLabelRemaing
+						groupLabelApplying
+						groupXAxis
+			###
+
 			# Constants
-			padding = 20
-			widthBar = 40
-			heightChart = 300
+			groupChartHeight = 300
+			groupChartPadding = 20
+			barWidth = 14 # There are two bars in one day.
+			barInterval = 26
 			
+			# Let's draw!
 			scope.$watch(
 				'data'
 				,(g) ->
@@ -129,112 +142,96 @@ app.directive 'barChart', () ->
 						# Clear all.
 						d3.select(element[0]).selectAll('*').remove()
 
-						# Create the canvas.
+						# 
+						groupChartWidth = barWidth * 2 * sizeData + barInterval * (sizeData - 1)
+						
+						# 
 						svg = d3.select element[0]			
 							.append 'svg'			
-							.attr 'width', sizeData * widthBar + padding * 2
-							.attr 'height', heightChart + padding * 2
+							.attr 'width',  groupChartWidth + groupChartPadding * 2
+							.attr 'height', groupChartHeight + groupChartPadding * 2
 
-						chartGroup = svg
+						# 
+						groupChart = svg
 							.append 'g'
-							.attr 'width', sizeData * widthBar
-							.attr 'height', heightChart
-							.attr 'transform', 'translate(' + padding + ',' + padding + ')'
+							.attr 'width', groupChartWidth
+							.attr 'height', groupChartHeight
+							.attr 'transform', 'translate(' + groupChartPadding + ',' + groupChartPadding + ')'
 
-						# Add the x-axis.
-						# x = d3.time.scale()
-						# 	.range [0, sizeData * widthBar - padding]
-						# 	.domain [new Date(scope.data[0].date), new Date(scope.data[scope.data.length-1].date)]
-						# xAxis = d3.svg.axis().scale(x).tickFormat(d3.time.format("%_m/%_d")).ticks(scope.data.length)
-						# chartGroup
-						# 	.append 'g'
-						# 	.attr 'class', 'x axis'							
-						# 	.attr 'transform', 'translate(' + widthBar / 2 + ',' + heightChart + ')'
-						# 	.call xAxis;
-
-						# Add the y-axis.
-						y = d3.scale.linear()
-							.range [heightChart, 0]
-							.domain [0, d3.max(scope.data, (d) -> d.remaining)]
-						# yAxis = d3.svg.axis().scale(y).orient('left')
-						# chartGroup
-						# 	.append 'g'
-						# 	.attr 'class', 'y axis'	
-						# 	.call yAxis;	
+						# Create y scale
+						remainingMax = d3.max(scope.data, (d) -> d.remaining)
+						applyingMax = d3.max(scope.data, (d) -> d.applying)
+						yScale = d3.scale.linear()
+							.range [groupChartHeight, 0]
+							.domain [0, d3.max([remainingMax, applyingMax])]
 						
-						# Create new rect according to data.
-						# chartGroup
-						# 	.append 'g'
-						# 	.selectAll('rect').data(scope.data).enter().append('rect')
-						# 	.attr 'x', (d, i) -> i * widthBar + 10
-						# 	.attr 'y', 0
-						# 	.attr 'width', widthBar - 20
-						# 	.attr 'height', heightChart
-						# 	.attr 'fill', 'black'
-
-						# Create new rect according to data.
-						chartGroup
+						# Create bars - remaining
+						groupChart
 							.append 'g'
 							.selectAll('rect').data(scope.data).enter().append('rect')
-							.attr 'x', (d, i) -> i * widthBar + widthBar / 4
-							.attr 'y', (d) -> y(d.remaining)
-							.attr 'width', widthBar / 2
-							.attr 'height', (d) -> heightChart - y d.remaining
-							.attr 'fill', '#263238'
+							.attr 'x', (d, i) -> barInterval / 2 + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> yScale(d.remaining)
+							.attr 'width', barWidth
+							.attr 'height', (d) -> groupChartHeight - yScale d.remaining
+							.attr 'class', 'bar remaining'
 						
-						# chartGroup
-						# 	.append 'g'
-						# 	.selectAll('rect').data(scope.data).enter().append('rect')
-						# 	.attr 'x', (d, i) -> i * widthBar + widthBar / 2
-						# 	.attr 'y', (d) -> y(d.applying)
-						# 	.attr 'width', widthBar / 2
-						# 	.attr 'height', (d) -> heightChart - y d.applying
-						# 	.attr 'fill', '#ECEFF1'
+						# Create bars - applying
+						groupChart
+							.append 'g'
+							.selectAll('rect').data(scope.data).enter().append('rect')
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> yScale(d.applying)
+							.attr 'width', barWidth
+							.attr 'height', (d) -> groupChartHeight - yScale d.applying
+							.attr 'class', 'bar applying'
 
-						# Add line
-						chartGroup
+						# Add xAxis, include line, label-date, separator
+						xAxis = groupChart.append 'g'
+						xAxis						
 							.append 'line'
 							.attr 'x1', 0
-							.attr 'y1', heightChart
-							.attr 'x2', widthBar * sizeData
-							.attr 'y2', heightChart
-							.attr 'stroke-width', 1
-							.attr 'stroke', '#263238'
+							.attr 'y1', groupChartHeight
+							.attr 'x2', groupChartWidth + barInterval
+							.attr 'y2', groupChartHeight
+							.attr 'class', 'xaxis'
 
-						# Add labels
-						chartGroup
+						xAxis
 							.append 'g'
-							.selectAll('text').data(scope.data).enter().append('text')
-							.text (d) -> if d.remaining != 0 then d.remaining else ''
-							.attr 'x', (d, i) -> i * widthBar + widthBar / 2
-							.attr 'y', (d) -> y(d.remaining) - 5
-							.attr 'text-anchor', 'middle'
-							.attr 'fill', '#263238'		
-							.attr 'font-size', 11	
+							.selectAll('line').data([0..sizeData]).enter().append('line')
+							.attr 'x1', (d, i) -> i * (barWidth * 2 + barInterval)
+							.attr 'y1', groupChartHeight
+							.attr 'x2', (d, i) -> i * (barWidth * 2 + barInterval)
+							.attr 'y2', groupChartHeight + 5
+							.attr 'class', 'xaxis'
 
-						# chartGroup
-						# 	.append 'g'
-						# 	.selectAll('text').data(scope.data).enter().append('text')
-						# 	.text (d) -> if d.applying != 0 then d.applying else ''
-						# 	.attr 'x', (d, i) -> i * widthBar + 10
-						# 	.attr 'y', (d) -> y(d.applying) - 5
-						# 	.attr 'fill', '#ECEFF1'		
-						# 	.attr 'font-size', 11	
-
-						# Add labels
 						format = d3.time.format('%_m/%_d')
-						chartGroup
+						xAxis
 							.append 'g'
 							.selectAll('text').data(scope.data).enter().append('text')
 							.text (d) -> format(new Date(d.date))
-							.attr 'x', (d, i) -> i * widthBar + widthBar / 2
-							.attr 'y', (d) -> heightChart + 20
-							.attr 'text-anchor', 'middle'
-							.attr 'fill', (d) -> 
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth  + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> groupChartHeight + 20
+							.attr 'class', (d) -> 
 								switch new Date(d.date).getDay()
-									when 0, 6 then '#E53935'
-									else '#263238'
-							.attr 'font-size', 11	
+									when 0, 6 then 'label date weekend'
+									else 'label date weekday'
+
+						# Add labels - remaining and applying
+						groupChart
+							.append 'g'
+							.selectAll('text').data(scope.data).enter().append('text')
+							.text (d) -> if d.remaining != 0 then d.remaining else ''
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth * 0.6  + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> yScale(d.remaining) - 5
+							.attr 'class', 'label remaining'
+
+						groupChart
+							.append 'g'
+							.selectAll('text').data(scope.data).enter().append('text')
+							.text (d) -> if d.applying != 0 then d.applying else ''
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth * 1.4 + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> yScale(d.applying) - 5
+							.attr 'class', 'label applying'						
 
 				,true
 			)			

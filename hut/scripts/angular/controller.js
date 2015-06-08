@@ -115,57 +115,100 @@
         data: '=data'
       },
       link: function(scope, element, attrs) {
-        var heightChart, padding, widthBar;
-        padding = 20;
-        widthBar = 40;
-        heightChart = 300;
+
+        /*
+        			Structure
+        				svg
+        					groupChart
+        						groupBarRemaining
+        						groupBarApplying
+        						groupLabelRemaing
+        						groupLabelApplying
+        						groupXAxis
+         */
+        var barInterval, barWidth, groupChartHeight, groupChartPadding;
+        groupChartHeight = 300;
+        groupChartPadding = 20;
+        barWidth = 14;
+        barInterval = 26;
         return scope.$watch('data', function(g) {
-          var chartGroup, format, sizeData, svg, y;
+          var applyingMax, format, groupChart, groupChartWidth, j, remainingMax, results, sizeData, svg, xAxis, yScale;
           sizeData = scope.data.length;
           if (sizeData !== 0) {
             d3.select(element[0]).selectAll('*').remove();
-            svg = d3.select(element[0]).append('svg').attr('width', sizeData * widthBar + padding * 2).attr('height', heightChart + padding * 2);
-            chartGroup = svg.append('g').attr('width', sizeData * widthBar).attr('height', heightChart).attr('transform', 'translate(' + padding + ',' + padding + ')');
-            y = d3.scale.linear().range([heightChart, 0]).domain([
-              0, d3.max(scope.data, function(d) {
-                return d.remaining;
-              })
-            ]);
-            chartGroup.append('g').selectAll('rect').data(scope.data).enter().append('rect').attr('x', function(d, i) {
-              return i * widthBar + widthBar / 4;
+            groupChartWidth = barWidth * 2 * sizeData + barInterval * (sizeData - 1);
+            svg = d3.select(element[0]).append('svg').attr('width', groupChartWidth + groupChartPadding * 2).attr('height', groupChartHeight + groupChartPadding * 2);
+            groupChart = svg.append('g').attr('width', groupChartWidth).attr('height', groupChartHeight).attr('transform', 'translate(' + groupChartPadding + ',' + groupChartPadding + ')');
+            remainingMax = d3.max(scope.data, function(d) {
+              return d.remaining;
+            });
+            applyingMax = d3.max(scope.data, function(d) {
+              return d.applying;
+            });
+            yScale = d3.scale.linear().range([groupChartHeight, 0]).domain([0, d3.max([remainingMax, applyingMax])]);
+            groupChart.append('g').selectAll('rect').data(scope.data).enter().append('rect').attr('x', function(d, i) {
+              return barInterval / 2 + i * (barWidth * 2 + barInterval);
             }).attr('y', function(d) {
-              return y(d.remaining);
-            }).attr('width', widthBar / 2).attr('height', function(d) {
-              return heightChart - y(d.remaining);
-            }).attr('fill', '#263238');
-            chartGroup.append('line').attr('x1', 0).attr('y1', heightChart).attr('x2', widthBar * sizeData).attr('y2', heightChart).attr('stroke-width', 1).attr('stroke', '#263238');
-            chartGroup.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
+              return yScale(d.remaining);
+            }).attr('width', barWidth).attr('height', function(d) {
+              return groupChartHeight - yScale(d.remaining);
+            }).attr('class', 'bar remaining');
+            groupChart.append('g').selectAll('rect').data(scope.data).enter().append('rect').attr('x', function(d, i) {
+              return barInterval / 2 + barWidth + i * (barWidth * 2 + barInterval);
+            }).attr('y', function(d) {
+              return yScale(d.applying);
+            }).attr('width', barWidth).attr('height', function(d) {
+              return groupChartHeight - yScale(d.applying);
+            }).attr('class', 'bar applying');
+            xAxis = groupChart.append('g');
+            xAxis.append('line').attr('x1', 0).attr('y1', groupChartHeight).attr('x2', groupChartWidth + barInterval).attr('y2', groupChartHeight).attr('class', 'xaxis');
+            xAxis.append('g').selectAll('line').data((function() {
+              results = [];
+              for (var j = 0; 0 <= sizeData ? j <= sizeData : j >= sizeData; 0 <= sizeData ? j++ : j--){ results.push(j); }
+              return results;
+            }).apply(this)).enter().append('line').attr('x1', function(d, i) {
+              return i * (barWidth * 2 + barInterval);
+            }).attr('y1', groupChartHeight).attr('x2', function(d, i) {
+              return i * (barWidth * 2 + barInterval);
+            }).attr('y2', groupChartHeight + 5).attr('class', 'xaxis');
+            format = d3.time.format('%_m/%_d');
+            xAxis.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
+              return format(new Date(d.date));
+            }).attr('x', function(d, i) {
+              return barInterval / 2 + barWidth + i * (barWidth * 2 + barInterval);
+            }).attr('y', function(d) {
+              return groupChartHeight + 20;
+            }).attr('class', function(d) {
+              switch (new Date(d.date).getDay()) {
+                case 0:
+                case 6:
+                  return 'label date weekend';
+                default:
+                  return 'label date weekday';
+              }
+            });
+            groupChart.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
               if (d.remaining !== 0) {
                 return d.remaining;
               } else {
                 return '';
               }
             }).attr('x', function(d, i) {
-              return i * widthBar + widthBar / 2;
+              return barInterval / 2 + barWidth * 0.6 + i * (barWidth * 2 + barInterval);
             }).attr('y', function(d) {
-              return y(d.remaining) - 5;
-            }).attr('text-anchor', 'middle').attr('fill', '#263238').attr('font-size', 11);
-            format = d3.time.format('%_m/%_d');
-            return chartGroup.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
-              return format(new Date(d.date));
-            }).attr('x', function(d, i) {
-              return i * widthBar + widthBar / 2;
-            }).attr('y', function(d) {
-              return heightChart + 20;
-            }).attr('text-anchor', 'middle').attr('fill', function(d) {
-              switch (new Date(d.date).getDay()) {
-                case 0:
-                case 6:
-                  return '#E53935';
-                default:
-                  return '#263238';
+              return yScale(d.remaining) - 5;
+            }).attr('class', 'label remaining');
+            return groupChart.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
+              if (d.applying !== 0) {
+                return d.applying;
+              } else {
+                return '';
               }
-            }).attr('font-size', 11);
+            }).attr('x', function(d, i) {
+              return barInterval / 2 + barWidth * 1.4 + i * (barWidth * 2 + barInterval);
+            }).attr('y', function(d) {
+              return yScale(d.applying) - 5;
+            }).attr('class', 'label applying');
           }
         }, true);
       }
