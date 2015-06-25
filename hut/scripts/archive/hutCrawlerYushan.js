@@ -73,7 +73,8 @@
             capacityStatus.push({
               'date': date.format(),
               'remaining': 92,
-              'applying': applying
+              'applying': applying,
+              'isDrawn': false
             });
             return eachSerialFinished();
           });
@@ -117,7 +118,8 @@
         capacityStatus.push({
           'date': moment().add(7 + capacityStatus.length, 'day').format(),
           'remaining': remaining,
-          'applying': results.applyings[i]
+          'applying': results.applyings[i],
+          'isDrawn': true
         });
       }
       return done();

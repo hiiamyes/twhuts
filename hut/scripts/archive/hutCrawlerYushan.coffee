@@ -59,6 +59,7 @@ async.waterfall([
 							'date': date.format()
 							'remaining': 92
 							'applying': applying
+							'isDrawn': false
 						eachSerialFinished()
 					)
 			, (err) ->
@@ -87,6 +88,7 @@ parser = ($, done) ->
 				'date': moment().add(7 + capacityStatus.length, 'day').format()
 				'remaining': remaining
 				'applying': results.applyings[i]
+				'isDrawn': true
 		done()
 	)
 
