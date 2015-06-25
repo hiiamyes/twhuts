@@ -25,7 +25,8 @@ app.config(['$routeProvider',
 
 app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
-	$scope.ggData = []
+	$scope.dataAfterDraw = []
+	$scope.dataBeforeDraw = []
 	$scope.isLoading = true;
 	$scope.updateDate = ''
 	$scope.hutGroups = []
@@ -74,8 +75,9 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
 	$scope.hutNameClicked = (hutNameZh) ->             
 
-		$scope.ggData = [];
-
+		$scope.dataAfterDraw = []
+		$scope.dataBeforeDraw = []
+		
 		$scope.calendarTitles = ['日','一','二','三','四','五','六'] 
 
 		$scope.hutNameZhSelected = hutNameZh        
@@ -88,7 +90,8 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
 				for status, istatus in hut.capacityStatuses.status
 
-					$scope.ggData.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
+					if status.isDrawn then $scope.dataAfterDraw.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
+					else $scope.dataBeforeDraw.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
 
 					day = new Date(status.date).getDay()
 
@@ -109,7 +112,7 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		$scope.titleBarNameSelected = titleBarName
 ])
 
-app.directive 'barChart', () ->
+app.directive 'barChartAfterDraw', () ->
 	return {
 		restrict: 'E',
 		scope: {data: '=data'},
@@ -232,6 +235,115 @@ app.directive 'barChart', () ->
 							.attr 'x', (d, i) -> barInterval / 2 + barWidth * 1.4 + i * (barWidth * 2 + barInterval)
 							.attr 'y', (d) -> yScale(d.applying) - 5
 							.attr 'class', 'label applying'						
+
+				,true
+			)			
+	}
+
+
+app.directive 'barChartBeforeDraw', () ->
+	return {
+		restrict: 'E',
+		scope: {data: '=data'},
+		link: (scope, element, attrs) ->
+
+			###
+			Structure
+				svg
+					groupChart
+						groupBarRemaining
+						groupBarApplying
+						groupLabelRemaing
+						groupLabelApplying
+						groupXAxis
+			###
+
+			# Constants
+			groupChartHeight = 300
+			groupChartPadding = 20
+			barWidth = 14 # There are two bars in one day.
+			barInterval = 24
+			
+			# Let's draw!
+			scope.$watch(
+				'data'
+				,(g) ->
+					sizeData = scope.data.length
+					if sizeData isnt 0
+						
+						# Clear all.
+						d3.select(element[0]).selectAll('*').remove()
+
+						# 
+						groupChartWidth = (barWidth * 2 + barInterval) * sizeData
+						
+						# 
+						svg = d3.select element[0]			
+							.append 'svg'			
+							.attr 'width',  groupChartWidth + groupChartPadding * 2
+							.attr 'height', groupChartHeight + groupChartPadding * 2
+
+						# 
+						groupChart = svg
+							.append 'g'
+							.attr 'width', groupChartWidth
+							.attr 'height', groupChartHeight
+							.attr 'transform', 'translate(' + groupChartPadding + ',' + groupChartPadding + ')'
+
+						# Create y scale
+						yScale = d3.scale.linear()
+							.range [groupChartHeight, 0]
+							.domain [0, d3.max(scope.data, (d) -> d.applying)]
+						
+						# Create bars - draw-list
+						groupChart
+							.append 'g'
+							.selectAll('rect').data(scope.data).enter().append('rect')
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth/2 + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> yScale(d.applying)
+							.attr 'width', barWidth
+							.attr 'height', (d) -> groupChartHeight - yScale d.applying
+							.attr 'class', 'bar draw-list'
+
+						# Add xAxis, include line, label-date, separator
+						xAxis = groupChart.append 'g'
+						xAxis						
+							.append 'line'
+							.attr 'x1', 0
+							.attr 'y1', groupChartHeight
+							.attr 'x2', groupChartWidth
+							.attr 'y2', groupChartHeight
+							.attr 'class', 'xaxis draw-list'
+
+						xAxis
+							.append 'g'
+							.selectAll('line').data([0..sizeData]).enter().append('line')
+							.attr 'x1', (d, i) -> i * (barWidth * 2 + barInterval)
+							.attr 'y1', groupChartHeight
+							.attr 'x2', (d, i) -> i * (barWidth * 2 + barInterval)
+							.attr 'y2', groupChartHeight + 5
+							.attr 'class', 'xaxis draw-list'
+
+						format = d3.time.format('%_m/%_d')
+						xAxis
+							.append 'g'
+							.selectAll('text').data(scope.data).enter().append('text')
+							.text (d) -> format(new Date(d.date))
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth  + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> groupChartHeight + 20
+							.attr 'class', (d) -> 
+								switch new Date(d.date).getDay()
+									when 0, 6 then 'label date weekend'
+									else 'label date weekday draw-list'
+
+						# Add labels - draw-list
+						groupChart
+							.append 'g'
+							.selectAll('text').data(scope.data).enter().append('text')
+							.text (d) -> if d.applying != 0 then d.applying else ''
+							.attr 'x', (d, i) -> barInterval / 2 + barWidth + i * (barWidth * 2 + barInterval)
+							.attr 'y', (d) -> yScale(d.applying) - 5
+							.attr 'class', 'label draw-list'						
 
 				,true
 			)			

@@ -3,7 +3,7 @@
   font-size: 9pt;
 }
 /* line 5, ../sass/chart.sass */
-.label.date {
+.label.date, .label.draw-list {
   text-anchor: middle;
 }
 /* line 7, ../sass/chart.sass */
@@ -22,20 +22,25 @@
 
 /* line 17, ../sass/chart.sass */
 .applying.bar, .applying.label {
-  fill: white;
+  fill: #6d4c41;
 }
 
-/* line 20, ../sass/chart.sass */
+/* line 21, ../sass/chart.sass */
+.draw-list.bar, .draw-list.label {
+  fill: #01579b;
+}
+
+/* line 24, ../sass/chart.sass */
 .xaxis {
   stroke: #263238;
   stroke-width: 1px;
 }
 
-/* line 25, ../sass/chart.sass */
+/* line 31, ../sass/chart.sass */
 .label.date.weekday {
   fill: #263238;
 }
-/* line 27, ../sass/chart.sass */
+/* line 35, ../sass/chart.sass */
 .label.date.weekend {
   fill: #e53935;
 }

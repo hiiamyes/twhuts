@@ -20,9 +20,12 @@
 
 span(id='update-time' ng-show="updateDate != ''") [資料更新時間]&nbsp;{{updateDate}}
 span(id='explain-remaining' ng-show="updateDate != ''") 剩餘床位數
-span(id='explain-applying' ng-show="updateDate != ''") 申請中人數
+span(id='explain-waiting' ng-show="updateDate != ''") 候補中人數
+span(id='explain-draw-list' ng-show="updateDate != ''") 排隊等抽籤	人數
+span(ng-show="updateDate != ''") 立刻前往申請！
 
-bar-chart(data='ggData')
+bar-chart-after-draw(data='dataAfterDraw')
+bar-chart-before-draw(data='dataBeforeDraw' ng-show='dataBeforeDraw.length > 0')
 
 //- #calendar
 	table

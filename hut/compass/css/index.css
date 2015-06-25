@@ -205,11 +205,11 @@ span, p {
 }
 
 /* line 159, ../sass/index.sass */
-#explain-remaining, #explain-applying {
+#explain-remaining, #explain-waiting, #explain-draw-list {
   margin-left: 50px;
 }
 /* line 161, ../sass/index.sass */
-#explain-remaining:before, #explain-applying:before {
+#explain-remaining:before, #explain-waiting:before, #explain-draw-list:before {
   display: inline-block;
   content: "";
   width: 15px;
@@ -224,27 +224,36 @@ span, p {
 }
 
 /* line 172, ../sass/index.sass */
-#explain-applying {
+#explain-waiting {
   color: white;
 }
 /* line 174, ../sass/index.sass */
-#explain-applying:before {
+#explain-waiting:before {
   background-color: white;
 }
 
+/* line 176, ../sass/index.sass */
+#explain-draw-list {
+  color: #01579b;
+}
 /* line 178, ../sass/index.sass */
+#explain-draw-list:before {
+  background-color: #01579b;
+}
+
+/* line 182, ../sass/index.sass */
 bar-chart svg {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 196, ../sass/index.sass */
+/* line 200, ../sass/index.sass */
 #copyright {
   position: fixed;
   bottom: 1em;
-  width: 100%;
-  text-align: center;
+  width: 98%;
+  text-align: right;
   font-size: small;
   color: #6d4c41;
 }

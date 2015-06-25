@@ -5,6 +5,7 @@ cheerio = require 'cheerio' # https://github.com/cheeriojs/cheerio
 
 hutCrawlerTaiwanForestRecreation = require './hutCrawlerTaiwanForestRecreation.js'
 hutCrawlerYushan = require './hutCrawlerYushan.js'
+hutCrawlerTianchi = require './hutCrawlerTianchi.js'
 
 reCrawlTime = 1 * 60 * 60 * 1000; # 1hr
 
@@ -28,7 +29,7 @@ module.exports = {
                                         when '雪霸國家公園' then hutCrawlerSheiPa hut, cb
                                         when '太魯閣國家公園' then hutCrawlerTaroko hut, cb
                                         when '玉山國家公園' then hutCrawlerYushan.crawl hut, cb
-                                        when '南投林區管理處' then cb null, []
+                                        when '南投林區管理處' then hutCrawlerTianchi.crawl hut, cb
                                 ,(capacityStatus, cb) ->
                                     collection.updateOne(
                                         {'nameZh': hut.nameZh}  
@@ -66,6 +67,7 @@ hutCrawlerSheiPa = (hut, cb) ->
                         'date': moment($(this).find('td:nth-child(1)').text(), 'YYYY-MM-DD').format()
                         'remaining': $(this).find('td:nth-child(4)').text()
                         'applying': applying + waiting
+                        'isDrawn': true
             cb null, capacityStatus
 
 hutCrawlerTaroko = (hut, cb) ->
@@ -88,5 +90,6 @@ hutCrawlerTaroko = (hut, cb) ->
                         'date': moment(year + ' ' + month + ' ' + day, 'YYYY MM DD').format()
                         'remaining': $(this).find('td:nth-child(4)').text()
                         'applying': applying
+                        'isDrawn': true
             cb null, capacityStatus
 

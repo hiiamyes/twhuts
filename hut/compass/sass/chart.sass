@@ -2,7 +2,7 @@
 
 .label
 	font-size: 9pt
-	&.date
+	&.date,	&.draw-list
 		text-anchor: middle
 	&.remaining
 		text-anchor: end
@@ -15,14 +15,22 @@
 
 .applying
 	&.bar, &.label
-		fill: white
+		fill: $color-brown-600
+
+.draw-list
+	&.bar, &.label
+		fill: $color-light-blue-900
 
 .xaxis
 	stroke: $color-blue-grey-900
 	stroke-width: 1px
+	// &.draw-list
+		// stroke: $color-light-blue-900
 
 .label.date
 	&.weekday
 		fill: $color-blue-grey-900		
+		// &.draw-list
+			// fill: $color-light-blue-900
 	&.weekend
 		fill: $color-red-600

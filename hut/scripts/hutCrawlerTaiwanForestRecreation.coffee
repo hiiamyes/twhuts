@@ -97,21 +97,21 @@ parser = ($ThisMonth, $NextMonth) ->
 	dayPre = 0
 	month = monthThisMonth
 	$ThisMonth('.dayNumber').each (i) ->
-		if capacityStatus.length > 22 then return false
+		if capacityStatus.length > 38 then return false
 		else
 			# Calculate the date
 			day = parseInt $ThisMonth(this).text()
 			if i is 0 and day isnt 1 then month-- else # ex: 4/29 4/30 5/1 5/2
 				if day < dayPre then month++ # ex: 5/31 6/1 6/2 6/3
 			dayPre = day
-			push capacityStatus, $ThisMonth(this), month, day
+			push capacityStatus, $ThisMonth(this), month, day, capacityStatus.length <= 22
 
 	monthCheck = month
 	dayCheck = dayPre
 	month = monthThisMonth + 1
 	pass = false
 	$NextMonth('.dayNumber').each (i) ->
-		if capacityStatus.length > 22 then return false
+		if capacityStatus.length > 38 then return false
 		else
 			# Calculate the date
 			day = parseInt $NextMonth(this).text()
@@ -120,11 +120,11 @@ parser = ($ThisMonth, $NextMonth) ->
 			dayPre = day
 			if not pass and month is monthCheck and day is dayCheck then pass = true
 			else if pass
-				push capacityStatus, $NextMonth(this), month, day
+				push capacityStatus, $NextMonth(this), month, day, capacityStatus.length <= 22
 
 	capacityStatus
 
-push = (capacityStatus, ele, month, day) ->
+push = (capacityStatus, ele, month, day, isDrawn) ->
 	if ele.parent().children().length > 1
 		date = moment().month(month-1).date(day).format()
 		try
@@ -134,10 +134,12 @@ push = (capacityStatus, ele, month, day) ->
 				'date': date
 				'remaining': remaining
 				'applying': applying
+				'isDrawn': isDrawn
 		catch e
 			capacityStatus.push
 				'date': date
 				'remaining': 0
 				'applying': 0
+				'isDrawn': isDrawn
 
 			
