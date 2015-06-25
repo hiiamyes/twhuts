@@ -156,7 +156,7 @@ span, p
 	color: $color-blue-grey-900
 	font-size: 12pt
 
-#explain-remaining, #explain-applying
+#explain-remaining, #explain-waiting, #explain-draw-list
 	margin-left: 50px
 	&:before
 		display: inline-block
@@ -169,10 +169,14 @@ span, p
 #explain-remaining
 	&:before
 		background-color: $color-blue-grey-900
-#explain-applying
+#explain-waiting
 	color: white
 	&:before
-		background-color: #ffffff
+		background-color: white
+#explain-draw-list
+	color: $color-light-blue-900
+	&:before
+		background-color: $color-light-blue-900
 
 bar-chart
 	svg
@@ -196,7 +200,7 @@ bar-chart
 #copyright
 	position: fixed
 	bottom: 1em
-	width: 100%
-	text-align: center
+	width: 98%
+	text-align: right
 	font-size: small
 	color: $color-brown-600
