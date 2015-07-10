@@ -121,8 +121,11 @@
               var applying, dateDiff, registered, today;
               today = moment().year(year).month(month - 1).date($(this).text());
               dateDiff = today.diff(moment(), 'd');
-              if (dateDiff >= 7 && dateDiff <= 30) {
+              if (dateDiff >= 7 && dateDiff <= 31) {
                 registered = $(this).parent('td').find(selectorRemaining).text();
+                if (dateDiff === 31 && registered === '') {
+                  return;
+                }
                 applying = $(this).parent('td').find('span.style14 font').text();
                 return capacityStatus.push({
                   'date': moment().add(7 + capacityStatus.length, 'day').format(),

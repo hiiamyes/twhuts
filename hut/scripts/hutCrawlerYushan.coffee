@@ -105,8 +105,12 @@ module.exports =
 						today = moment().year(year).month(month-1).date($(this).text())
 						dateDiff = today.diff(moment(),'d')
 
-						if dateDiff >= 7 and dateDiff <= 30
+						if dateDiff >= 7 and dateDiff <= 31
 							registered = $(this).parent('td').find(selectorRemaining).text()
+							
+							# Add a checking point for the last day, cause drawing is issued at 3pm everyday!
+							if dateDiff is 31 and registered is '' then return						
+
 							applying = $(this).parent('td').find('span.style14 font').text()
 							capacityStatus.push
 								'date': moment().add(7 + capacityStatus.length, 'day').format()
