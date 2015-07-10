@@ -111,18 +111,17 @@
         return cbExports(null, capacityStatus);
       });
       return parser = function($, done) {
-        var dateEnd, dateStart, month, year, yearMonth;
-        dateStart = moment().add(7, 'day');
-        dateEnd = moment().add(28, 'day');
+        var month, year, yearMonth;
         yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text();
         year = yearMonth.split('年')[0];
         month = yearMonth.split('年')[1].split('月')[0];
         $('#ctl00_ContentPlaceHolder1_CalendarReport tr').each(function(i) {
           if (i >= 3 && i <= 7) {
             return $(this).find('td > a').each(function(i) {
-              var applying, date, registered;
-              date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD');
-              if (date.diff(dateStart, 'day') >= 0 && date.diff(dateEnd, 'day') <= 0) {
+              var applying, dateDiff, registered, today;
+              today = moment().year(year).month(month - 1).date($(this).text());
+              dateDiff = today.diff(moment(), 'd');
+              if (dateDiff >= 7 && dateDiff <= 30) {
                 registered = $(this).parent('td').find(selectorRemaining).text();
                 applying = $(this).parent('td').find('span.style14 font').text();
                 return capacityStatus.push({

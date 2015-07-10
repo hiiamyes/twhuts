@@ -37,6 +37,7 @@ module.exports =
 					parser $, () -> 
 						cb null, $
 			, ($, cb) ->
+				# Go to next month and keep crawling data after drawing
 				request(
 					'method': 'POST'
 					'url': urlAfterDraw
@@ -92,16 +93,19 @@ module.exports =
 		)
 
 		parser = ($, done) ->
-			dateStart = moment().add(7, 'day')
-			dateEnd = moment().add(28, 'day')
+
 			yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
 			year = yearMonth.split('年')[0]
 			month = yearMonth.split('年')[1].split('月')[0]
+
 			$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
 				if i >= 3 and i <= 7
 					$(this).find('td > a').each (i) ->
-						date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
-						if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
+
+						today = moment().year(year).month(month-1).date($(this).text())
+						dateDiff = today.diff(moment(),'d')
+
+						if dateDiff >= 7 and dateDiff <= 30
 							registered = $(this).parent('td').find(selectorRemaining).text()
 							applying = $(this).parent('td').find('span.style14 font').text()
 							capacityStatus.push
