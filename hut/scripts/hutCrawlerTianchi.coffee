@@ -33,26 +33,33 @@ parser = (date, cb) ->
 	request url, (err, res, body) ->
 		$ = cheerio.load body
 		$('.in_calendar_date').each (i) ->
-			status = $(this).closest('table').find('td').eq(1).text()
+			
+			status = $(this).closest('table').find('td').eq(1).clone()
+			status.find('br').replaceWith(',')
+			status = status.text().split(',')
 
+			remaining = parseInt status[0].split(':')[1]
+			
 			today = moment().year(year).month(date.month()).date(i+1)
 			dateDiff = today.diff(moment(),'d')
 
-			if dateDiff >=6 and dateDiff <= 44
-				if status.indexOf('剩餘床位') is -1 
+			if dateDiff >= 7 and dateDiff <= 45
+				# Check the availability first by remaining
+				if !Number.isInteger(remaining) 
 					capacityStatus.push
 						'date': today.format()
 						'remaining': 0
 						'applying': 0
-						'isDrawn': dateDiff <= 30
+						'isDrawn': dateDiff <= 29
 				else
-					remaining = $(this).closest('table').find('td').eq(1).text().split('剩餘床位:')[1].split('目前報名')[0]
-					applying = $(this).closest('table').find('td').eq(1).text().split('目前報名:')[1]
+					applying = parseInt status[1].split(':')[1]
+					isDrawn = status[2]
+			
 					capacityStatus.push 
 						'date': today.format()
 						'remaining': remaining
 						'applying': applying
-						'isDrawn': dateDiff <= 30
+						'isDrawn': isDrawn is '已抽名單'
 		cb null, capacityStatus
 
 
