@@ -3,6 +3,23 @@ moment = require 'moment'
 request = require 'request' # https://github.com/request/request
 cheerio = require 'cheerio' # https://github.com/cheeriojs/cheerio
 
+switch 2
+	when 1 # '排雲山莊' 
+		urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=1'
+		urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
+		selectorRemaining = 'span.style11 font'
+		ddlLocation = 1
+	when 2 # '圓峰山屋'
+		urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
+		urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
+		selectorRemaining = 'span.style11 font'
+		ddlLocation = 136
+	when 3 #'圓峰營地'
+		urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
+		urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
+		selectorRemaining = 'span.style12 font'
+		ddlLocation = 136
+
 urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=1'
 urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 
@@ -36,6 +53,7 @@ async.waterfall([
 				request urlBeforeDraw, (err, res, body) ->
 					$ = cheerio.load body
 					date = moment().add(7 + capacityStatus.length,'d')
+					console.log date.format()
 					request({
 						'method': 'POST'
 						'url': urlBeforeDraw
@@ -48,11 +66,12 @@ async.waterfall([
 							'__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val()
 							'__EVENTVALIDATION': $('#__EVENTVALIDATION').val()
 							'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD')
-							'ctl00$ContentPlaceHolder1$ddlLocation': 1
+							'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation
 							'ctl00$ContentPlaceHolder1$btnSearch.x': 6
 							'ctl00$ContentPlaceHolder1$btnSearch.y': 19
 							'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
 					}, (err, res, body) ->
+						# console.log res.statusCode
 						$ = cheerio.load body
 						applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text()
 						capacityStatus.push

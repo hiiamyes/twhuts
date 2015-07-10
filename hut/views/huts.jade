@@ -1,39 +1,42 @@
-#loader(ng-show='isLoading')
-	.loader-inner.ball-clip-rotate
+#huts
+
+	#loader(ng-show='isLoading')
+			.loader-inner.ball-clip-rotate
+				div
+
+	#sidenav(ng-show='!isLoading' ng-class='{toggle: toggle}')
 		div
+			.topbar_group(ng-repeat='hutGroup in hutGroups')
+				span.topbar_admin_name {{hutGroup._id.admin}}
+				span.topbar_hut_name(
+					ng-repeat='hutNameZh in hutGroup.hutNameZhs'
+					ng-class='{selected: hutNameZh == hutNameZhSelected}'
+					ng-click='hutNameClicked(hutNameZh)'
+				) {{hutNameZh}}
 
-#topbar
-	.topbar_group(ng-repeat='hutGroup in hutGroups', ng-class='adminColor[$index%2]')
-		.topbar_admin
-			a.topbar_admin_name(
-				href='{{hutGroup.urlApply[0]}}' 
-				target='blank'
-			) {{hutGroup._id.admin}}
-		.topbar_hut
-			span.topbar_hut_name(
-				ng-repeat='hutNameZh in hutGroup.hutNameZhs'
-				ng-class='{selected: hutNameZh == hutNameZhSelected}'
-				ng-click='hutNameClicked(hutNameZh)'
-			) {{hutNameZh}}
+	#content-chart(ng-class='{toggle: toggle}')
 
-#divider(ng-show='!isLoading')
+		#bar-chart
+			<br>
+			#title-bar(ng-show="updateDate != ''")
+				div
+					span {{hutNameZhSelected}}
+					span 總床位數: {{capacity}}
+					span(id='update-time') 資料更新時間: &nbsp;{{updateDate}}
+					a(href='{{urlApply}}' target='blank') 立即前往申請！
+			<br><br>
+			div
+				span(id='explain-remaining' ng-show="updateDate != ''") 剩餘床位數
+				span(id='explain-waiting' ng-show="updateDate != ''") 候補中人數
+			bar-chart-after-draw(data='dataAfterDraw')
+			<br><br><br>
+			div
+				span(id='explain-draw-list' ng-show='dataBeforeDraw.length > 0') 已申請，等待抽籤中人數
+			<br>
+			bar-chart-before-draw(data='dataBeforeDraw' ng-show='dataBeforeDraw.length > 0')
 
-span(id='update-time' ng-show="updateDate != ''") [資料更新時間]&nbsp;{{updateDate}}
-span(id='explain-remaining' ng-show="updateDate != ''") 剩餘床位數
-span(id='explain-waiting' ng-show="updateDate != ''") 候補中人數
-span(id='explain-draw-list' ng-show="updateDate != ''") 排隊等抽籤	人數
-span(ng-show="updateDate != ''") 立刻前往申請！
+		#toggle(ng-show='!isLoading' ng-click='toggleClicked()')
+			img(src='images/qq.png')
 
-bar-chart-after-draw(data='dataAfterDraw')
-bar-chart-before-draw(data='dataBeforeDraw' ng-show='dataBeforeDraw.length > 0')
 
-//- #calendar
-	table
-		tr
-			th(ng-repeat='title in calendarTitles') {{title}}
-		tr.content(ng-repeat='hutApplicableInOneWeek in hutApplicableAll')
-			td(ng-repeat='hut in hutApplicableInOneWeek') 
-				p(id='date' ng-if='hut.date!=null') {{hut.date | date:'MM.dd'}}
-				p(ng-if='hut.remaining!=null') {{hut.remaining}} : {{hut.applying}}
-				//- p(ng-if='hut.remaining!=null') 剩餘: {{hut.remaining}}
-				//- p(ng-if='hut.applying!=null') 申請中: {{hut.applying}}
+

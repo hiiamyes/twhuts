@@ -22,25 +22,64 @@
 
 /* line 17, ../sass/chart.sass */
 .applying.bar, .applying.label {
-  fill: #6d4c41;
+  fill: white;
 }
 
-/* line 21, ../sass/chart.sass */
+/* line 22, ../sass/chart.sass */
 .draw-list.bar, .draw-list.label {
-  fill: #01579b;
+  fill: #263238;
 }
 
-/* line 24, ../sass/chart.sass */
+/* line 26, ../sass/chart.sass */
 .xaxis {
   stroke: #263238;
   stroke-width: 1px;
 }
 
-/* line 31, ../sass/chart.sass */
+/* line 33, ../sass/chart.sass */
 .label.date.weekday {
   fill: #263238;
 }
-/* line 35, ../sass/chart.sass */
+/* line 37, ../sass/chart.sass */
 .label.date.weekend {
   fill: #e53935;
+}
+
+/* line 41, ../sass/chart.sass */
+#explain-remaining:before, #explain-waiting:before, #explain-draw-list:before {
+  display: inline-block;
+  content: "";
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  border-radius: 4px;
+}
+
+/* line 49, ../sass/chart.sass */
+#explain-remaining {
+  margin-left: 20px;
+}
+/* line 51, ../sass/chart.sass */
+#explain-remaining:before {
+  background-color: #263238;
+}
+
+/* line 54, ../sass/chart.sass */
+#explain-waiting {
+  margin-left: 50px;
+  color: white;
+}
+/* line 57, ../sass/chart.sass */
+#explain-waiting:before {
+  background-color: white;
+}
+
+/* line 60, ../sass/chart.sass */
+#explain-draw-list {
+  margin-left: 20px;
+  color: #263238;
+}
+/* line 64, ../sass/chart.sass */
+#explain-draw-list:before {
+  background-color: #263238;
 }

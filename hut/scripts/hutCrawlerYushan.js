@@ -30,13 +30,13 @@
           urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
           urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
           selectorRemaining = 'span.style11 font';
-          ddlLocation = 2;
+          ddlLocation = 136;
           break;
         case '圓峰營地':
           urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
           urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
           selectorRemaining = 'span.style12 font';
-          ddlLocation = 2;
+          ddlLocation = 136;
       }
       async.waterfall([
         function(cb) {
@@ -64,7 +64,7 @@
             });
           });
         }, function(cb) {
-          return async.eachSeries([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], function(itmes, eachSerialFinished) {
+          return async.eachSeries([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], function(itmes, eachSerialFinished) {
             return request(urlBeforeDraw, function(err, res, body) {
               var $, date;
               $ = cheerio.load(body);

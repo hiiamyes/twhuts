@@ -24,6 +24,9 @@
 
   app.controller('hutCrawlerCtrl', [
     '$scope', '$http', function($scope, $http) {
+      $scope.toggle = true;
+      $scope.capacity = '';
+      $scope.urlApply = '';
       $scope.dataAfterDraw = [];
       $scope.dataBeforeDraw = [];
       $scope.isLoading = true;
@@ -33,10 +36,6 @@
       $scope.hutNameZhSelected = '';
       $scope.titleBarNameSelected = '山屋餘額';
       $scope.calendarTitles = [];
-      $scope.adminColor = {
-        '0': 'adminColorEven',
-        '1': 'adminColorOdd'
-      };
       $scope.titleBar = [
         {
           url: '#/huts',
@@ -62,8 +61,12 @@
       }).error(function(e) {
         return console.log(e);
       });
+      $scope.toggleClicked = function() {
+        return $scope.toggle = !$scope.toggle;
+      };
       $scope.hutNameClicked = function(hutNameZh) {
         var day, hut, hutApplicableAll, hutApplicableInOneWeek, istatus, j, k, l, len, len1, ref, ref1, ref2, results, status;
+        $scope.toggle = false;
         $scope.dataAfterDraw = [];
         $scope.dataBeforeDraw = [];
         $scope.calendarTitles = ['日', '一', '二', '三', '四', '五', '六'];
@@ -75,6 +78,8 @@
         for (j = 0, len = ref.length; j < len; j++) {
           hut = ref[j];
           if (hut.nameZh === hutNameZh) {
+            $scope.urlApply = hut.urlApply;
+            $scope.capacity = hut.capacity;
             $scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('M月D日 H:mm');
             ref1 = hut.capacityStatuses.status;
             for (istatus = k = 0, len1 = ref1.length; k < len1; istatus = ++k) {
@@ -137,7 +142,7 @@
         						groupXAxis
          */
         var barInterval, barWidth, groupChartHeight, groupChartPadding;
-        groupChartHeight = 300;
+        groupChartHeight = 150;
         groupChartPadding = 20;
         barWidth = 14;
         barInterval = 24;
@@ -244,7 +249,7 @@
         						groupXAxis
          */
         var barInterval, barWidth, groupChartHeight, groupChartPadding;
-        groupChartHeight = 300;
+        groupChartHeight = 150;
         groupChartPadding = 20;
         barWidth = 14;
         barInterval = 24;

@@ -23,12 +23,12 @@ module.exports =
 				urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
 				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 				selectorRemaining = 'span.style11 font'
-				ddlLocation = 2
+				ddlLocation = 136
 			when '圓峰營地'
 				urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
 				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 				selectorRemaining = 'span.style12 font'
-				ddlLocation = 2
+				ddlLocation = 136
 
 		async.waterfall([
 			(cb) ->
@@ -52,7 +52,7 @@ module.exports =
 				)
 			, (cb) ->
 				async.eachSeries(
-					[0..15]
+					[0..14]
 					, (itmes, eachSerialFinished) ->
 						request urlBeforeDraw, (err, res, body) ->
 							$ = cheerio.load body

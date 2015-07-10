@@ -25,18 +25,18 @@ app.config(['$routeProvider',
 
 app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 
+	$scope.toggle = true
+	$scope.capacity = ''
+	$scope.urlApply = ''
 	$scope.dataAfterDraw = []
 	$scope.dataBeforeDraw = []
-	$scope.isLoading = true;
+	$scope.isLoading = true
 	$scope.updateDate = ''
 	$scope.hutGroups = []
 	$scope.topBarHutNames = []
 	$scope.hutNameZhSelected = ''
 	$scope.titleBarNameSelected = '山屋餘額'
 	$scope.calendarTitles = []
-	$scope.adminColor = 
-		'0': 'adminColorEven'
-		'1': 'adminColorOdd'
 
 	$scope.titleBar = [
 		url: '#/huts'
@@ -65,15 +65,12 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		.error (e) ->
 			console.log e
 
-	# $scope.adminClicked = (adminName) ->
-	# 	switch adminName
-	# 		when '南投林區管理處'
-	# 		when '玉山國家公園'
-	# 		when '台灣山林悠遊網'
-	# 		when '太魯閣國家公園'
-	# 		when '雪霸國家公園'
+	$scope.toggleClicked = ->
+		$scope.toggle = !$scope.toggle
 
 	$scope.hutNameClicked = (hutNameZh) ->             
+		
+		$scope.toggle = false
 
 		$scope.dataAfterDraw = []
 		$scope.dataBeforeDraw = []
@@ -86,6 +83,8 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		for hut in $scope.huts
 			if hut.nameZh is hutNameZh
 
+				$scope.urlApply = hut.urlApply
+				$scope.capacity = hut.capacity
 				$scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('M月D日 H:mm')
 
 				for status, istatus in hut.capacityStatuses.status
@@ -130,7 +129,7 @@ app.directive 'barChartAfterDraw', () ->
 			###
 
 			# Constants
-			groupChartHeight = 300
+			groupChartHeight = 150
 			groupChartPadding = 20
 			barWidth = 14 # There are two bars in one day.
 			barInterval = 24
@@ -259,7 +258,7 @@ app.directive 'barChartBeforeDraw', () ->
 			###
 
 			# Constants
-			groupChartHeight = 300
+			groupChartHeight = 150
 			groupChartPadding = 20
 			barWidth = 14 # There are two bars in one day.
 			barInterval = 24

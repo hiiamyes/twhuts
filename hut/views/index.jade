@@ -17,9 +17,6 @@ html(ng-app='hutCrawler')
 		
 		//- css
 		link(rel='stylesheet' href='compass/css/index.css')
-		link(rel='stylesheet' href='compass/css/chart.css')
-
-		//- loaders.css
 		link(rel='stylesheet' href='../bower_components/loaders.css/loaders.min.css')
 
 		//- moment.js
@@ -30,7 +27,7 @@ html(ng-app='hutCrawler')
 
 		#titlebar
 			div
-				img(src='../favicon.png' width='30px')
+				//- img(src='../favicon.png' width='30px')
 				a(
 					ng-repeat='title in titleBar' 
 					href='{{title.url}}' 
@@ -38,13 +35,7 @@ html(ng-app='hutCrawler')
 					ng-click='titleBarNameClicked(title.name)'
 				) {{title.name}}			
 
-		#container
-			//- #background
-				#cover			
-				
-			//- Design Ref: http://codepen.io/iremlopsum/pen/OVMxzp?editors=110
-			#content
-				#main(ng-view)
+		#content(ng-view)
 						
 		span#copyright Copyright &copy; 2015 Tsung-Yeh Lee.
 
