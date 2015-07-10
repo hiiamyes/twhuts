@@ -1,0 +1,85 @@
+@import 'var'
+
+#huts
+	margin-left: 2%
+	margin-right: 2%
+	height: 100%
+
+#content-chart
+	height: 100%
+	padding-top: 2%
+	background-color: $color-blue-grey-200
+	position: relative
+	transition: all 0.4s ease
+	
+	&.toggle
+		transform: translateX(22%)
+	
+	#toggle
+		position: absolute
+		top: 2%
+		width: 50px
+		height: 50px
+		border-radius: 25px
+		background-color: $color-light-blue-900
+		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26)
+		&:hover
+			background-color: $color-blue-grey-900
+		img
+			width: 20px
+			position: absolute
+			transform: translate(75%, 75%)
+
+	#bar-chart
+		margin-top: 3%
+
+	// bar-chart-after-draw
+	// 	display: block
+	// 	margin: 0 auto
+	// 	text-align: center
+
+	// bar-chart-before-draw
+	// 	display: block
+	// 	margin: 0 auto
+	// 	text-align: center
+
+	#title-bar > div
+		display: table
+		margin-left: auto
+		margin-right: auto
+		*
+			margin-right: 50px
+		// a
+			
+
+#sidenav
+	position: absolute
+	top: 0
+	width: 20%
+	height: 100%
+	box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.26)
+	opacity: 0
+	transition: all 0.4s ease
+	&.toggle
+		opacity: 1
+	.topbar_group
+		width: 100%
+		margin-top: 1em 
+		&.adminColorEven
+	.topbar_admin_name
+		display: inline-block
+		width: 100%
+		margin-bottom: 0.5em
+		color: $color-brown-600
+	.topbar_hut_name
+		text-align: center
+		vertical-align: middle
+		display: inline-block
+		margin-right: 1em		
+		margin-bottom: .5em
+		color: $color-blue-grey-900
+		&.selected
+			color: white
+		&:hover
+			color: white
+			cursor: pointer

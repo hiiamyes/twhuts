@@ -1,5 +1,11 @@
-@import "http://fonts.googleapis.com/earlyaccess/cwtexyen.css"
-@import "var"
+@import 'http://fonts.googleapis.com/earlyaccess/cwtexyen.css'
+@import 'var'
+@import 'about'
+@import 'question'
+@import 'contact'
+@import 'changelog'
+@import 'huts'
+@import 'chart'
 
 *
 	-webkit-box-sizing: border-box
@@ -32,48 +38,6 @@ span, p
 	font-size: 16pt
 	line-height: 2em
 
-#changelog, #about, #contact, #question
-	margin-top: 3%
-	margin-left: 5%
-	
-#changelog
-	.divider
-		width: 50%
-		height: 1px
-		background-color: $color-blue-grey-900
-	.content
-		font-size: 14pt
-		line-height: 1.5em
-#about
-	line-height: 2em
-	margin-bottom: 5%
-#contact
-	line-height: 2.5em
-#question
-	line-height: 1.5em
-	
-// #background
-// 	width: 100%
-// 	height: 100%
-// 	position: fixed
-// 	top: 0
-// 	left: 0
-// 	background-image: url(../../images/bg.jpg)
-// 	background-size: cover
-// 	// -webkit-filter: blur(10px)
-// 	#cover
-// 		display: inline-block
-// 		width: 100%
-// 		height: 100%
-// 		background-color: rgba(0,0,0,0.2)
-
-#container
-	padding: 2em 2em 0 2em
-
-#content
-	position: relative
-	top: 0
-
 #loader
 	height: 200px
 	display: -webkit-flex
@@ -83,9 +47,14 @@ span, p
 	-webkit-justify-content: center
 	justify-content: center
 	
+#content
+	height: 100%
+	position: relative
+	top: 0
+
 #titlebar
 	width: 100%
-	padding: 10px	
+	padding: 15px	
 	background-color: $color-light-blue-900
 	div
 		display: table
@@ -97,7 +66,7 @@ span, p
 		display: inline-block
 		color: $color-grey-500
 		top: 50%
-		transform: translateY(-50%)
+		// transform: translateY(-50%)
 		margin-right: 20px
 		margin-left: 20px
 		&:hover, &.selected
@@ -112,90 +81,11 @@ span, p
 	width: 100%
 	align-content: center
 
-#topbar
-	width: 100%	
-	.topbar_group
-		&.adminColorEven
-			color: $color-blue-grey-900
-		&.adminColorOdd
-			color: $color-brown-600
-	.topbar_admin, .topbar_hut
-		display: inline-block		
-	.topbar_admin
-		width: 15%
-		text-align: center
-		.topbar_admin_name
-			color: inherit
-			&:hover
-				color: white
-				cursor: pointer
-	.topbar_hut
-		width: 85%
-		vertical-align: top
-		.topbar_hut_name
-			text-align: center
-			vertical-align: middle
-			display: inline-block
-			margin-right: 1em
-			margin-bottom: 0.3em
-			&.selected
-				color: white
-			&:hover
-				color: white
-				cursor: pointer
-#divider
-	width: 100%
-	height: 1px
-	margin-top: 1em
-	background-color: $color-blue-grey-900
-
-#update-time
-	display: inline-block
-	margin-top: 1em
-	margin-bottom: 1em
-	color: $color-blue-grey-900
-	font-size: 12pt
-
-#explain-remaining, #explain-waiting, #explain-draw-list
-	margin-left: 50px
-	&:before
-		display: inline-block
-		content: ""
-		width: 15px
-		height: 15px
-		margin-right: 5px		
-		border-radius: 4px
-
-#explain-remaining
-	&:before
-		background-color: $color-blue-grey-900
-#explain-waiting
-	color: white
-	&:before
-		background-color: white
-#explain-draw-list
-	color: $color-light-blue-900
-	&:before
-		background-color: $color-light-blue-900
-
 bar-chart
 	svg
 		display: block
 		margin-left: auto
 		margin-right: auto
-
-// #calendar
-// 	margin-top: 20px
-// 	margin-bottom: 50px
-// 	table
-// 		padding: 10px
-// 		width: 80%
-// 		margin-left: auto
-// 		margin-right: auto
-// 		tr.content
-// 			border-bottom: 1px solid white
-// 		td
-// 			text-align: center
 
 #copyright
 	position: fixed

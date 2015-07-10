@@ -1,0 +1,981 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"youtube",
+				"youtube_url"
+			],
+			[
+				"cuff",
+				"cufftComplex"
+			],
+			[
+				"pit",
+				"pitch_y"
+			],
+			[
+				"pitch",
+				"pitch_x"
+			],
+			[
+				"d_rfze",
+				"d_rfdata_zero_padded_and_shifted"
+			],
+			[
+				"d_zeo",
+				"d_rfdata_zero_padded_and_shifted"
+			],
+			[
+				"float",
+				"float"
+			],
+			[
+				"size",
+				"sizeof"
+			],
+			[
+				"rfdata_zero",
+				"d_rfdata_zero_padded"
+			],
+			[
+				"d_rfd",
+				"d_rfdata_zero_padded"
+			],
+			[
+				"string",
+				"strings"
+			],
+			[
+				"floa",
+				"float2"
+			],
+			[
+				"flo",
+				"float2"
+			],
+			[
+				"stream",
+				"streams"
+			],
+			[
+				"shift",
+				"shift_index"
+			],
+			[
+				"d_remapp",
+				"d_remapping_scale"
+			],
+			[
+				"offset_",
+				"offset_index_plus_dt"
+			],
+			[
+				"size_rfda",
+				"size_rfdata_padded"
+			],
+			[
+				"nsam",
+				"nsample/2/128"
+			],
+			[
+				"inde",
+				"index"
+			],
+			[
+				"D",
+				"D_FY"
+			],
+			[
+				"blo",
+				"blockIdx"
+			],
+			[
+				"Y",
+				"y"
+			],
+			[
+				"FTma",
+				"FT_MAX"
+			],
+			[
+				"FTMI",
+				"FT_MIN"
+			],
+			[
+				"DFZ",
+				"D_FZ"
+			],
+			[
+				"DF",
+				"D_FY"
+			],
+			[
+				"N",
+				"N_SAMPLE"
+			],
+			[
+				"Npa",
+				"N_PADDING"
+			],
+			[
+				"ans",
+				"answer"
+			],
+			[
+				"com",
+				"cufftComplex"
+			],
+			[
+				"rfdata",
+				"rfdata_ffted"
+			],
+			[
+				"d_rf",
+				"d_rfdata_ffted"
+			],
+			[
+				"block",
+				"blockIdx"
+			],
+			[
+				"image",
+				"image_size"
+			],
+			[
+				"n",
+				"nsample"
+			],
+			[
+				"ne",
+				"neley"
+			],
+			[
+				"index",
+				"index_int"
+			],
+			[
+				"ifft",
+				"ifft3"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"i",
+				"if	If Condition"
+			],
+			[
+				"data",
+				"datasize"
+			],
+			[
+				"nele",
+				"nelex"
+			],
+			[
+				"rf",
+				"rfdata"
+			],
+			[
+				"alloca",
+				"allocation"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1809,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/index.html",
+			"settings":
+			{
+				"buffer_size": 1371,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/js/controllers.js",
+			"settings":
+			{
+				"buffer_size": 2292,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"ssc",
+				"Set Syntax: C"
+			],
+			[
+				"ssmatlab",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"setc",
+				"Set Syntax: C"
+			],
+			[
+				"ssmat",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"upgr",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"listpa",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"fold",
+				"Code Folding: Unfold All"
+			],
+			[
+				"toggle",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wr",
+				"View: Toggle Side Bar"
+			],
+			[
+				"sshtml",
+				"Set Syntax: HTML"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/Yes/git/WTNApplication/app/src/main/res/layout/activity_detail3_basic_ad.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Util/volley/ImageLoaderUtil.java",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/cuda/cuda.cu",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/cuda/rfdata.txt",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/model/provider/FavoriteQuotaRecordModel.java",
+		"/Users/Yes/Dropbox/Yes/StorySense/account.txt",
+		"/Users/Yes/Dropbox/Yes/Master/CUDA/Nsight/NVIDIA® Nsight™ Visual Studio Edition User Guide.txt",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Activity/WebViewActivity.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Util/SchemeHandlerUtil.java",
+		"/Users/Yes/Downloads/code/frequency_domain_beamforming/bf_delay_and_sum.m",
+		"/Users/Yes/Downloads/code/frequency_domain_beamforming/run.m",
+		"/Users/Yes/Downloads/code/frequency_domain_beamforming/create_setting.m",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Util/volley/wtnapi/WTNAPIShopUtil.java",
+		"/Users/Yes/Dropbox/Yes/Master/thesis/latex/thesis.sublime-project",
+		"/Users/Yes/Downloads/GeofenceDetection/src/com/example/android/geofence/MainActivity.java",
+		"/Users/Yes/Dropbox/Yes/新增資料夾/新文字文件.txt",
+		"/Users/Yes/git/WTNApplication/app/src/main/AndroidManifest.xml",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/pracsong/fragment/single_song/SingleSongFragment.java",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/AndroidManifest.xml",
+		"/Users/Yes/git/WTNApplication/app/build.gradle",
+		"/Users/Yes/Dropbox/Yes/Master/Code/fieldii/doc/user_guide/Phased_array_imaging.m",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/WTNApplication.java",
+		"/Users/Yes/Dropbox/Yes/Master/Code/2_3d beamformer/20121210 - [finished] create 1 beam with 1 scatter point and do the delay and sum/matlab part/main.m",
+		"/Users/Yes/Dropbox/Yes/Master/Code/fieldii/doc/user_guide/Linear_array_imaging.m",
+		"/Users/Yes/Dropbox/Yes/Master/thesis/latex/README.txt",
+		"/Users/Yes/Downloads/GeofenceDemo/app/src/main/AndroidManifest.xml",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/pracsong/fragment/single_song/SingleSongSimpleCursorAdapter.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Util/gms/geofence/GeofenceUtil.java",
+		"/Users/Yes/Downloads/LocationProvider/src/com/example/android/mocklocation/MainActivity.java",
+		"/Users/Yes/Downloads/LocationProvider/AndroidManifest.xml",
+		"/Users/Yes/Downloads/GeofenceDetection/AndroidManifest.xml",
+		"/Users/Yes/Downloads/GeofenceDetection/res/layout/activity_main.xml",
+		"/Users/Yes/Dropbox/Yes/Master/Code/for-tong-ting-chu/create_field.m",
+		"/Users/Yes/GoogleDrive/myWeb/angular-seed/bower.json",
+		"/Users/Yes/GoogleDrive/myWeb/qq.sublime-project",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/values/themes.xml",
+		"/Users/Yes/Downloads/PhotoIntentActivity/AndroidManifest.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Fragment/main/FavoriteFragment.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/values/themes_app.xml",
+		"/Applications/Android Studio.app/sdk/docs/reference/android/widget/SimpleAdapter.html",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/pracsong/model/provider/media_section/MediaSectionProvider.java",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/wtn-wording - strings_fragment_invite_friend.csv",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/values-zh/strings.xml",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/values/strings.xml",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/pracsong/mApplication.java",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/pracsong/model/provider/media_section/MediaSectionModel.java",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/pracsong/model/AbstractModel.java",
+		"/Users/Yes/Dropbox/Yes/doc/facebook/facebook-100000254874042/html/messages.htm",
+		"/Users/Yes/Downloads/YouTubeAndroidPlayerApi-1.0.0/README",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Fragment/main/SearchFragment.java",
+		"/Applications/Android Studio.app/sdk/docs/reference/android/app/Activity.html",
+		"/Users/Yes/Downloads/NavigationDrawer/src/com/example/android/navigationdrawerexample/MainActivity.java",
+		"/Users/Yes/Downloads/gplus-quickstart-android-master/src/com/google/android/gms/plus/sample/quickstart/MainActivity.java",
+		"/Users/Yes/GoogleDrive/myAndroid/keystore/readme.md",
+		"/Users/Yes/Downloads/NavigationDrawer/res/layout/activity_main.xml",
+		"/Users/Yes/Downloads/NavigationDrawer/res/values/strings.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Util/DBUpgradeHelper.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/values/styles.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/values/colors.xml",
+		"/Users/Yes/Downloads/android-atleap-master/atleap-sample/src/main/java/com/blandware/android/atleap/sample/model/User.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/color/selector_product.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/values/themes_actionbar.xml",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/fragment/SingleSelectQuestionFragment.java",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/res/layout/listitem_question_select_single.xml",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/fragment/InputSingleSelectQuestionFragment.java",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/QuestionActivity.java",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/Page3Activity.java",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/Page2Activity.java",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/MainActivity.java",
+		"/Users/Yes/GoogleDrive/mWork/questionnaire/app/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/Page1Activity.java",
+		"/Users/Yes/GoogleDrive/myAndroid/pracSong/release-note/release-note.txt",
+		"/Users/Yes/git/mAndroid/PracSong/app/build.gradle",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/cuda/rfdata_32*32*2048.txt",
+		"/Users/Yes/GoogleDrive/photo/2014-0-雜/王韋中生日.txt",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/stringsXmlGenerator.py",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/value/strings.xml",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/rfdata/cyst_n_10000_20140326/cyst_n_10000_20140326.txt",
+		"/Users/Yes/Downloads/qqq/res/drawable/btn_cab_done_example.xml",
+		"/Users/Yes/Downloads/qqq/res/drawable/tab_indicator_ab_example.xml",
+		"/Users/Yes/Downloads/qqq/res/values/styles_example.xml",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/create_phantom_cyst.m",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/rfdata/cyst/rfdata_cyst_.txt",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/rfdata/smile_20140324/smile_20140324.txt",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/rfdata/cyst/rfdata_cyst_20140324.txt",
+		"/Users/Yes/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/FF0BE541-5DC1-4F75-A3F5-420E4C6B0CD3/fuckit.txt",
+		"/Users/Yes/Downloads/qqq/res/values-v14/styles_example.xml",
+		"/Users/Yes/Downloads/qqq/res/drawable/selectable_background_example.xml",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/cuda/frequencyDomainBeamforming.cu",
+		"/Users/Yes/Dropbox/Yes/Master/thesis/latex/mythesis/chapter5.tex",
+		"/Volumes/Audacity 2.0.5/Install.txt",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Activity/VIPActivity.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Activity/MainActivity.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Fragment/VIPFragment.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/provider/VIPContentProvider.java",
+		"/Users/Yes/git/WTNApplication/build.gradle",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/menu/menu_fragment_favorite.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Adapter/MainFragmentPagerAdapter.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/res/layout/activity_main.xml",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Util/DBHelper.java",
+		"/Users/Yes/Dropbox/StorySense/Growth_Hacking/tracking_class/WTN-Android/GenerateTrackClassAndroid.py",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/strings.csv",
+		"/Users/Yes/Dropbox/StorySense/Developers/Android/resource/string/value-zh/strings.xml",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/bf_freqmap.m",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/create_mapping_param.m",
+		"/Users/Yes/Dropbox/StorySense/Growth_Hacking/tracking_class/WTN-Android/WTNAndroid_TrackingEvents_131118.csv",
+		"/Users/Yes/Downloads/google-app-script-demo - 工作表1.csv",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/create_setting.m",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/create_rfdata.m",
+		"/Users/Yes/Dropbox/Yes/Master/Code/fieldii/doc/user_guide/cyst_phantom.m",
+		"/Users/Yes/Dropbox/Yes/Master/Code/fieldii/doc/user_guide/calc_scat_multi.m",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/Activity/AbstractActivity.java",
+		"/Users/Yes/git/Testqqqqqqq/app/src/main/AndroidManifest.xml",
+		"/Users/Yes/git/mAndroid/PracSong/app/src/main/java/tw/yes/app/activity/AbstractActivity.java",
+		"/Users/Yes/git/WTNApplication/app/src/main/java/com/StorySense/WhatsTheNumberLite/API/Model/DataModel.java",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/cuda/kernel/create_mapping_param_kernel.cu",
+		"/Users/Yes/GoogleDrive/mWork/questionary/account.txt",
+		"/Users/Yes/GoogleDrive/myAndroid/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/QuestionActivity.java",
+		"/Users/Yes/GoogleDrive/myAndroid/QuestionaryProject/Questionary/src/main/java/tw/ntu/questionary/activity/MainActivity.java",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/data/cuda/image.txt",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/cuda/simpleGL.cu",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/cuda/openglTest.cu",
+		"/Users/Yes/Dropbox/Yes/Master/Code/3_frequency_domain_beamforming/cuda/cudaqq.cu",
+		"/Users/Yes/Downloads/ssharpWeb/httpdocs/Views/Shared/_Layout.cshtml",
+		"/Users/Yes/Downloads/ssharpWeb/httpdocs/Views/Technology/Index.cshtml",
+		"/Users/Yes/Downloads/ssharpWeb/httpdocs/Views/Shared/_LayoutContent.cshtml",
+		"/Users/Yes/Downloads/ssharpWeb/httpdocs/Views/Home/Index.cshtml",
+		"/Users/Yes/Downloads/ssharpWeb/httpdocs/Views_20121005/Shared/_LayoutContent.cshtml",
+		"/Users/Yes/Downloads/ssharpWeb/httpdocs/Views_20121005/Technology/Index.cshtml"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"rfdata_padding_kernel",
+			"FDBF(",
+			"FDBFByStream1",
+			"d_image_stream0",
+			"rfdata_shifting_kernel",
+			"d_rfdata_shifted",
+			"streams",
+			"outputTestingDataFloat",
+			"outputtestingdatafloat2",
+			"imageview",
+			"testing_flag_remapping_parameter",
+			"d_rfdata_zero_padded_and_shifted",
+			"create_zero_padded_and_shifted_complex_rfdata_kernel",
+			"create_zero_padded_complex_rfdata_kernel",
+			"shift_steering_kernel",
+			"create_zero_padded_complex_rfdata_kernel",
+			"rfdata_shifted",
+			"fftPlan",
+			"cufftSetStream",
+			"shift_steering_kernel",
+			"d_rfdata_shifted",
+			"shift_steering_kernel",
+			"d_rfdata_shifted",
+			"size_rfdata_padded",
+			"d_rfdata_zero_padded",
+			"d_rfdata_stream0",
+			"d_rfdata_zero_padded",
+			"fxmax",
+			"kerf",
+			"shift_in_time_domain_kernel",
+			"create_remapping_parameter",
+			"mapping",
+			"planeWaveFrequencyDomainBeamforming",
+			"shift_in_time_domain_kernel",
+			"planeWaveFrequencyDomainBeamforming",
+			"pi",
+			"theta",
+			"create_remapping_parameter",
+			"planeWaveFrequencyDomainBeamforming",
+			"for(",
+			"for",
+			"sizeof",
+			"allocation",
+			"streams",
+			"[]",
+			"theta",
+			"dfx",
+			"create_remapping_parameter",
+			"create_remapping_parameter_kernel",
+			"offset_index_plus_dt",
+			"planeWaveFrequencyDomainBeamforming",
+			"theta",
+			"create_zero_padded_complex_rfdata_kernel",
+			"initdata",
+			"oncurso",
+			"windowso",
+			"Query",
+			"querya",
+			"adapter",
+			"adapter = ",
+			"getGeofence",
+			"mListView",
+			"date",
+			"nika",
+			">楊雅婷<",
+			"楊雅婷",
+			"楊",
+			"mOnItemClickListener",
+			"onitemcli",
+			"mSignInButton",
+			"onconn",
+			"ResultCallback",
+			"onSignedOut",
+			"showDialog",
+			"onSignedOut",
+			"SAVED_PROGRESS",
+			"resolveSignInError",
+			"onClick",
+			"signou\nsign_out",
+			"signou",
+			"apiclient.conn",
+			".conne",
+			"mCirclesList",
+			"ResultCallback",
+			"mSignInIntent = ",
+			"resolveSignInError",
+			"onConnectionSuspended",
+			"onConnectionFailed",
+			"/* A flag indicating that a PendingIntent is in progress and prevents\n   * us from starting further intents.\n   */\n  intentpro",
+			"/* A flag indicating that a PendingIntent is in progress and prevents\n   * us from starting further intents.\n   */\n  private boolean mIntentInProgress;",
+			"mSignInIntent",
+			"resolveSignInError",
+			"OnClickListener",
+			"onclick",
+			"drop",
+			"listview",
+			"create_remapping_parameter",
+			"testing_flag_remapping_parameter",
+			"create_mapping_parameter",
+			"swit",
+			"time",
+			"DropDownListView",
+			"PopupMenu",
+			"dropdown",
+			"DropDownNav",
+			"list",
+			"DropDownListView",
+			"DropDownNav",
+			"DropDownListView",
+			"DropDownNav",
+			"ActionButton",
+			"btn",
+			"MainFragmentPagerAdapter",
+			"mViewPager",
+			"viewpager",
+			"default",
+			"create_mapping_parameter",
+			"alloca(",
+			"set_constants",
+			"planeWaveFrequencyDomainBeamforming",
+			"create_mapping_parameter",
+			"padd",
+			"create_mapping_parameter",
+			"create_mapping_parameter_and_load_rfdata",
+			"d_remapping_index",
+			"allo",
+			"d_image_shifted_stream0",
+			"shift_in_time_domain_kernel"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"planeWaveFrequencyDomainBeamformingTesting",
+			"create_mapping_parameter",
+			"remapping_kernel",
+			"size_remapping_parameter",
+			"create_remapping_parameter_kernel",
+			"create_remapping_param_kernel",
+			"d_remapping_index",
+			"d_rfdata_stream1",
+			"d_rfdata_stream0",
+			"d_image_stream1",
+			"d_image_stream0",
+			"",
+			"d_rfdata1",
+			"d_rfdata0",
+			" ",
+			"d_rfdata1",
+			"",
+			"size_rfdata",
+			"size_image",
+			"size_index",
+			"",
+			"#define",
+			"static const int",
+			"static const float",
+			"static const int",
+			"",
+			"* "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"settings":
+					{
+						"buffer_size": 1809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								492,
+								492
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/index.html",
+					"settings":
+					{
+						"buffer_size": 1371,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1248,
+								1248
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/AngularJS/AngularJS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 140.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/js/controllers.js",
+					"settings":
+					{
+						"buffer_size": 2292,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1491,
+								1491
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2.0,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5.0,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10.0,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 74.0,
+						"translation.y": 132.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/Yes/OneDrive/master-final/thesis/thesis.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 254.0,
+	"status_bar_visible": true
+}
