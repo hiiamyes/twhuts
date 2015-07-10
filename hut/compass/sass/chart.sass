@@ -2,7 +2,7 @@
 
 .label
 	font-size: 9pt
-	&.date
+	&.date,	&.draw-list
 		text-anchor: middle
 	&.remaining
 		text-anchor: end
@@ -15,14 +15,52 @@
 
 .applying
 	&.bar, &.label
+		// fill: $color-brown-600
 		fill: white
+
+.draw-list
+	&.bar, &.label
+		// fill: $color-light-blue-900
+		fill: $color-blue-grey-900
 
 .xaxis
 	stroke: $color-blue-grey-900
 	stroke-width: 1px
+	// &.draw-list
+		// stroke: $color-light-blue-900
 
 .label.date
 	&.weekday
 		fill: $color-blue-grey-900		
+		// &.draw-list
+			// fill: $color-light-blue-900
 	&.weekend
 		fill: $color-red-600
+
+#explain-remaining, #explain-waiting, #explain-draw-list	
+	&:before
+		display: inline-block
+		content: ""
+		width: 15px
+		height: 15px
+		margin-right: 5px		
+		border-radius: 4px
+
+#explain-remaining
+	margin-left: 20px
+	&:before
+		background-color: $color-blue-grey-900
+
+#explain-waiting
+	margin-left: 50px
+	color: white
+	&:before
+		background-color: white
+
+#explain-draw-list
+	margin-left: 20px
+	// color: $color-light-blue-900
+	color: $color-blue-grey-900
+	&:before
+		background-color: $color-blue-grey-900
+		// background-color: $color-light-blue-900

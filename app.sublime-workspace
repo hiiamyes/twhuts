@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"expl",
+				"explain-remaining"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"back",
+				"background-size"
+			],
+			[
+				"in",
+				"barInterval"
+			],
+			[
+				"margin",
+				"margin"
+			],
+			[
 				"YYYY",
 				"YYYY-MM-DD"
 			],
@@ -22,10 +42,6 @@
 			[
 				"mar",
 				"margin-right"
-			],
-			[
-				"margin",
-				"margin-left"
 			],
 			[
 				"conten",
@@ -90,10 +106,6 @@
 			[
 				"page",
 				"pages"
-			],
-			[
-				"back",
-				"background-color"
 			],
 			[
 				"app",
@@ -256,10 +268,10 @@
 	"buffers":
 	[
 		{
-			"file": "hut/scripts/crawler.coffee",
+			"file": "/Users/Yes/Dropbox/Yes/code/SHMS/crawler.coffee",
 			"settings":
 			{
-				"buffer_size": 4723,
+				"buffer_size": 1061,
 				"line_ending": "Unix"
 			}
 		}
@@ -365,42 +377,58 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/Yes/Dropbox/Yes/code/yesweb"
+		"/Users/Yes/Dropbox/Yes/code/yesweb",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/css",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/angular",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views"
 	],
 	"file_history":
 	[
-		"/Users/Yes/Dropbox/Yes/FL/MioLink/BT/app/src/main/java/tw/yes/bt/util/ExportUtil.java",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/crawler.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/crawler.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/app.coffee",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/package.json",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/main.coffee",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/index.jade",
+		"/Users/Yes/Dropbox/Yes/hiking/data.js",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/index.jade",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/index.html",
+		"/Users/Yes/Dropbox/Yes/新增資料夾/新文字文件.txt",
 		"/Users/Yes/Dropbox/Yes/code/SHMS/app.coffee",
 		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.html",
-		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.csv",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutCrawlerYushan.coffee",
-		"/Users/Yes/Dropbox/Yes/code/SHMS/package.json",
-		"/Users/Yes/Dropbox/Yes/code/ch/app.coffee",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutCrawlerTaiwanForestRecreation.coffee",
-		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.xls",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutsReset.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/changelog.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/angular/controller.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/sass/var.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/huts.jade",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/sass/index.sass",
-		"/Users/Yes/Dropbox/Yes/新增資料夾/新文字文件.txt",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/sass/chart.sass",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/css/chart.css",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutCrawlerYushan.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutCrawlerTaiwanForestRecreation.coffee",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/news.jade",
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutsReset.js",
+		"/Users/Yes/Dropbox/Yes/FL/MioLink/BT/app/src/main/java/tw/yes/bt/util/ExportUtil.java",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.csv",
+		"/Users/Yes/Dropbox/Yes/code/ch/app.coffee",
+		"/Users/Yes/Dropbox/Yes/code/SHMS/gg.xls",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/about.jade",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/crawler.coffee",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/app.coffee",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/bower.json",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/app.js",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/Procfile",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/package.json",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/newrelic.js",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutsReset.coffee",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/index.jade",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/question.jade",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/angular/controller.coffee",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/huts.jade",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/contact.jade",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/views/index.jade",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/bower_components/moment/README.md",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/hutsReset.js",
 		"/Users/Yes/Downloads/hallo.html",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/css/index.css",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/analysis.coffee",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/scripts/crawler.js",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/.sass-cache/96826677a94cef0ebd53a90cbc17b7e0698329ba/chart.sassc",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut/compass/.sass-cache/96826677a94cef0ebd53a90cbc17b7e0698329ba/index.sassc",
 		"/Users/Yes/Dropbox/Yes/code/yesweb/hut_crawler/views/index.jade",
@@ -430,7 +458,6 @@
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-26-役生一次 188 日 雪主東 Day1.md",
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-31-役生一次 192 日 如果能從保育志工的角色來看山.md",
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-28-役生一次 189 日 雪主東 後記.md",
-		"/Users/Yes/Dropbox/Yes/hiking/data.js",
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-31-役生一次 191 日 如果能從保育志工的角色來看山.md",
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-29-役生一次 190 日 替代役的日常.md",
 		"/Users/Yes/Dropbox/Yes/hiking/登山計畫書/雪主東下翠池/保險.txt",
@@ -488,19 +515,11 @@
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-13-役生一次 175 日 h264 不能 4000 x 3000.md",
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_drafts/2015-04-24-役生一次 156 日 Final Cut Pro.md",
 		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-13-h264 不能 4000 x 3000.md",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutsReset.js",
-		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-04-08-役生一次 140 日 第 7 次放假 北大武 Day 1.md",
-		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-04-09-役生一次 141 日 第 7 次放假 北大武 Day 2.md",
-		"/Users/Yes/Dropbox/mBlog/github_pages/hiiamyes.github.io/_posts/2015-05-09-役生一次 171 日 Certification from MongoDB University.md",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutCrawlerTaiwanForestRecreation.js",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/crawler.js",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/hutCrawlerTaiwanForestRecreation.coffee",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/crawlerTaiwanForestRecreation.coffee",
-		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/archive/loginCrawlerSimple.js"
+		"/Users/Yes/Dropbox/Yes/code/yesweb/hiking/scripts/hutsReset.js"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -516,6 +535,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"crawler",
+			"hover",
+			"anchor",
+			"topbar_group",
+			"widthbar",
+			"axis",
+			"update",
+			"divider",
+			"di",
+			"adminColor",
+			"adminColorEven",
+			"topbar_admin",
+			"topbar_admin_name",
+			"topbar_admin",
+			"topbar_admin_name",
 			".a",
 			"大霸",
 			"hutGroups",
@@ -628,17 +662,7 @@
 			"http",
 			"path",
 			"腳",
-			"pchom",
-			"whatsthe",
-			"2015-02-05 15.53.37",
-			"2015-02-05 15.53.37.jpg",
-			"2015-02-05 16.06.05",
-			"getAppVersionName",
-			"version",
-			"package",
-			"version",
-			"data_group",
-			"column"
+			"pchom"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -689,29 +713,28 @@
 			[
 				{
 					"buffer": 0,
-					"file": "hut/scripts/crawler.coffee",
+					"file": "/Users/Yes/Dropbox/Yes/code/SHMS/crawler.coffee",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4723,
+						"buffer_size": 1061,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								682,
+								682
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 46.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="bot">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.3/ZeroClipboard.js"></script>
+    <script src="js/controllers.js"></script>
+    <!-- <script src="js/clipboard.js"></script>-->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div ng-controller="BotController as bot">
+        <!-- <h1>Hi~ we are yes & vidcina!</h1> -->
+        <form ng-submit="getReply()">
+            <span id="me">o_o：</span>
+            <input type="text" ng-model="question" placeholder="嘿～ 要不要說點什麼？">
+            <!-- <input type="submit" value="submit"> -->
+        </form>
+        <!-- <div ng-repeat="reply in replys">
+            <p>{{reply.name}}</p>
+        </div> -->
+        <div>
+            <div id="miro-reply">
+                <span id="process-bar">{{progress}}</span>
+                <span id="reply">{{reply.sentence}}</span>
+                <span id="miro">Miro</span>
+                <iframe id="reply-youtube" ng-src="{{reply.youtube_embed_url}}" ng-show="reply.youtube_embed_url"></iframe>
+            </div>
+        </div>
+        <div id="copy-button" class="round-button">Copy</div>
+        <!-- <div id="i-am-miro">Hi~ I'm miro, born on 4:30 25/6/2014.</div> -->
+    </div>
+</body>
+
+</html>

@@ -23,12 +23,12 @@ module.exports =
 				urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
 				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 				selectorRemaining = 'span.style11 font'
-				ddlLocation = 2
+				ddlLocation = 136
 			when '圓峰營地'
 				urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136'
 				urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003'
 				selectorRemaining = 'span.style12 font'
-				ddlLocation = 2
+				ddlLocation = 136
 
 		async.waterfall([
 			(cb) ->
@@ -37,6 +37,7 @@ module.exports =
 					parser $, () -> 
 						cb null, $
 			, ($, cb) ->
+				# Go to next month and keep crawling data after drawing
 				request(
 					'method': 'POST'
 					'url': urlAfterDraw
@@ -50,98 +51,73 @@ module.exports =
 					parser cheerio.load(body), () -> 
 						cb null
 				)
-			# , (cb) ->
-			# 	async.eachSeries(
-			# 		[0..4]
-			# 		, (itmes, eachSerialFinished) ->
-			# 			request urlBeforeDraw, (err, res, body) ->
-			# 				$ = cheerio.load body
-			# 				date = moment().add(7 + capacityStatus.length,'d')
-			# 				request({
-			# 					'method': 'POST'
-			# 					'url': urlBeforeDraw
-			# 					'form':
-			# 						'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': ''			
-			# 						'__EVENTTARGET': ''
-			# 						'__EVENTARGUMENT': ''
-			# 						'__VIEWSTATE': $('#__VIEWSTATE').val()
-			# 						'__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val()
-			# 						'__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val()
-			# 						'__EVENTVALIDATION': $('#__EVENTVALIDATION').val()
-			# 						'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD')
-			# 						'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation
-			# 						'ctl00$ContentPlaceHolder1$btnSearch.x': 6
-			# 						'ctl00$ContentPlaceHolder1$btnSearch.y': 19
-			# 						'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
-			# 				}, (err, res, body) ->
-			# 					$ = cheerio.load body
-			# 					applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text()
-			# 					capacityStatus.push
-			# 						'date': date.format()
-			# 						'remaining': 92
-			# 						'applying': applying
-			# 					eachSerialFinished()
-			# 				)
-			# 		, (err) ->
-			# 			if err then console.log err else cb null
-			# 	)
+			, (cb) ->
+				async.eachSeries(
+					[0..14]
+					, (itmes, eachSerialFinished) ->
+						request urlBeforeDraw, (err, res, body) ->
+							$ = cheerio.load body
+							date = moment().add(7 + capacityStatus.length,'d')
+							request({
+								'method': 'POST'
+								'url': urlBeforeDraw
+								'form':
+									'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': ''			
+									'__EVENTTARGET': ''
+									'__EVENTARGUMENT': ''
+									'__VIEWSTATE': $('#__VIEWSTATE').val()
+									'__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val()
+									'__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val()
+									'__EVENTVALIDATION': $('#__EVENTVALIDATION').val()
+									'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD')
+									'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation
+									'ctl00$ContentPlaceHolder1$btnSearch.x': 6
+									'ctl00$ContentPlaceHolder1$btnSearch.y': 19
+									'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
+							}, (err, res, body) ->
+								$ = cheerio.load body
+								applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text()
+								capacityStatus.push
+									'date': date.format()
+									'remaining': capacity
+									'applying': applying
+									'isDrawn': false
+								eachSerialFinished()
+							)
+					, (err) ->
+						if err then console.log err else cb null
+				)
 		], (err, result) ->
 			# console.log capacityStatus
-			# console.log 'time: ' + moment().diff(timeStartCrawling, 'seconds') + 's'
 			cbExports null, capacityStatus
 		)
 
 		parser = ($, done) ->
-			dateStart = moment().add(7, 'day')
-			dateEnd = moment().add(28, 'day')
+
 			yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
 			year = yearMonth.split('年')[0]
 			month = yearMonth.split('年')[1].split('月')[0]
+
 			$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
 				if i >= 3 and i <= 7
 					$(this).find('td > a').each (i) ->
-						date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
-						if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
+
+						today = moment().year(year).month(month-1).date($(this).text())
+						dateDiff = today.diff(moment(),'d')
+
+						if dateDiff >= 7 and dateDiff <= 31
 							registered = $(this).parent('td').find(selectorRemaining).text()
+							
+							# Add a checking point for the last day, cause drawing is issued at 3pm everyday!
+							if dateDiff is 31 and registered is '' then return						
+
 							applying = $(this).parent('td').find('span.style14 font').text()
 							capacityStatus.push
 								'date': moment().add(7 + capacityStatus.length, 'day').format()
 								'remaining': if registered is '' then 0 else capacity - registered
 								'applying': if applying is '' then 0 else applying
+								'isDrawn': true
 			done()
-
-			# async.parallel({
-			# 	remainings: (cb) ->
-			# 		remainings = []
-			# 		date = moment()
-			# 		yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text()
-			# 		year = yearMonth.split('年')[0]
-			# 		month = yearMonth.split('年')[1].split('月')[0]
-			# 		$('#ctl00_ContentPlaceHolder1_CalendarReport tr').each (i) ->
-			# 			if i >= 3 and i <= 7
-			# 				$(this).find('td > a').each (i) ->
-			# 					date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD')
-			# 					if date.diff(dateStart, 'day') >= 0 and date.diff(dateEnd, 'day') <= 0
-			# 						registered = $(this).parent('td').find(selectorRemaining).text()
-			# 						if registered is '' then registered = 92
-			# 						remainings.push capacity - registered
-			# 		cb null, remainings
-			# 	# , applyings: (cb) ->
-			# 		# applyings = []
-			# 		# $('span.style14 font').each (i) ->
-			# 			# applyings.push $(this).text()
-			# 		# cb null, applyings
-			# }, (err, results) ->
-			# 	for remaining, i in results.remainings
-			# 		capacityStatus.push
-			# 			'date': moment().add(7 + capacityStatus.length, 'day').format()
-			# 			'remaining': remaining
-			# 			# 'applying': results.applyings[i]
-			# 	done()
-			# )
-
-
-
 			
 		
 		

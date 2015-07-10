@@ -1,0 +1,98 @@
+/* line 3, ../sass/huts.sass */
+#huts {
+  margin-left: 2%;
+  margin-right: 2%;
+  height: 100%;
+}
+
+/* line 8, ../sass/huts.sass */
+#content-chart {
+  height: 100%;
+  padding-top: 2%;
+  background-color: #b0bec5;
+  position: relative;
+  transition: all 0.4s ease;
+}
+/* line 15, ../sass/huts.sass */
+#content-chart.toggle {
+  transform: translateX(22%);
+}
+/* line 18, ../sass/huts.sass */
+#content-chart #toggle {
+  position: absolute;
+  top: 2%;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #01579b;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+/* line 26, ../sass/huts.sass */
+#content-chart #toggle:hover {
+  background-color: #263238;
+}
+/* line 28, ../sass/huts.sass */
+#content-chart #toggle img {
+  width: 20px;
+  position: absolute;
+  transform: translate(75%, 75%);
+}
+/* line 33, ../sass/huts.sass */
+#content-chart #bar-chart {
+  margin-top: 3%;
+}
+/* line 46, ../sass/huts.sass */
+#content-chart #title-bar > div {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 50, ../sass/huts.sass */
+#content-chart #title-bar > div * {
+  margin-right: 50px;
+}
+
+/* line 55, ../sass/huts.sass */
+#sidenav {
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.26);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+/* line 63, ../sass/huts.sass */
+#sidenav.toggle {
+  opacity: 1;
+}
+/* line 65, ../sass/huts.sass */
+#sidenav .topbar_group {
+  width: 100%;
+  margin-top: 1em;
+}
+/* line 69, ../sass/huts.sass */
+#sidenav .topbar_admin_name {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.5em;
+  color: #6d4c41;
+}
+/* line 74, ../sass/huts.sass */
+#sidenav .topbar_hut_name {
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 0.5em;
+  color: #263238;
+}
+/* line 81, ../sass/huts.sass */
+#sidenav .topbar_hut_name.selected {
+  color: white;
+}
+/* line 83, ../sass/huts.sass */
+#sidenav .topbar_hut_name:hover {
+  color: white;
+  cursor: pointer;
+}

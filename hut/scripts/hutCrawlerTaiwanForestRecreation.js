@@ -152,7 +152,7 @@
     month = monthThisMonth;
     $ThisMonth('.dayNumber').each(function(i) {
       var day;
-      if (capacityStatus.length > 22) {
+      if (capacityStatus.length > 38) {
         return false;
       } else {
         day = parseInt($ThisMonth(this).text());
@@ -164,7 +164,7 @@
           }
         }
         dayPre = day;
-        return push(capacityStatus, $ThisMonth(this), month, day);
+        return push(capacityStatus, $ThisMonth(this), month, day, capacityStatus.length <= 22);
       }
     });
     monthCheck = month;
@@ -173,7 +173,7 @@
     pass = false;
     $NextMonth('.dayNumber').each(function(i) {
       var day;
-      if (capacityStatus.length > 22) {
+      if (capacityStatus.length > 38) {
         return false;
       } else {
         day = parseInt($NextMonth(this).text());
@@ -188,14 +188,14 @@
         if (!pass && month === monthCheck && day === dayCheck) {
           return pass = true;
         } else if (pass) {
-          return push(capacityStatus, $NextMonth(this), month, day);
+          return push(capacityStatus, $NextMonth(this), month, day, capacityStatus.length <= 22);
         }
       }
     });
     return capacityStatus;
   };
 
-  push = function(capacityStatus, ele, month, day) {
+  push = function(capacityStatus, ele, month, day, isDrawn) {
     var applying, date, e, remaining;
     if (ele.parent().children().length > 1) {
       date = moment().month(month - 1).date(day).format();
@@ -205,14 +205,16 @@
         return capacityStatus.push({
           'date': date,
           'remaining': remaining,
-          'applying': applying
+          'applying': applying,
+          'isDrawn': isDrawn
         });
       } catch (_error) {
         e = _error;
         return capacityStatus.push({
           'date': date,
           'remaining': 0,
-          'applying': 0
+          'applying': 0,
+          'isDrawn': isDrawn
         });
       }
     }

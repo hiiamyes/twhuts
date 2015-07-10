@@ -30,13 +30,13 @@
           urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
           urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
           selectorRemaining = 'span.style11 font';
-          ddlLocation = 2;
+          ddlLocation = 136;
           break;
         case '圓峰營地':
           urlAfterDraw = 'https://mountain.ysnp.gov.tw/chinese/Location_Detail.aspx?pg=01&w=1&n=1005&s=136';
           urlBeforeDraw = 'https://mountain.ysnp.gov.tw/chinese/LocationAppIndex.aspx?pg=01&w=1&n=1003';
           selectorRemaining = 'span.style12 font';
-          ddlLocation = 2;
+          ddlLocation = 136;
       }
       async.waterfall([
         function(cb) {
@@ -63,29 +63,75 @@
               return cb(null);
             });
           });
+        }, function(cb) {
+          return async.eachSeries([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], function(itmes, eachSerialFinished) {
+            return request(urlBeforeDraw, function(err, res, body) {
+              var $, date;
+              $ = cheerio.load(body);
+              date = moment().add(7 + capacityStatus.length, 'd');
+              return request({
+                'method': 'POST',
+                'url': urlBeforeDraw,
+                'form': {
+                  'ctl00_ContentPlaceHolder1_ToolkitScriptManager1_HiddenField': '',
+                  '__EVENTTARGET': '',
+                  '__EVENTARGUMENT': '',
+                  '__VIEWSTATE': $('#__VIEWSTATE').val(),
+                  '__VIEWSTATEGENERATOR': $('#__VIEWSTATEGENERATOR').val(),
+                  '__VIEWSTATEENCRYPTED': $('#__VIEWSTATEENCRYPTED').val(),
+                  '__EVENTVALIDATION': $('#__EVENTVALIDATION').val(),
+                  'ctl00$ContentPlaceHolder1$txtSDate': date.format('YYYY/MM/DD'),
+                  'ctl00$ContentPlaceHolder1$ddlLocation': ddlLocation,
+                  'ctl00$ContentPlaceHolder1$btnSearch.x': 6,
+                  'ctl00$ContentPlaceHolder1$btnSearch.y': 19,
+                  'ctl00$ContentPlaceHolder1$gvIndex$ctl13$ddlPager': 1
+                }
+              }, function(err, res, body) {
+                var applying;
+                $ = cheerio.load(body);
+                applying = $('#ctl00_ContentPlaceHolder1_lblPeople').text();
+                capacityStatus.push({
+                  'date': date.format(),
+                  'remaining': capacity,
+                  'applying': applying,
+                  'isDrawn': false
+                });
+                return eachSerialFinished();
+              });
+            });
+          }, function(err) {
+            if (err) {
+              return console.log(err);
+            } else {
+              return cb(null);
+            }
+          });
         }
       ], function(err, result) {
         return cbExports(null, capacityStatus);
       });
       return parser = function($, done) {
-        var dateEnd, dateStart, month, year, yearMonth;
-        dateStart = moment().add(7, 'day');
-        dateEnd = moment().add(28, 'day');
+        var month, year, yearMonth;
         yearMonth = $('#ctl00_ContentPlaceHolder1_CalendarReport tr:first-child td:nth-child(2)').text();
         year = yearMonth.split('年')[0];
         month = yearMonth.split('年')[1].split('月')[0];
         $('#ctl00_ContentPlaceHolder1_CalendarReport tr').each(function(i) {
           if (i >= 3 && i <= 7) {
             return $(this).find('td > a').each(function(i) {
-              var applying, date, registered;
-              date = moment(year + ' ' + month + ' ' + $(this).text(), 'YYYY MM DD');
-              if (date.diff(dateStart, 'day') >= 0 && date.diff(dateEnd, 'day') <= 0) {
+              var applying, dateDiff, registered, today;
+              today = moment().year(year).month(month - 1).date($(this).text());
+              dateDiff = today.diff(moment(), 'd');
+              if (dateDiff >= 7 && dateDiff <= 31) {
                 registered = $(this).parent('td').find(selectorRemaining).text();
+                if (dateDiff === 31 && registered === '') {
+                  return;
+                }
                 applying = $(this).parent('td').find('span.style14 font').text();
                 return capacityStatus.push({
                   'date': moment().add(7 + capacityStatus.length, 'day').format(),
                   'remaining': registered === '' ? 0 : capacity - registered,
-                  'applying': applying === '' ? 0 : applying
+                  'applying': applying === '' ? 0 : applying,
+                  'isDrawn': true
                 });
               }
             });
