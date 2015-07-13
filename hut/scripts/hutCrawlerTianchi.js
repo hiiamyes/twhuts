@@ -30,23 +30,28 @@
         }
       }, function(err, results) {
         var capacityStatus, j, k, l, len, len1, len2, ref, ref1, ref2, result;
-        capacityStatus = [];
-        ref = results.thisMonth;
-        for (j = 0, len = ref.length; j < len; j++) {
-          result = ref[j];
-          capacityStatus.push(result);
+        if (err) {
+          console.log('fail crawling: 天池山莊');
+          return cbExports(null, []);
+        } else {
+          capacityStatus = [];
+          ref = results.thisMonth;
+          for (j = 0, len = ref.length; j < len; j++) {
+            result = ref[j];
+            capacityStatus.push(result);
+          }
+          ref1 = results.nextMonth;
+          for (k = 0, len1 = ref1.length; k < len1; k++) {
+            result = ref1[k];
+            capacityStatus.push(result);
+          }
+          ref2 = results.thirdMonth;
+          for (l = 0, len2 = ref2.length; l < len2; l++) {
+            result = ref2[l];
+            capacityStatus.push(result);
+          }
+          return cbExports(null, capacityStatus);
         }
-        ref1 = results.nextMonth;
-        for (k = 0, len1 = ref1.length; k < len1; k++) {
-          result = ref1[k];
-          capacityStatus.push(result);
-        }
-        ref2 = results.thirdMonth;
-        for (l = 0, len2 = ref2.length; l < len2; l++) {
-          result = ref2[l];
-          capacityStatus.push(result);
-        }
-        return cbExports(null, capacityStatus);
       });
     }
   };
@@ -59,36 +64,40 @@
     url = 'http://tconline.forest.gov.tw/order/?year=' + year + '&month=' + month;
     return request(url, function(err, res, body) {
       var $;
-      $ = cheerio.load(body);
-      $('.in_calendar_date').each(function(i) {
-        var applying, dateDiff, isDrawn, remaining, status, today;
-        status = $(this).closest('table').find('td').eq(1).clone();
-        status.find('br').replaceWith(',');
-        status = status.text().split(',');
-        remaining = parseInt(status[0].split(':')[1]);
-        today = moment().year(year).month(date.month()).date(i + 1);
-        dateDiff = today.diff(moment(), 'd');
-        if (dateDiff >= 7 && dateDiff <= 45) {
-          if (!Number.isInteger(remaining)) {
-            return capacityStatus.push({
-              'date': today.format(),
-              'remaining': 0,
-              'applying': 0,
-              'isDrawn': dateDiff <= 29
-            });
-          } else {
-            applying = parseInt(status[1].split(':')[1]);
-            isDrawn = status[2];
-            return capacityStatus.push({
-              'date': today.format(),
-              'remaining': remaining,
-              'applying': applying,
-              'isDrawn': isDrawn === '已抽名單'
-            });
+      if (err) {
+        return cb('fail');
+      } else {
+        $ = cheerio.load(body);
+        $('.in_calendar_date').each(function(i) {
+          var applying, dateDiff, isDrawn, remaining, status, today;
+          status = $(this).closest('table').find('td').eq(1).clone();
+          status.find('br').replaceWith(',');
+          status = status.text().split(',');
+          remaining = parseInt(status[0].split(':')[1]);
+          today = moment().year(year).month(date.month()).date(i + 1);
+          dateDiff = today.diff(moment(), 'd');
+          if (dateDiff >= 7 && dateDiff <= 45) {
+            if (!Number.isInteger(remaining)) {
+              return capacityStatus.push({
+                'date': today.format(),
+                'remaining': 0,
+                'applying': 0,
+                'isDrawn': dateDiff <= 29
+              });
+            } else {
+              applying = parseInt(status[1].split(':')[1]);
+              isDrawn = status[2];
+              return capacityStatus.push({
+                'date': today.format(),
+                'remaining': remaining,
+                'applying': applying,
+                'isDrawn': isDrawn === '已抽名單'
+              });
+            }
           }
-        }
-      });
-      return cb(null, capacityStatus);
+        });
+        return cb(null, capacityStatus);
+      }
     });
   };
 

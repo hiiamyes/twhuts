@@ -45,19 +45,23 @@
                       return hutCrawlerTianchi.crawl(hut, cb);
                   }
                 }, function(capacityStatus, cb) {
-                  return collection.updateOne({
-                    'nameZh': hut.nameZh
-                  }, {
-                    $set: {
-                      'capacityStatuses': {
-                        'dateCrawl': moment().format(),
-                        'status': capacityStatus
-                      }
-                    }
-                  }, function(err, r) {
-                    console.log(err !== null ? err : 'success crawling ' + hut.nameZh);
+                  if (capacityStatus === []) {
                     return cb(null, 'done');
-                  });
+                  } else {
+                    return collection.updateOne({
+                      'nameZh': hut.nameZh
+                    }, {
+                      $set: {
+                        'capacityStatuses': {
+                          'dateCrawl': moment().format(),
+                          'status': capacityStatus
+                        }
+                      }
+                    }, function(err, r) {
+                      console.log(err !== null ? err : 'success crawling ' + hut.nameZh);
+                      return cb(null, 'done');
+                    });
+                  }
                 }
               ], function(err, result) {
                 if (err != null) {

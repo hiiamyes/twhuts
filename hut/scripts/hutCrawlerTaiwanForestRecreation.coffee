@@ -102,7 +102,6 @@ parser = ($ThisMonth, $NextMonth) ->
 		else
 			# Calculate the date
 			day = parseInt $ThisMonth(this).text()
-			console.log day
 			if i is 0 and day isnt 1 then month-- else # ex: 4/29 4/30 5/1 5/2
 				if day < dayPre then month++ # ex: 5/31 6/1 6/2 6/3
 			dayPre = day

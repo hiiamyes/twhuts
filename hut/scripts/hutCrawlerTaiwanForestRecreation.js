@@ -157,7 +157,6 @@
         return false;
       } else {
         day = parseInt($ThisMonth(this).text());
-        console.log(day);
         if (i === 0 && day !== 1) {
           month--;
         } else {
