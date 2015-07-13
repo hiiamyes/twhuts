@@ -1,0 +1,35 @@
+doctype html
+html(ng-app='twtrails')
+	head
+		title 台灣登山路線行程產生器
+
+		//- analysis related
+		//- script(src='scripts/analysis.js')
+
+		//- angular
+		script(src='../bower_components/angular/angular.js')
+		script(src='../bower_components/angular-route/angular-route.js')
+		script(src='scripts/angular/controller.js')
+
+		//- css
+		link(rel='stylesheet' href='compass/css/index.css')
+
+		//- moment.js
+		//- http://momentjs.com/
+		script(src='../bower_components/moment/moment.js')
+
+	body(ng-controller='twtrailsCtrl')
+		input(type='text')
+		button add
+		#point(ng-repeat='point in points')
+			div {{point.name}}
+			div {{point.lat}}
+			div {{point.lng}}
+			div {{point.alt}}
+
+
+
+
+
+
+

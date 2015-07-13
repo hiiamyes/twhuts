@@ -78,33 +78,17 @@ app.controller('hutCrawlerCtrl', ['$scope', '$http', ($scope, $http) ->
 		$scope.calendarTitles = ['日','一','二','三','四','五','六'] 
 
 		$scope.hutNameZhSelected = hutNameZh        
-		hutApplicableAll = []
-		hutApplicableInOneWeek = []
 		for hut in $scope.huts
 			if hut.nameZh is hutNameZh
-
+				
 				$scope.urlApply = hut.urlApply
 				$scope.capacity = hut.capacity
 				$scope.updateDate = moment(hut.capacityStatuses.dateCrawl).format('M月D日 H:mm')
-
+				
 				for status, istatus in hut.capacityStatuses.status
-
 					if status.isDrawn then $scope.dataAfterDraw.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
 					else $scope.dataBeforeDraw.push {date: status.date, remaining: parseInt(status.remaining), applying: parseInt(status.applying)}
 
-					day = new Date(status.date).getDay()
-
-					# Need some days to make up the 1st week if the 1st staus if not Sunday.
-					if istatus is 0 and day isnt 0
-						hutApplicableInOneWeek.push {} for [0...day]
-
-					hutApplicableInOneWeek.push status
-
-					if istatus is hut.capacityStatuses.status.length - 1 or day is 6
-						hutApplicableAll.push hutApplicableInOneWeek
-						hutApplicableInOneWeek = []
-
-				$scope.hutApplicableAll = hutApplicableAll
 				break
 
 	$scope.titleBarNameClicked = (titleBarName) ->
@@ -206,11 +190,10 @@ app.directive 'barChartAfterDraw', () ->
 							.attr 'y2', groupChartHeight + 5
 							.attr 'class', 'xaxis'
 
-						format = d3.time.format('%_m/%_d')
 						xAxis
 							.append 'g'
 							.selectAll('text').data(scope.data).enter().append('text')
-							.text (d) -> format(new Date(d.date))
+							.text (d) -> moment(d.date).utc().format('M/D')
 							.attr 'x', (d, i) -> barInterval / 2 + barWidth  + i * (barWidth * 2 + barInterval)
 							.attr 'y', (d) -> groupChartHeight + 20
 							.attr 'class', (d) -> 
@@ -323,11 +306,10 @@ app.directive 'barChartBeforeDraw', () ->
 							.attr 'y2', groupChartHeight + 5
 							.attr 'class', 'xaxis draw-list'
 
-						format = d3.time.format('%_m/%_d')
 						xAxis
 							.append 'g'
 							.selectAll('text').data(scope.data).enter().append('text')
-							.text (d) -> format(new Date(d.date))
+							.text (d) -> moment(d.date).utc().format('M/D')
 							.attr 'x', (d, i) -> barInterval / 2 + barWidth  + i * (barWidth * 2 + barInterval)
 							.attr 'y', (d) -> groupChartHeight + 20
 							.attr 'class', (d) -> 
