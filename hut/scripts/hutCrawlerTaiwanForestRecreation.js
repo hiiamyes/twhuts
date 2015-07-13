@@ -107,7 +107,7 @@
   };
 
   parser = function($ThisMonth, $NextMonth) {
-    var capacityStatus, dayCheck, dayPre, month, monthCheck, monthThisMonth, monthZHThisMonth, pass;
+    var capacityStatus, dayCheck, dayPre, month, monthCheck, monthThisMonth, monthZHThisMonth, pass, year;
     monthZHThisMonth = $ThisMonth('#eventscalendar_ctl00_label2').text().split(' ')[0];
     monthThisMonth = 0;
     switch (monthZHThisMonth) {
@@ -149,6 +149,7 @@
     }
     capacityStatus = [];
     dayPre = 0;
+    year = moment().year;
     month = monthThisMonth;
     $ThisMonth('.dayNumber').each(function(i) {
       var day;
@@ -156,6 +157,7 @@
         return false;
       } else {
         day = parseInt($ThisMonth(this).text());
+        console.log(day);
         if (i === 0 && day !== 1) {
           month--;
         } else {
@@ -164,7 +166,7 @@
           }
         }
         dayPre = day;
-        return push(capacityStatus, $ThisMonth(this), month, day, capacityStatus.length <= 22);
+        return push(capacityStatus, $ThisMonth(this), year, month, day, capacityStatus.length <= 22);
       }
     });
     monthCheck = month;
@@ -188,7 +190,7 @@
         if (!pass && month === monthCheck && day === dayCheck) {
           return pass = true;
         } else if (pass) {
-          return push(capacityStatus, $NextMonth(this), month, day, capacityStatus.length <= 22);
+          return push(capacityStatus, $NextMonth(this), year, month, day, capacityStatus.length <= 22);
         }
       }
     });

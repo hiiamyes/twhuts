@@ -29,6 +29,13 @@ mongoServerUrl = 'mongodb://yes:yes@ds035280.mongolab.com:35280/hiking'
 crawler = require './hut/scripts/crawler.js'
 crawler.crawl MongoClient, mongoServerUrl, collectionName
 
+# miro
+require('./miro/app-miro.js')(app)
+
+# 
+require('./wedding/app-wedding.js')(app)
+require('./twtrails/app-twtrails.js')(app)
+
 # routing
 app.get '/', (req, res) ->
 	res.render 'index'

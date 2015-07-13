@@ -40,6 +40,12 @@
 
   crawler.crawl(MongoClient, mongoServerUrl, collectionName);
 
+  require('./miro/app-miro.js')(app);
+
+  require('./wedding/app-wedding.js')(app);
+
+  require('./twtrails/app-twtrails.js')(app);
+
   app.get('/', function(req, res) {
     return res.render('index');
   });

@@ -65,14 +65,12 @@
         return $scope.toggle = !$scope.toggle;
       };
       $scope.hutNameClicked = function(hutNameZh) {
-        var day, hut, hutApplicableAll, hutApplicableInOneWeek, istatus, j, k, l, len, len1, ref, ref1, ref2, results, status;
+        var hut, istatus, j, k, len, len1, ref, ref1, results, status;
         $scope.toggle = false;
         $scope.dataAfterDraw = [];
         $scope.dataBeforeDraw = [];
         $scope.calendarTitles = ['日', '一', '二', '三', '四', '五', '六'];
         $scope.hutNameZhSelected = hutNameZh;
-        hutApplicableAll = [];
-        hutApplicableInOneWeek = [];
         ref = $scope.huts;
         results = [];
         for (j = 0, len = ref.length; j < len; j++) {
@@ -97,19 +95,7 @@
                   applying: parseInt(status.applying)
                 });
               }
-              day = new Date(status.date).getDay();
-              if (istatus === 0 && day !== 0) {
-                for (l = 0, ref2 = day; 0 <= ref2 ? l < ref2 : l > ref2; 0 <= ref2 ? l++ : l--) {
-                  hutApplicableInOneWeek.push({});
-                }
-              }
-              hutApplicableInOneWeek.push(status);
-              if (istatus === hut.capacityStatuses.status.length - 1 || day === 6) {
-                hutApplicableAll.push(hutApplicableInOneWeek);
-                hutApplicableInOneWeek = [];
-              }
             }
-            $scope.hutApplicableAll = hutApplicableAll;
             break;
           } else {
             results.push(void 0);
@@ -147,7 +133,7 @@
         barWidth = 14;
         barInterval = 24;
         return scope.$watch('data', function(g) {
-          var applyingMax, format, groupChart, groupChartWidth, j, remainingMax, results, sizeData, svg, xAxis, yScale;
+          var applyingMax, groupChart, groupChartWidth, j, remainingMax, results, sizeData, svg, xAxis, yScale;
           sizeData = scope.data.length;
           if (sizeData !== 0) {
             d3.select(element[0]).selectAll('*').remove();
@@ -186,9 +172,8 @@
             }).attr('y1', groupChartHeight).attr('x2', function(d, i) {
               return i * (barWidth * 2 + barInterval);
             }).attr('y2', groupChartHeight + 5).attr('class', 'xaxis');
-            format = d3.time.format('%_m/%_d');
             xAxis.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
-              return format(new Date(d.date));
+              return moment(d.date).utc().format('M/D');
             }).attr('x', function(d, i) {
               return barInterval / 2 + barWidth + i * (barWidth * 2 + barInterval);
             }).attr('y', function(d) {
@@ -254,7 +239,7 @@
         barWidth = 14;
         barInterval = 24;
         return scope.$watch('data', function(g) {
-          var format, groupChart, groupChartWidth, j, results, sizeData, svg, xAxis, yScale;
+          var groupChart, groupChartWidth, j, results, sizeData, svg, xAxis, yScale;
           sizeData = scope.data.length;
           if (sizeData !== 0) {
             d3.select(element[0]).selectAll('*').remove();
@@ -284,9 +269,8 @@
             }).attr('y1', groupChartHeight).attr('x2', function(d, i) {
               return i * (barWidth * 2 + barInterval);
             }).attr('y2', groupChartHeight + 5).attr('class', 'xaxis draw-list');
-            format = d3.time.format('%_m/%_d');
             xAxis.append('g').selectAll('text').data(scope.data).enter().append('text').text(function(d) {
-              return format(new Date(d.date));
+              return moment(d.date).utc().format('M/D');
             }).attr('x', function(d, i) {
               return barInterval / 2 + barWidth + i * (barWidth * 2 + barInterval);
             }).attr('y', function(d) {

@@ -1,0 +1,45 @@
+doctype html
+html(ng-app='miro')
+	head
+		title Miro
+
+		//- analysis related
+		//- script(src='scripts/analysis.js')
+
+		//- angular
+		script(src='../bower_components/angular/angular.js')
+		script(src='../bower_components/angular-route/angular-route.js')
+		script(src='scripts/angular/controller.js')
+
+		//- clipboard
+		script(src='//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/2.1.3/ZeroClipboard.js')
+	
+		//- css
+		link(rel='stylesheet' href='compass/css/index.css')
+
+		//- moment.js
+		//- http://momentjs.com/
+		script(src='../bower_components/moment/moment.js')
+
+	//- body(ng-controller='hutCrawlerCtrl')
+	body(ng-controller='miroCtrl')
+		form(ng-submit='getReply()')
+			spna#me o_o: 
+			input(type='text' ng-model='question' placeholder='嘿 說點什麼吧！')
+
+		#miro-reply
+			span#process-bar {{progress}}
+			span#reply {{reply.sentence}}
+			span#miro Miro
+			iframe#reply-youtube(ng-src='{{reply.youtube_embed_url}}' ng-show='reply.youtube_embed_url')
+
+		#copy-button.round-button Copy
+		//- span#copyright Copyright &copy; 2015 Tsung-Yeh Lee.
+
+
+
+
+
+
+
+

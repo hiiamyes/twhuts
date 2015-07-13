@@ -1,0 +1,31 @@
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+/* line 4, ../sass/index.sass */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 9, ../sass/index.sass */
+html, body {
+  height: 100%;
+  margin: 0;
+  border: 0;
+}
+
+/* line 15, ../sass/index.sass */
+body {
+  font-size: 14pt;
+  font-family: "cwTeXYen", sans-serif;
+}
+
+/* line 20, ../sass/index.sass */
+#cover {
+  margin-top: -300px;
+}
+
+/* line 23, ../sass/index.sass */
+#titlebar {
+  font-size: 24pt;
+  text-align: center;
+}
