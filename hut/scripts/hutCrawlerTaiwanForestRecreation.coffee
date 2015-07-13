@@ -95,7 +95,6 @@ parser = ($ThisMonth, $NextMonth) ->
 	# Check days one by one
 	capacityStatus = []
 	dayPre = 0
-	year = moment().year
 	month = monthThisMonth
 	$ThisMonth('.dayNumber').each (i) ->
 		if capacityStatus.length > 38 then return false
@@ -105,7 +104,7 @@ parser = ($ThisMonth, $NextMonth) ->
 			if i is 0 and day isnt 1 then month-- else # ex: 4/29 4/30 5/1 5/2
 				if day < dayPre then month++ # ex: 5/31 6/1 6/2 6/3
 			dayPre = day
-			push capacityStatus, $ThisMonth(this), year, month, day, capacityStatus.length <= 22
+			push capacityStatus, $ThisMonth(this), month, day, capacityStatus.length <= 22
 
 	monthCheck = month
 	dayCheck = dayPre
@@ -121,7 +120,7 @@ parser = ($ThisMonth, $NextMonth) ->
 			dayPre = day
 			if not pass and month is monthCheck and day is dayCheck then pass = true
 			else if pass
-				push capacityStatus, $NextMonth(this), year, month, day, capacityStatus.length <= 22
+				push capacityStatus, $NextMonth(this), month, day, capacityStatus.length <= 22
 
 	capacityStatus
 
