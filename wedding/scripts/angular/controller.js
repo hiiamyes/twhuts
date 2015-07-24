@@ -10,6 +10,8 @@
         templateUrl: 'views/about'
       }).when('/invitation', {
         templateUrl: 'views/invitation'
+      }).when('/gallery', {
+        templateUrl: 'views/gallery'
       }).otherwise({
         redirectTo: '/about'
       });

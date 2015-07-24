@@ -92,6 +92,13 @@
   display: inline-block;
 }
 
+/* line 1, ../sass/gallery.sass */
+#gallery {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 /* line 13, ../sass/index.sass */
 * {
   -webkit-box-sizing: border-box;
