@@ -18,7 +18,9 @@ html(ng-app='wedding')
 		script(src='../bower_components/angular-material/angular-material.js')
 		//- angular controller
 		script(src='scripts/angular/controller.js')
-		
+		//- material font-icon library
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+
 		//- css
 		link(rel='stylesheet' href='compass/css/index.css')
 
@@ -28,24 +30,14 @@ html(ng-app='wedding')
 
 	body(ng-controller='weddingCtrl')
 
-		img#cover(src='images/cover2.jpg' width='100%')
-
-		md-radio-group
-			md-radio-button(value='Apple') Apple
-			md-radio-button() Banana
-			md-radio-button Mango
-		md-radio-group
-
-		md-button(ng-click='gggg()') GGGGG
+		#content(ng-view)
 
 		#titlebar
-			a 我們的故事
-			a 來參加我們的婚禮吧
-			a 相片＆影片集
+			a(href='#/about') 我們的故事
+			a(href='#/invitation') 來參加我們的婚禮吧
+			a(href='#/gallery') 相片＆影片集
 
-		img(src='images/about.jpg' width='30%')
 
-		iframe(width='600' height='450' frameborder='0' style='border:0' src='https://www.google.com/maps/embed/v1/place?q=%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8D%97%E7%81%AB%E8%BB%8A%E7%AB%99&key=AIzaSyABC21SJseqpz-4YDXZ8eaE34xyAqYGYVo')
 
 
 

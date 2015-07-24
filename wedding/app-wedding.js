@@ -10,6 +10,9 @@
     app.get('/wedding', function(req, res) {
       return res.render('wedding/views/index');
     });
+    app.get('/wedding/views/:name', function(req, res) {
+      return res.render('wedding/views/' + req.params.name);
+    });
     return app.get('/api/sendEmail', function(req, res) {
       var payload;
       console.log('yayaya');

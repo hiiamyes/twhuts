@@ -1,5 +1,71 @@
+#invitation
+	//- span(class='beautiful-input')
+	//- 	form(ng-submit='pwInputted()')
+	//- 		input(placeholder='P.W.', ng-model='pw', ng-class='{focus:focus, blur:blur}', ng-focus='focus=true; blur=false;', ng-blur='focus=false; blur=true;')
+	//- 		label 姓名
 
-span(class='beautiful-input')
-	form(ng-submit='pwInputted()')
-		input(placeholder='P.W.', ng-model='pw', ng-class='{focus:focus, blur:blur}', ng-focus='focus=true; blur=false;', ng-blur='focus=false; blur=true;')
-		label 姓名
+	#info
+		p 婚禮資訊
+		p 時間
+		#date-container
+			#month 10
+			#date 24
+			#time-container
+				#start-time 18:00
+				#end-time 21:00
+		p 地點
+		#map-container
+			iframe(height='450' frameborder='0' style='border:0' src='https://www.google.com/maps/embed/v1/place?q=%E5%8F%B0%E7%81%A3%E5%8F%B0%E5%8D%97%E7%81%AB%E8%BB%8A%E7%AB%99&key=AIzaSyABC21SJseqpz-4YDXZ8eaE34xyAqYGYVo')
+		p 交通方式
+
+	#form
+		p 請填寫婚禮出席調查表
+
+		md-input-container
+			label 姓名
+			input(ng-model='name')
+
+		#traffic 交通方式
+		md-radio-group
+			md-radio-button(value='self') 自行前往
+			md-radio-button(value='charter') 搭乘包車：台北 <-> 台南
+
+		#friend
+		md-radio-group
+			md-radio-button(value='husband') 男方的朋友
+			md-radio-button(value='wife') 女方的朋友
+			md-radio-button(value='common') 共同朋友
+
+		span 參加人數
+		md-radio-group(ng-model="data.group2" class="md-primary")
+			md-radio-button(ng-repeat="p in nop" ng-value="p") {{p}}
+			
+		span 嬰兒椅數量
+		md-radio-group(ng-model="data.group2" class="md-primary")
+			md-radio-button(ng-repeat="p in nopInfant" ng-value="p") {{p}}
+			
+		span 素食人數
+		md-radio-group(ng-model="data.group2" class="md-primary")
+			md-radio-button(ng-repeat="p in nopVeg" ng-value="p") {{p}}
+		
+			//- <p>
+		//-   <md-button class="md-raised" ng-click="addItem()" type="button">Add</md-button>
+		//-   <md-button class="md-raised" ng-click="removeItem()" type="button">Remove</md-button>
+		//- </p>
+
+		md-input-container
+			label email
+			input(ng-model='name')
+		
+		md-input-container
+			label 地址
+			input(ng-model='name')
+
+		md-input-container
+			label Biography
+			textarea(ng-model="user.biography" md-maxlength="150")
+		
+		md-button(ng-click='gggg()') 確定
+
+
+		

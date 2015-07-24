@@ -1,0 +1,60 @@
+#invitation
+	margin-top: 5%
+	margin-left: 10%
+	margin-right: 10%
+	#info
+		display: inline-block
+		width: 50%
+		padding-right: 2%
+		vertical-align: top
+
+		#date-container
+			display: flex
+			display: -webkit-flex
+			*
+				// height: 100%
+				margin: 0.5%
+			#month
+				flex: 1
+				-webkit-flex: 1
+				color: white
+				background-color: $color-green-100
+				font-size: 20pt
+				// margin: 0.5%
+			#date
+				flex: 1
+				-webkit-flex: 1
+				background-color: $color-yellow-300
+				// margin: 0.5%
+			#time-container
+				flex: 1
+				display: flex
+				display: -webkit-flex
+				flex-direction: column
+				-webkit-flex-direction: column
+				#start-time
+					flex: 1
+					-webkit-flex: 1
+					text-align: center
+					background-color: $color-red-a100
+				#end-time
+					flex: 1
+					-webkit-flex: 1
+					text-align: center
+					background-color: blue
+		#map-container
+			display: flex
+			display: -webkit-flex
+			iframe
+				flex: 1
+
+	#form
+		display: inline-block
+		width: 50%
+		padding-left: 2%
+		text-align: top
+
+		md-radio-group
+			display: block
+		md-radio-button
+			display: inline-block

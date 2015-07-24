@@ -6,20 +6,34 @@
 
   app.config([
     '$routeProvider', function($routeProvider) {
-      return $routeProvider.when('/wedding', {
-        templateUrl: 'views/index'
+      return $routeProvider.when('/about', {
+        templateUrl: 'views/about'
+      }).when('/invitation', {
+        templateUrl: 'views/invitation'
       }).otherwise({
-        redirectTo: '/index'
+        redirectTo: '/about'
       });
     }
   ]);
 
+  app.config(function($mdIconProvider) {
+    return $mdIconProvider.iconSet('social', 'img/icons/sets/social-icons.svg', 24).defaultIconSet('img/icons/sets/core-icons.svg', 24);
+  });
+
   app.controller('weddingCtrl', [
     '$scope', '$http', function($scope, $http) {
-      return $scope.gggg = function() {
+      $scope.nop = [1, 2, 3, 4, 5, 6, 7];
+      $scope.gggg = function() {
         console.log('gggg');
         return $http.get('../api/sendEmail');
       };
+      return $http.post('https://api.dropbox.com/1/media/auto', {
+        access_token: 'cODRev6GYMsAAAAAAANhCkeM0IkNFxalmsoqqEwByvfAvr_MXV-66lpOkTZL8cxS'
+      }).success(function(data, status, headers, config) {
+        return console.log('yaya');
+      }).error(function(data, status, headers, config) {
+        return console.log('gg');
+      });
     }
   ]);
 

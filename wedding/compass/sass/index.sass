@@ -1,25 +1,48 @@
-@import 'http://fonts.googleapis.com/earlyaccess/cwtexyen.css'
+// ref: https://www.google.com/fonts/earlyaccess
+@import 'http://fonts.googleapis.com/earlyaccess/cwtexfangsong.css' 
+@import 'http://fonts.googleapis.com/earlyaccess/cwtexhei.css' 
+@import 'http://fonts.googleapis.com/earlyaccess/cwtexkai.css' 
+@import 'http://fonts.googleapis.com/earlyaccess/cwtexming.css' 
+@import 'http://fonts.googleapis.com/earlyaccess/cwtexyen.css' 
+
 @import 'var'
+@import 'about'
+@import 'invitation'
+@import 'gallery'
 
 *
-    -webkit-box-sizing: border-box
-    -moz-box-sizing: border-box
-    box-sizing: border-box
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
 
 html, body
-    height: 100%
-    margin: 0
-    border: 0
-    // color: $color-blue-grey-900
+	height: 100%
+	margin: 0
+	border: 0
+	background-color: $color-blue-grey-50
 
 body
-    font-size: 14pt
-    font-family: 'cwTeXYen', sans-serif
-    // background-color: $color-blue-grey-200
-
-#cover
-    margin-top: -300px
+	font-size: 14pt
+	font-family: 'cwtexfangsong', sans-serif
+	// background-color: $color-blue-grey-200
 
 #titlebar
-    font-size: 24pt
-    text-align: center
+	width: 100%
+	position: fixed
+	top: 0
+	overflow: auto
+	text-align: center
+	background-color: $color-indigo-500
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.26)
+
+	a
+		display: inline-block
+		font-size: 20pt
+		margin: 1% 3%
+		text-decoration: none
+		color: white
+
+#content
+	width: 100%
+	height: 100%
+

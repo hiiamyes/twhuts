@@ -7,6 +7,9 @@ module.exports = (app) ->
 	app.get '/wedding', (req, res) ->
 		res.render 'wedding/views/index'
 
+	app.get '/wedding/views/:name', (req, res) ->
+		res.render 'wedding/views/' + req.params.name
+
 	# api
 	app.get '/api/sendEmail', (req, res) ->
 		console.log 'yayaya'
